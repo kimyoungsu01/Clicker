@@ -16,7 +16,8 @@ public class Enemy : MonoBehaviour
        {
             gameObject.GetComponentInChildren<TextMeshProUGUI>().text = enemyData.enemyName; 
             gameObject.GetComponentInChildren<Image>().fillAmount = (float)enemyData.enemyHealth / 100;            
-        }      
+       }      
+       Upgradeenemy();
     }
 
     
@@ -32,8 +33,8 @@ public class Enemy : MonoBehaviour
         if (enemyData.enemyHealth <= 0)
         {
             Destroy(gameObject);
-            stagecnt.UpdateStage();
-            Upgradeenemy();
+            stagecnt.UpdateStage(); 
+            Drop();
         }
     }
 
@@ -50,7 +51,15 @@ public class Enemy : MonoBehaviour
             enemyData.enemyDefence += 1;
         }
     }
-   
+
+    public void Drop()
+    { 
+        if(enemyData.enemyHealth <= 0)
+        {
+           playerData.goldCount += 10;
+           playerData.pointCount += 5;
+        }
+    }  
 }
 
   

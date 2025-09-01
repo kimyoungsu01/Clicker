@@ -10,8 +10,8 @@ public class PlayerData
     public int monsterHPCount { get; private set; }
     public int atxCount { get; private set; }
     public int ctcCount { get; private set; }
-    public int pointCount { get; private set; }
-    public int goldCount { get; private set; }
+    public int pointCount { get; set; }
+    public int goldCount { get; set; }
 
     // 생성자란? 형식: 반환타입x, 클래스랑 이름이 똑같다,
     // 매개변수는 있어도 되고 없어도 된다,
