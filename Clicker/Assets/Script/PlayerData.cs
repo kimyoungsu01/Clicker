@@ -1,27 +1,28 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerData
 {
-    [Header("½ºÅ×ÀÌÁö")]
-    public int Stagenum;
+    public string MonsterName { get; private set; }
+    public int MonsterHPCount { get; private set; }
+    public int ATXCount { get; private set; }
+    public int CTCCount { get; private set; }
+    public int PointCount { get; private set; }
+    public int GoldCount { get; private set; }
 
-    [Header("°ñµå")]
-    //public int Stagenum;
-
-    [Header("¾÷±×·¹ÀÌµå")]
-    //public int Stagenum;
-
-    [Header("ÀåºñÀåÂø")]
-    public int Item;
-
-    // »ı¼ºÀÚ¶õ? Çü½Ä: ¹İÈ¯Å¸ÀÔx, Å¬·¡½º¶û ÀÌ¸§ÀÌ ¶È°°´Ù,
-    // ¸Å°³º¯¼ö´Â ÀÖ¾îµµ µÇ°í ¾ø¾îµµ µÈ´Ù,
-    // »ı¼ºÀÚÀÇ ¸É¹öº¯¼ö°¡ ¸Å°³º¯¼ö·Î »ç¿ë°¡´É
-    public PlayerData(int num, string name, int cash, int balance)   
+    // ìƒì„±ìë€? í˜•ì‹: ë°˜í™˜íƒ€ì…x, í´ë˜ìŠ¤ë‘ ì´ë¦„ì´ ë˜‘ê°™ë‹¤,
+    // ë§¤ê°œë³€ìˆ˜ëŠ” ìˆì–´ë„ ë˜ê³  ì—†ì–´ë„ ëœë‹¤,
+    // ìƒì„±ìì˜ ë§´ë²„ë³€ìˆ˜ê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì‚¬ìš©ê°€ëŠ¥
+    public PlayerData(string name, int hp, int atx, int ctc, int Point, int gold)
     {
-        Stagenum = num;
-
+        MonsterName = name;
+        MonsterHPCount = hp;
+        ATXCount = atx;
+        CTCCount = ctc;
+        PointCount = Point;
+        GoldCount = gold;
     }
 }
