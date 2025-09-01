@@ -1,27 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    public Button NewStageBtn;
-    public Button LoadStageBtn;
+    public Button newStageBtn;
+    public Button loadStageBtn;
 
     private void Start()
     {
-        NewStageBtn.onClick.AddListener(OnNewStage);
-        LoadStageBtn.onClick.AddListener(OnLoadStage);
+        newStageBtn.onClick.AddListener(OnNewStage);
+        loadStageBtn.onClick.AddListener(OnLoadStage);
     }
 
     public void OnNewStage() 
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Stage1");
     }
 
     public void OnLoadStage() 
     {
-        SceneManager.LoadScene("각 스테이지 값 추가");
+        //GameManager.Instance.LoadUserData();
+        //Stage[] stages = new 
+        //SceneManager.LoadScene(LoadUserData);
     }
 }
