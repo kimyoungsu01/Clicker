@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [CreateAssetMenu(fileName = "WeaponData", menuName = "Data/Weapon")]
 public class WeaponData : ScriptableObject
@@ -9,9 +7,9 @@ public class WeaponData : ScriptableObject
     public string weaponName;
     public Sprite weaponIcon;
 
-    public int baseAtkDamage;     // ±âº» °ø°İ·Â
-    public int baseCritical;      // ±âº» Å©¸®Æ¼ÄÃ È®·ü
+    public int baseAtkDamage;     // ê¸°ë³¸ ê³µê²©ë ¥
+    public int baseCritical;      // ê¸°ë³¸ í¬ë¦¬í‹°ì»¬ í™•ë¥ 
 
-    public int[] attackUpgradeTable;   // °¢ °­È­ ´Ü°è¿¡¼­ °ø°İ·Â Áõ°¡·®
-    public int[] criticalUpgradeTable; // °¢ °­È­ ´Ü°è¿¡¼­ Å©¸®Æ¼ÄÃ Áõ°¡·®
+    public int atkDmgIncreasePerLevel;     // ê³µê²©ë ¥ ê°•í™”ë‹¹ ì¦ê°€ëŸ‰
+    public int criRateIncreasePerLevel;    // í¬ë¦¬í‹°ì»¬ ê°•í™”ë‹¹ ì¦ê°€ëŸ‰
 }
