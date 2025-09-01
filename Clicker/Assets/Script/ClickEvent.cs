@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,15 +7,15 @@ using UnityEngine.EventSystems;
 public class ClickEvent : MonoBehaviour
 {
     public bool isPaused = false;
-    public bool assumeMonsterPresent = true; // ¸ó½ºÅÍ¸¦ °¡Á¤
+    public bool assumeMonsterPresent = true; // ëª¬ìŠ¤í„°ë¥¼ ê°€ì •
 
 
-    public UnityEvent onAttack; // Å×½ºÆ®¿¬Ãâ
-    // public UnityEvent<Vector2> onClickValidated; // À¯È¿ Å¬¸¯ ÁÂÇ¥ Àü´Ş
+    public UnityEvent onAttack; // í…ŒìŠ¤íŠ¸ì—°ì¶œ
+    // public UnityEvent<Vector2> onClickValidated; // ìœ íš¨ í´ë¦­ ì¢Œí‘œ ì „ë‹¬
 
     
 
-    // Å¬¸¯ ÀÌÆåÆ®
+    // í´ë¦­ ì´í™íŠ¸
     [Header("Click Effect")]
     [SerializeField] private ParticleSystem clickEffectPrefab; 
     [SerializeField] private float effectZ = 0f;              
@@ -44,16 +44,16 @@ public class ClickEvent : MonoBehaviour
             return;        
         }
         Vector2 worldPos2D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 worldPos = new Vector3(worldPos2D.x, worldPos2D.y, effectZ); // ÆÄÆ¼Å¬ Ç¥½Ã¿ë Z º¸Á¤
+        Vector3 worldPos = new Vector3(worldPos2D.x, worldPos2D.y, effectZ); // íŒŒí‹°í´ í‘œì‹œìš© Z ë³´ì •
 
-        Debug.Log("Å¬¸¯ÇÏ¿© µ¥¹ÌÁö¸¦ ÁÖ¾úÀ½");
-        onAttack?.Invoke(); // Å×½ºÆ®¿ë
+        Debug.Log("í´ë¦­í•˜ì—¬ ë°ë¯¸ì§€ë¥¼ ì£¼ì—ˆìŒ");
+        onAttack?.Invoke(); // í…ŒìŠ¤íŠ¸ìš©
 
-        // ÆÄÆ¼Å¬ ÀÎ½ºÅÏ½º »ı¼º/Àç»ı
+        // íŒŒí‹°í´ ì¸ìŠ¤í„´ìŠ¤ ìƒì„±/ì¬ìƒ
         if (clickEffectPrefab != null)
         {
-            ParticleSystem ps = Instantiate(clickEffectPrefab, worldPos, Quaternion.identity); // Å¬¸¯ ÁöÁ¡¿¡ »ı¼º
-            ps.Play(); // Áï½Ã Àç»ı
+            ParticleSystem ps = Instantiate(clickEffectPrefab, worldPos, Quaternion.identity); // í´ë¦­ ì§€ì ì— ìƒì„±
+            ps.Play(); // ì¦‰ì‹œ ì¬ìƒ
 
             if (autoDestroy)
             {
@@ -73,7 +73,7 @@ public class ClickEvent : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[ClickEvent] clickEffectPrefabÀÌ ºñ¾îÀÖ½À´Ï´Ù. Inspector¿¡ ÆÄÆ¼Å¬ ÇÁ¸®ÆÕÀ» ÇÒ´çÇÏ¼¼¿ä.");
+            Debug.LogWarning("[ClickEvent] clickEffectPrefabì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤. Inspectorì— íŒŒí‹°í´ í”„ë¦¬íŒ¹ì„ í• ë‹¹í•˜ì„¸ìš”.");
         }
 
         
