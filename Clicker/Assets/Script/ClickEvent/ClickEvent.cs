@@ -13,9 +13,7 @@ public class ClickEvent : MonoBehaviour
     public UnityEvent onAttack; // í…ŒìŠ¤íŠ¸ì—°ì¶œ
     // public UnityEvent<Vector2> onClickValidated; // ìœ íš¨ í´ë¦­ ì¢Œí‘œ ì „ë‹¬
 
-    
 
-    // Å¬¸¯ ÀÌÆåÆ®
     [Header("Click Effect")]
     [SerializeField] private ParticleSystem clickEffectPrefab; 
     [SerializeField] private float effectZ = 0f;              
@@ -44,16 +42,16 @@ public class ClickEvent : MonoBehaviour
             return;        
         }
         Vector2 worldPos2D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 worldPos = new Vector3(worldPos2D.x, worldPos2D.y, effectZ); // ÆÄÆ¼Å¬ Ç¥½Ã¿ë Z º¸Á¤
+        Vector3 worldPos = new Vector3(worldPos2D.x, worldPos2D.y, effectZ); // ï¿½ï¿½Æ¼Å¬ Ç¥ï¿½Ã¿ï¿½ Z ï¿½ï¿½ï¿½ï¿½
 
         Debug.Log("í´ë¦­í•˜ì—¬ ë°ë¯¸ì§€ë¥¼ ì£¼ì—ˆìŒ");
         onAttack?.Invoke(); // í…ŒìŠ¤íŠ¸ìš©
 
-        // ÆÄÆ¼Å¬ ÀÎ½ºÅÏ½º »ı¼º/Àç»ı
+        // ï¿½ï¿½Æ¼Å¬ ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½
         if (clickEffectPrefab != null)
         {
-            ParticleSystem ps = Instantiate(clickEffectPrefab, worldPos, Quaternion.identity); // Å¬¸¯ ÁöÁ¡¿¡ »ı¼º
-            ps.Play(); // Áï½Ã Àç»ı
+            ParticleSystem ps = Instantiate(clickEffectPrefab, worldPos, Quaternion.identity); // Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            ps.Play(); // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
             if (autoDestroy)
             {
@@ -73,7 +71,7 @@ public class ClickEvent : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[ClickEvent] clickEffectPrefabÀÌ ºñ¾îÀÖ½À´Ï´Ù. Inspector¿¡ ÆÄÆ¼Å¬ ÇÁ¸®ÆÕÀ» ÇÒ´çÇÏ¼¼¿ä.");
+            Debug.LogWarning("[ClickEvent] clickEffectPrefabï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½Ï´ï¿½. Inspectorï¿½ï¿½ ï¿½ï¿½Æ¼Å¬ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.");
         }
 
         

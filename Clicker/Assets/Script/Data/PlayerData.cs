@@ -28,4 +28,6 @@ public class PlayerData
         goldCount = gold; // 소지 골드
     }
 
+    // 플레이어 공격시 데미지 계산
+
 }

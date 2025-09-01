@@ -37,11 +37,6 @@ public class GameManager : MonoBehaviour
         LoadUserData();
     }
 
-    public void PlayerData()
-    {
-        
-    }
-
     public void SaveUserData() 
     {
         var saveData = JsonUtility.ToJson(playerData);
