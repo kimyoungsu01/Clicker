@@ -61,10 +61,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Damagetxt()
-    { 
-        if()
-    }
+   //데미지 텍스트 추가하기
 }
 
   
