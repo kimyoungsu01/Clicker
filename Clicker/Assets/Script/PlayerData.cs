@@ -28,18 +28,4 @@ public class PlayerData
         goldCount = gold; // 소지 골드
     }
 
-    // 플레이어 골드 추가
-    public void Deposits(int amount)
-    {
-        if (goldCount >= amount)
-        {
-            goldCount -= amount;
-            GameManager.Instance.SaveUserData();
-        }
-
-        else 
-        {
-            GameManager.Instance.sceneLoader.OnZeroGold();
-        }
-    }
 }

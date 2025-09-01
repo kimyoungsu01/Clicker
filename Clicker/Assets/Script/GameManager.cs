@@ -68,4 +68,10 @@ public class GameManager : MonoBehaviour
             playerData = new PlayerData(0,"", 0, 0, 0, 0, 0);
         }
     }
+
+    // 에너미 스크립트 활용하여 캐릭터 리스폰 추가
+    public void Respwan()
+    {
+        Instantiate(gameObject, new Vector3(0, 0, 0), Quaternion.identity);
+    }
 }

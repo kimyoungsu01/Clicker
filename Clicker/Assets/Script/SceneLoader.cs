@@ -25,7 +25,9 @@ public class SceneLoader : MonoBehaviour
     public void OnLoadStage() 
     {
         // 플레이어 저장값 불러와서 
+        GameManager.Instance.LoadUserData();
         // SetActive로 true해주기
+        
     }
 
     public void OnZeroGold() 
