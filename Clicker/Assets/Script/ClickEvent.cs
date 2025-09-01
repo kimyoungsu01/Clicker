@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,11 +7,11 @@ using UnityEngine.EventSystems;
 public class ClickEvent : MonoBehaviour
 {
     public bool isPaused = false;
-    public bool assumeMonsterPresent = true; // ¸ó½ºÅÍ¸¦ °¡Á¤
+    public bool assumeMonsterPresent = true; // ëª¬ìŠ¤í„°ë¥¼ ê°€ì •
 
 
-    public UnityEvent onAttack; // Å×½ºÆ®¿¬Ãâ
-    // public UnityEvent<Vector2> onClickValidated; // À¯È¿ Å¬¸¯ ÁÂÇ¥ Àü´Ş
+    public UnityEvent onAttack; // í…ŒìŠ¤íŠ¸ì—°ì¶œ
+    // public UnityEvent<Vector2> onClickValidated; // ìœ íš¨ í´ë¦­ ì¢Œí‘œ ì „ë‹¬
 
     void Update()
     {
@@ -38,8 +38,8 @@ public class ClickEvent : MonoBehaviour
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // onClickValidated?.Invoke(worldPos);
 
-        Debug.Log("Å¬¸¯ÇÏ¿© µ¥¹ÌÁö¸¦ ÁÖ¾úÀ½");
-        onAttack?.Invoke(); // Å×½ºÆ®¿ë
+        Debug.Log("í´ë¦­í•˜ì—¬ ë°ë¯¸ì§€ë¥¼ ì£¼ì—ˆìŒ");
+        onAttack?.Invoke(); // í…ŒìŠ¤íŠ¸ìš©
 
     }
 

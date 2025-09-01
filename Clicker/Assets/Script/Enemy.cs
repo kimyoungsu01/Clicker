@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -59,7 +59,12 @@ public class Enemy : MonoBehaviour
            playerData.goldCount += 10;
            playerData.pointCount += 5;
         }
-    }  
+    }
+
+    void Damagetxt()
+    { 
+        if()
+    }
 }
 
   
