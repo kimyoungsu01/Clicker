@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     }
 
     
-    void Takedamage()
+    public void Takedamage()
     {
         enemyData.enemyHealth -= playerData.atxCount - enemyData.enemyDefence;
         gameObject.GetComponentInChildren<Image>().fillAmount = (float)enemyData.enemyHealth / 100;
