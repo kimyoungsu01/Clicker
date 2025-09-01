@@ -494,6 +494,10 @@ MonoBehaviour:
   onAttack:
     m_PersistentCalls:
       m_Calls: []
+  clickEffectPrefab: {fileID: 4021103657954561960, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
+  effectZ: 0
+  autoDestroy: 1
+  extraLifetime: 0.1
 --- !u!4 &1482767401
 Transform:
   m_ObjectHideFlags: 0
