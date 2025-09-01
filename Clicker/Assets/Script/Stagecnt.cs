@@ -6,6 +6,7 @@ using UnityEngine;
 public class Stagecnt : MonoBehaviour
 {
    public int stagecnt = 1;
+   public int Maxstage = 10;
    public TMP_Text stageText;
 
    void Start()
@@ -18,5 +19,9 @@ public class Stagecnt : MonoBehaviour
     { 
         stagecnt++;
         stageText.text = stagecnt.ToString();
+        if(stagecnt > Maxstage)
+        {
+            stagecnt = 1;
+        }
     }
 }

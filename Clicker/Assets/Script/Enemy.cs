@@ -33,9 +33,23 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             stagecnt.UpdateStage();
+            Upgradeenemy();
         }
     }
 
+    public void Upgradeenemy()
+    { 
+        if(stagecnt.stagecnt % 5 == 0)
+        {
+            enemyData.enemyHealth += 20;
+            enemyData.enemyDefence += 2;
+        }
+        else
+        {
+            enemyData.enemyHealth += 10;
+            enemyData.enemyDefence += 1;
+        }
+    }
    
 }
 
