@@ -9,7 +9,7 @@ using static Unity.Burst.Intrinsics.X86;
 public class GameManager : MonoBehaviour
 {
     public PlayerData playerData;
-    public Stage Stage { get; private set; }
+    public Stage stage { get; private set; }
     //public Player player { get; private set; }
     //public Enemy enemy { get; private set; }
     //public Item item { get; private set; }
