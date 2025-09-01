@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
 {
     public Button newStageBtn;
     public Button loadStageBtn;
+    public GameObject zeroGold;
 
     private void Start()
     {
@@ -23,8 +24,12 @@ public class SceneLoader : MonoBehaviour
 
     public void OnLoadStage() 
     {
-        //GameManager.Instance.LoadUserData();
-        //Stage[] stages = new 
-        //SceneManager.LoadScene(LoadUserData);
+        // 플레이어 저장값 불러와서 
+        // SetActive로 true해주기
+    }
+
+    public void OnZeroGold() 
+    {
+        zeroGold.SetActive(true);
     }
 }
