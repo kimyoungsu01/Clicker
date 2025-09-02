@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public PlayerData playerData;
-    public SceneLoader sceneLoader;
+    public MainSceneLoader sceneLoader;
 
     public Stage stage { get; private set; }
     //public Player player { get; private set; }

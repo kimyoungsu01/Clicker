@@ -5,6 +5,8 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
     public int pointCount { get; private set; }
     public int goldCount { get; private set; }
 
+    public GameObject zeroGold;
+
     public static CostManager Instance { get; private set; }
 
     private void Awake()
@@ -30,7 +32,7 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
 
     public void GCost(int amount)
     {
-
+        // 아이템 골드 가격이 가지고 있는 골드 양보다 작다면
         if (goldCount >= amount)
         {
             goldCount -= amount;
@@ -39,7 +41,8 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
 
         else
         {
-            GameManager.Instance.sceneLoader.OnZeroGold();
+            // 아이템 골드 가격이 가지고 있는 골드 양보다 크다면
+            OnZeroGold();
         }
 
     }
@@ -55,8 +58,13 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
 
         else
         {
-            GameManager.Instance.sceneLoader.OnZeroGold();
+            OnZeroGold();
         }
 
+    }
+
+    public void OnZeroGold()
+    {
+        zeroGold.SetActive(true);
     }
 }

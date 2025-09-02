@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneLoader : MonoBehaviour
+public class MainSceneLoader : MonoBehaviour
 {
     [SerializeField]
 
@@ -12,7 +12,6 @@ public class SceneLoader : MonoBehaviour
     public Button optionBtn;
     public GameObject option;
     public Button backBtn;
-public GameObject zeroGold;
 
     private void Start()
     {
@@ -42,10 +41,5 @@ public GameObject zeroGold;
     public void OnBack() 
     {
         option.SetActive(false);
-    }
-
-    public void OnZeroGold() 
-    {
-        zeroGold.SetActive(true);
     }
 }
