@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
        Upgradeenemy();
     }
 
-    private void Update() // 애니메이션 테스트용 나중에 지우기
+    private void Update() // 애니메이션 테스트용 나중에 지우기 (히트는 테이크데미지에 다이는 에너미다이에 넣기)
     {
         if(Input.GetMouseButtonDown(0))
         {
