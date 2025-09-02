@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,30 +15,30 @@ public class WeaponInventoryUI : MonoBehaviour
         CreateInventoryUI();
     }
 
-    // Resources Æú´õ¿¡¼­ ¸ğµç ¹«±â ºÒ·¯¿À±â
+    // Resources í´ë”ì—ì„œ ëª¨ë“  ë¬´ê¸° ë¶ˆëŸ¬ì˜¤ê¸°
     private void LoadAllWeapons()
     {
         WeaponData[] loadedWeapons = Resources.LoadAll<WeaponData>("WeaponData");
         weaponList.AddRange(loadedWeapons);
     }
 
-    // UI ½½·Ô µ¿Àû »ı¼º
+    // UI ìŠ¬ë¡¯ ë™ì  ìƒì„±
     private void CreateInventoryUI()
     {
         foreach (WeaponData weapon in weaponList)
         {
             GameObject slot = Instantiate(slotPrefab, slotParent);
 
-            // ½½·Ô UI ±¸¼º ¿ä¼Ò °¡Á®¿À±â
+            // ìŠ¬ë¡¯ UI êµ¬ì„± ìš”ì†Œ ê°€ì ¸ì˜¤ê¸°
             //Image icon = slot.transform.Find("Icon").GetComponent<Image>();
             //Text nameText = slot.transform.Find("Name").GetComponent<Text>();
             //Button buyButton = slot.transform.Find("BuyButton").GetComponent<Button>();
 
-            // ¹«±â µ¥ÀÌÅÍ ¹İ¿µ
+            // ë¬´ê¸° ë°ì´í„° ë°˜ì˜
             //icon.sprite = weapon.weaponIcon;
             //nameText.text = weapon.weaponName;
 
-            // ¹öÆ°¿¡ ¹«±â ¿¬°á
+            // ë²„íŠ¼ì— ë¬´ê¸° ì—°ê²°
             // buyButton.onClick.AddListener(() => OnClickBuy(weapon));
         }
     }
