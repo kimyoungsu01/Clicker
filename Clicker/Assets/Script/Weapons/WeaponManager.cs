@@ -9,6 +9,7 @@ public class WeaponManager : MonoBehaviour
 
     public int CurrentAttack => currentWeapon.baseAtkDamage + upgradeLevel * currentWeapon.atkDmgIncreasePerLevel;
     public float CurrentCritical => currentWeapon.baseCritical + upgradeLevel * currentWeapon.criRateIncreasePerLevel;
+    public int CurrentUpgradeCost => currentWeapon.baseUpgradeCost * (upgradeLevel + 1) * currentWeapon.costMultiplier;
 
     private void Awake()
     {
@@ -26,6 +27,5 @@ public class WeaponManager : MonoBehaviour
     {
         currentWeapon = newWeapon;
         upgradeLevel = 0;
-        WeaponUI.Instance.UpdateWeaponUI();
     }
 }
