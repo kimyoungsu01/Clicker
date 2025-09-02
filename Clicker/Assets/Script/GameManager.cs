@@ -1,11 +1,16 @@
-﻿using System.IO;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
+using static Unity.Burst.Intrinsics.X86;
 
 public class GameManager : MonoBehaviour
 {
     public PlayerData playerData;
-    public MainSceneLoader sceneLoader;
+    public SceneLoader sceneLoader;
+    public Stagecnt stagecnt;
 
     public Stage stage { get; private set; }
     //public Player player { get; private set; }
@@ -26,6 +31,13 @@ public class GameManager : MonoBehaviour
         { 
             Destroy(gameObject); 
         }
+    }
+
+    private void Start()
+    {
+        GameObject enemy = Resources.Load<GameObject>("Prefabs/Triangleenemy");
+        Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
+        LoadUserData();
     }
 
     public void SaveUserData() 
