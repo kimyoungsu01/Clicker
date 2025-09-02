@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         {
             // 스테이지 (넘버) , 몬스터 (이름, hp)
             // 플레이어 (공격력, 크리티컬, 포인트, 골드) 
-            playerData = new PlayerData(0,"", 0, 0, 0, 0, 0);
+            playerData = new PlayerData(0,"", 0, 0, 0);
         }
     }
 
