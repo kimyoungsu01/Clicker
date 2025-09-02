@@ -12,4 +12,5 @@ public class WeaponData : ScriptableObject
 
     public int atkDmgIncreasePerLevel;     // 공격력 강화당 증가량
     public int criRateIncreasePerLevel;    // 크리티컬 강화당 증가량
+    public int upgradeCost;                // 강화 비용
 }

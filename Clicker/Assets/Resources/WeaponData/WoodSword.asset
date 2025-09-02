@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f227cd5da4aaad14f8cce9e4a73d2e29, type: 3}
-  m_Name: WeaponData
+  m_Name: WoodSword
   m_EditorClassIdentifier: 
-  weaponID: 0
-  weaponName: 
+  weaponID: 1
+  weaponName: "\uB098\uBB34\uAC80"
   weaponIcon: {fileID: 0}
-  baseAtkDamage: 0
-  baseCritical: 0
-  attackUpgradeTable: 
-  criticalUpgradeTable: 
+  baseAtkDamage: 5
+  baseCritical: 10
+  atkDmgIncreasePerLevel: 5
+  criRateIncreasePerLevel: 5
