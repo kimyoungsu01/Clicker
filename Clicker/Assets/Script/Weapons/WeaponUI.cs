@@ -28,7 +28,11 @@ public class WeaponUI : MonoBehaviour
 
     public void UpdateWeaponUI()
     {
-        if (WeaponManager.Instance.currentWeapon == null) return;
+        if (WeaponManager.Instance == null || WeaponManager.Instance.currentWeapon == null)
+        {
+            Debug.LogWarning("WeaponManager 또는 currentWeapon이 아직 초기화되지 않았습니다.");
+            return;
+        }
 
         WeaponData weapon = WeaponManager.Instance.currentWeapon;
 
