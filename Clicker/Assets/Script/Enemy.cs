@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
-{
+{    
     public Enemydata enemyData;  
     private Stagecnt stagecnt;
     private PlayerData playerData;
@@ -35,12 +35,13 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             stagecnt.UpdateStage(); 
             Drop();
+            GameManager.Instance.Respwan();
         }
     }
 
     public void Upgradeenemy()
     { 
-        if(stagecnt.stagecnt % 5 == 0)
+        if(GameManager.Instance.stagecnt.stagecnt % 5 == 0) 
         {
             enemyData.enemyHealth += 20;
             enemyData.enemyDefence += 2;

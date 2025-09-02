@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 {
     public PlayerData playerData;
     public SceneLoader sceneLoader;
+    public Stagecnt stagecnt;
 
     public Stage stage { get; private set; }
     //public Player player { get; private set; }
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        GameObject enemy = Resources.Load<GameObject>("Prefabs/Triangleenemy");
+        Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
         LoadUserData();
     }
 
