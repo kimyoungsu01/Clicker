@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +23,7 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeBGM(AudioClip newBGM)
     {
-        if (_audioSource.clip == newBGM) return; // °°Àº À½¾ÇÀÌ¸é ¹«½Ã
+        if (_audioSource.clip == newBGM) return; // ê°™ì€ ìŒì•…ì´ë©´ ë¬´ì‹œ
         _audioSource.clip = newBGM;
         _audioSource.loop = true;
         _audioSource.Play();
