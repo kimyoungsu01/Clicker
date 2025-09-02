@@ -26,7 +26,19 @@ public class Enemy : MonoBehaviour
        Upgradeenemy();
     }
 
-    
+    private void Update() // 애니메이션 테스트용 나중에 지우기
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+           anim.SetTrigger("Hit");
+        }
+
+        if(Input.GetMouseButtonDown(1))
+        {            
+            anim.SetTrigger("Die");
+        }
+    }
+
     public void Takedamage()
     {
         enemyData.enemyHealth -= playerData.atxCount - enemyData.enemyDefence;
