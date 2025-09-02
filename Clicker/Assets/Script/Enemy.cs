@@ -10,6 +10,12 @@ public class Enemy : MonoBehaviour
     public Enemydata enemyData;  
     private Stagecnt stagecnt;
     private PlayerData playerData;
+    Animator anim;
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Start()
     {
        if (enemyData != null)
@@ -24,6 +30,7 @@ public class Enemy : MonoBehaviour
     public void Takedamage()
     {
         enemyData.enemyHealth -= playerData.atxCount - enemyData.enemyDefence;
+        anim.SetTrigger("Hit");
         gameObject.GetComponentInChildren<Image>().fillAmount = (float)enemyData.enemyHealth / 100;
         enemydie();
     }

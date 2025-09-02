@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 1555731879184401510}
   - component: {fileID: 4799926157992827572}
   - component: {fileID: 8570833996041136151}
+  - component: {fileID: 2873904069450664015}
   m_Layer: 0
   m_Name: Squareenemy
   m_TagString: Untagged
@@ -384,7 +385,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 4a903495a972d8940ba40e657c624956, type: 2}
-  stagecnt: {fileID: 0}
+--- !u!95 &2873904069450664015
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852380956663347215}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46906f29d341a1a4588df2c77924ce17, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6232052415392252902
 GameObject:
   m_ObjectHideFlags: 0

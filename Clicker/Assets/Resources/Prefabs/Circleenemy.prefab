@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 1555731879184401510}
   - component: {fileID: 4799926157992827572}
   - component: {fileID: 8570833996041136151}
+  - component: {fileID: 3013118214165055717}
   m_Layer: 0
   m_Name: Circleenemy
   m_TagString: Untagged
@@ -384,7 +385,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 776864b830ee27b439044828e535de3f, type: 2}
-  stagecnt: {fileID: 0}
+--- !u!95 &3013118214165055717
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852380956663347215}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4bc041f949b783543999c9b945a4a447, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6232052415392252902
 GameObject:
   m_ObjectHideFlags: 0
