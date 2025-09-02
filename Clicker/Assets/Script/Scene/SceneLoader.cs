@@ -30,7 +30,7 @@ public class SceneLoader : MonoBehaviour
         SoundManager.instance.ChangeBGM(mainScene);
     }
 
-    public void OnLoadStage() 
+    public void OnLoadStage(PlayerData playerdata) 
     {
         // 플레이어 저장값 불러와서 
         GameManager.Instance.LoadUserData();
