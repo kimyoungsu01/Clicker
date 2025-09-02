@@ -76,8 +76,8 @@ public class Enemy : MonoBehaviour
     { 
         if(enemyData.enemyHealth <= 0)
         {
-           playerData.goldCount += 10;
-           playerData.pointCount += 5;
+           CostManager.Instance.goldCount += 10;
+           CostManager.Instance.pointCount += 5;
         }
     }
 
