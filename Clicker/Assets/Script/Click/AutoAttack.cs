@@ -92,12 +92,12 @@ public class AutoAttack : MonoBehaviour
 
     void AttackOnce()
     {
-        if (!target)
-        {
-            target = FindObjectOfType<EnemyHealth>();
+        //if (!target)
+        //{
+        //    target = FindObjectOfType<EnemyHealth>();
 
-            if (tar)
-        }
+        //    if (tar)
+        //}
     }
 
 
