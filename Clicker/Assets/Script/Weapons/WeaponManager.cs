@@ -4,6 +4,8 @@ public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance;
 
+    public WeaponUI weaponUI;
+
     public WeaponData currentWeapon;
     public int upgradeLevel = 0;
 
@@ -21,6 +23,7 @@ public class WeaponManager : MonoBehaviour
     {
         WeaponData woodSword = Resources.Load<WeaponData>("WeaponData/WoodSword");
         EquipWeapon(woodSword);
+        weaponUI.Initialize();
     }
 
     public void EquipWeapon(WeaponData newWeapon)

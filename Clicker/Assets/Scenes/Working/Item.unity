@@ -1907,6 +1907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989549ee0c2865d43bdf21a59a91db1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponUI: {fileID: 645387910}
   currentWeapon: {fileID: 0}
   upgradeLevel: 0
 --- !u!4 &955552184

@@ -10,11 +10,11 @@ public class Enemy : MonoBehaviour
     public Enemydata enemyData;  
     private Stagecnt stagecnt;
     private PlayerData playerData;
-    Animator anim;
+    public Animator anim;
 
     void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
     void Start()
     {
@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
            anim.SetTrigger("Hit");
+           anim.SetBool("EditChk", true);
         }
 
         if(Input.GetMouseButtonDown(1))
