@@ -3523,6 +3523,7 @@ GameObject:
   - component: {fileID: 4682924296513966370}
   - component: {fileID: 291911421792921984}
   - component: {fileID: 1241660664184167183}
+  - component: {fileID: 3274316551010764365}
   m_Layer: 0
   m_Name: UnitRoot
   m_TagString: Untagged
@@ -3580,6 +3581,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3274316551010764365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356680639488850471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc5e3c2cf1e6de4db7bc6b8daa840ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7585459580314306434
 GameObject:
   m_ObjectHideFlags: 0

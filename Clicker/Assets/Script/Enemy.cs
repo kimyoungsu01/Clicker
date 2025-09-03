@@ -8,14 +8,16 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {    
     public Enemydata enemyData;
-    public PlayerData playerData;
+    public PlayerData playerData;    
     public Animator anim;
     public Image hpImage; // 체력바 이미지
     int EnemyMaxHealth; // 적 최대체력
     private int currentHealth;
 
+   
+
     void Awake()
-    {
+    {       
         anim = GetComponentInChildren<Animator>();
     }
     void Start()
@@ -55,12 +57,18 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            anim.SetTrigger("Die");
-            Drop();
-            Destroy(gameObject);
-            GameManager.Instance.Respwan();            
+            anim.SetTrigger("Die");   
+            Drop();                   
+            GameManager.Instance.Respwan();             
         }
     }
+   
+
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
 
     public void Upgradeenemy()
     { 
@@ -85,10 +93,24 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void TurnoffUI()
+    public void TurnoffUI()
     {
-        // if문으로 무기강화패널이 활성화시 UI꺼짐
+        if (WeaponManager.Instance.weaponUI.weaponInventoryUI.activeSelf == true)
+        {
+            gameObject.GetComponentInChildren<Canvas>().enabled = false;
+        }
+       
     }
+
+    public void TurnonUI()
+    {
+        if (WeaponManager.Instance.weaponUI.weaponInventoryUI.activeSelf == false)
+        {
+            gameObject.GetComponentInChildren<Canvas>().enabled = true;
+        }
+    }
+
+
 
     //데미지 텍스트 추가하기
 }

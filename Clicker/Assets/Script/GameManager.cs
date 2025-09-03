@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     //public Enemy enemy { get; private set; }
     //public Item item { get; private set; }
 
-    Enemy enemy;
+    
     Stagecnt stageCnt;
 
     public static GameManager Instance { get; private set; }
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     public void Respwan()
     {
         stagecnt.UpdateStage();
-        enemy.Upgradeenemy();
+        EnemyManager.Instance.enemy.Upgradeenemy();
         GameObject monster = Resources.Load<GameObject>("Prefabs/LV1enemy");
         Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity);       
     }

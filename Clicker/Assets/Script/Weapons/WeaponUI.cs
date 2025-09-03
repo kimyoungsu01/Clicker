@@ -47,5 +47,6 @@ public class WeaponUI : MonoBehaviour
     public void OpenInventory()
     {
         weaponInventoryUI.SetActive(true);
+        EnemyManager.Instance.enemy.TurnoffUI();
     }
 }

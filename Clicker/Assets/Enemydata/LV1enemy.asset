@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LV1enemy
   m_EditorClassIdentifier: 
   enemyName: "\uAC80\uD574\uACE8"
-  enemyHealth: 230
+  enemyHealth: 300
   enemyDefence: 30
