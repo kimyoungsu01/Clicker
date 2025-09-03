@@ -567,7 +567,6 @@ GameObject:
   - component: {fileID: 238772763}
   - component: {fileID: 238772766}
   - component: {fileID: 238772765}
-  - component: {fileID: 238772764}
   m_Layer: 5
   m_Name: UIPoint
   m_TagString: Untagged
@@ -597,20 +596,6 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: 610}
   m_SizeDelta: {x: 300, y: 75}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &238772764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238772762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de55c4b866023a4a87d0ba5c63d2fa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goldScore: {fileID: 0}
-  pointScore: {fileID: 0}
 --- !u!114 &238772765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,7 +1085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989549ee0c2865d43bdf21a59a91db1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponUI: {fileID: 0}
+  weaponUI: {fileID: 315655749}
   currentWeapon: {fileID: 0}
   upgradeLevel: 0
 --- !u!4 &363626366
@@ -6984,6 +6969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d898c99637e2e4096ed0510ce11dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyScore: {fileID: 339931287}
   zeroGoldPanel: {fileID: 824792658}
   zeroPointPanel: {fileID: 1548183298}
 --- !u!4 &2027278127
