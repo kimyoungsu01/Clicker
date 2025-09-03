@@ -6,12 +6,13 @@ using UnityEngine;
 
     public class EnemyAnimatorEvent : MonoBehaviour
     {
+    [SerializeField] private Enemy enemy;
        
 
-        public void DestroyEnemyEvent()
+    public void DestroyEnemyEvent()
         {
-            if (EnemyManager.Instance.enemy != null)
-                EnemyManager.Instance.enemy.DestroyEnemy();
+           
+               enemy.DestroyEnemy();
         }
     }
 

@@ -9,12 +9,16 @@ using static Unity.Burst.Intrinsics.X86;
 public class GameManager : MonoBehaviour
 {
     public PlayerData playerData;
-    public MainSceneLoader sceneLoader;
+    //public SceneLoader sceneLoader;
+    public Stagecnt stagecnt;
 
     public Stage stage { get; private set; }
     //public Player player { get; private set; }
     //public Enemy enemy { get; private set; }
     //public Item item { get; private set; }
+
+    
+    Stagecnt stageCnt;
 
     public static GameManager Instance { get; private set; }
 
@@ -30,6 +34,13 @@ public class GameManager : MonoBehaviour
         { 
             Destroy(gameObject); 
         }
+    }
+
+    private void Start()
+    {
+        GameObject monster = Resources.Load<GameObject>("Prefabs/LV1enemy");
+        Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity);
+        LoadUserData();
     }
 
     public void SaveUserData() 
@@ -58,4 +69,7 @@ public class GameManager : MonoBehaviour
             playerData = new PlayerData(0,"", 0, 0, 0);
         }
     }
+
+    // 에너미 스크립트 활용하여 캐릭터 리스폰 추가
+  
 }

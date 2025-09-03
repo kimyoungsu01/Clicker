@@ -40,6 +40,6 @@ public class WeaponInventoryUI : MonoBehaviour
     public void BackButton()
     {
         gameObject.SetActive(false);
-        EnemyManager.Instance.enemy.TurnonUI();
+        EnemyManager.Instance.TurnonUI();
     }
 }
