@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        GameObject enemy = Resources.Load<GameObject>("Prefabs/Triangleenemy");
+        GameObject enemy = Resources.Load<GameObject>("Prefabs/LV1enemy");
         Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
         LoadUserData();
     }
