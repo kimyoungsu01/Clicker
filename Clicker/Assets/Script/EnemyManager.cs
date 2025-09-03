@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public Enemy enemy;
     public static EnemyManager Instance { get; private set; }
 
     private void Awake()
