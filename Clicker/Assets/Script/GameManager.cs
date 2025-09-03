@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     //public Enemy enemy { get; private set; }
     //public Item item { get; private set; }
 
+    
+    Stagecnt stageCnt;
+
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -35,8 +38,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        GameObject enemy = Resources.Load<GameObject>("Prefabs/LV1enemy");
-        Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
+        GameObject monster = Resources.Load<GameObject>("Prefabs/LV1enemy");
+        Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity);
         LoadUserData();
     }
 
@@ -68,8 +71,5 @@ public class GameManager : MonoBehaviour
     }
 
     // 에너미 스크립트 활용하여 캐릭터 리스폰 추가
-    public void Respwan()
-    {
-        Instantiate(gameObject, new Vector3(0, 0, 0), Quaternion.identity);
-    }
+  
 }
