@@ -4,11 +4,14 @@ public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance;
 
+    public WeaponUI weaponUI;
+
     public WeaponData currentWeapon;
     public int upgradeLevel = 0;
 
     public int CurrentAttack => currentWeapon.baseAtkDamage + upgradeLevel * currentWeapon.atkDmgIncreasePerLevel;
     public float CurrentCritical => currentWeapon.baseCritical + upgradeLevel * currentWeapon.criRateIncreasePerLevel;
+    public int CurrentUpgradeCost => currentWeapon.baseUpgradeCost * (upgradeLevel + 1) * currentWeapon.costMultiplier;
 
     private void Awake()
     {
@@ -20,12 +23,12 @@ public class WeaponManager : MonoBehaviour
     {
         WeaponData woodSword = Resources.Load<WeaponData>("WeaponData/WoodSword");
         EquipWeapon(woodSword);
+        weaponUI.Initialize();
     }
 
     public void EquipWeapon(WeaponData newWeapon)
     {
         currentWeapon = newWeapon;
         upgradeLevel = 0;
-        WeaponUI.Instance.UpdateWeaponUI();
     }
 }

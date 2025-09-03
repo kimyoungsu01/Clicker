@@ -19,8 +19,4 @@ public class PlayerData
         atxCount = atx;
         ctcCount = ctc;
     }
-
-    // 플레이어 공격시 데미지 계산
-
-
 }

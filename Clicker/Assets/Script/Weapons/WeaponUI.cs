@@ -11,6 +11,7 @@ public class WeaponUI : MonoBehaviour
     public TextMeshProUGUI attackDamageText;
     public TextMeshProUGUI criticalRateText;
     public Button openInventory;
+    public GameObject weaponInventoryUI;
 
     private void Awake()
     {
@@ -19,16 +20,16 @@ public class WeaponUI : MonoBehaviour
 
     private void Start()
     {
-        openInventory.onClick.AddListener(() =>
-        {
-            //인벤토리 열기
-        });
-        UpdateWeaponUI();
+        openInventory.onClick.AddListener(OpenInventory);
     }
 
     public void UpdateWeaponUI()
     {
-        if (WeaponManager.Instance.currentWeapon == null) return;
+        if (WeaponManager.Instance.currentWeapon == null)
+        {
+            Debug.LogWarning("WeaponManager 또는 currentWeapon이 아직 초기화되지 않았습니다.");
+            return;
+        }
 
         WeaponData weapon = WeaponManager.Instance.currentWeapon;
 
@@ -36,5 +37,15 @@ public class WeaponUI : MonoBehaviour
         weaponNameText.text = $"{weapon.weaponName} Lv. {WeaponManager.Instance.upgradeLevel}";
         attackDamageText.text = $"공격력: {WeaponManager.Instance.CurrentAttack}";
         criticalRateText.text = $"치명타 확률: {WeaponManager.Instance.CurrentCritical}%";
+    }
+
+    public void Initialize()
+    {
+        UpdateWeaponUI();
+    }
+
+    public void OpenInventory()
+    {
+        weaponInventoryUI.SetActive(true);
     }
 }
