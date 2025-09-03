@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25b497acdc6618c40aecd8a2d70936b2, type: 3}
-  m_Name: New Stat Upgrade Data
+  m_Name: StatUpgradeData
   m_EditorClassIdentifier: 
-  levels: 0
-  upgradeStat: 0
+  criticalDamage: 0
+  autoAttack: 0
+  getGold: 0
