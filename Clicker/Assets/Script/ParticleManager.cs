@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class ParticleManager : MonoBehaviour
@@ -28,7 +28,7 @@ public class ParticleManager : MonoBehaviour
     {
         if (!clickEffectPrefab)
         {
-            Debug.LogWarning("[ParticleManager] clickEffectPrefab ¹ÌÇÒ´ç");
+            Debug.LogWarning("[ParticleManager] clickEffectPrefab ë¯¸í• ë‹¹");
             return;
         }
 
