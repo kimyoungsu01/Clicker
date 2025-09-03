@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
 {
     public int pointCount { get;  set; }
     public int goldCount { get;  set; }
+
+    public MoneyScore moneyScore;
 
     public GameObject zeroGoldPanel;
     public GameObject zeroPointPanel;
@@ -22,6 +25,9 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
         {
             Destroy(gameObject);
         }
+
+        goldCount = 1000;
+        pointCount = 1000;
     }
 
     public CostManager(int Point, int gold) 
@@ -29,14 +35,14 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
         pointCount = Point; // 소지 포인트
         goldCount = gold; // 소지 골드
     }
-        
 
-    public void GCost(int amount)
+    public int GoldSub(int amount)
     {
         // 아이템 골드 가격이 가지고 있는 골드 양보다 작다면
         if (goldCount >= amount)
         {
             goldCount -= amount;
+            moneyScore.ReadGold();
             GameManager.Instance.SaveUserData();
         }
 
@@ -45,15 +51,15 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
             // 아이템 골드 가격이 가지고 있는 골드 양보다 크다면
             OnZeroGold();
         }
-
+        return goldCount;
     }
 
-    public void PCost(int amount)
+    public int PointSub(int amount)
     {
-
         if (pointCount >= amount)
         {
             pointCount -= amount;
+            moneyScore.ReadPoint();
             GameManager.Instance.SaveUserData();
         }
 
@@ -61,7 +67,7 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
         {
             OnZeroPoint();
         }
-
+        return pointCount;
     }
 
     public void OnZeroGold()
