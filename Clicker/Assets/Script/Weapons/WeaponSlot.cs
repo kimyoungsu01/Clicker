@@ -52,7 +52,8 @@ public class WeaponSlot : MonoBehaviour
 
         if (CostManager.Instance.pointCount >= cost)
         {
-            CostManager.Instance.PCost(cost); // 포인트 차감
+            CostManager.Instance.PointSub(cost); // 포인트 차감
+            CostManager.Instance.moneyScore.ReadPoint();
             Debug.Log($"{weaponData.weaponName} 구매 완료! 비용: {cost}");
 
             buyButton.gameObject.SetActive(false);
@@ -75,7 +76,8 @@ public class WeaponSlot : MonoBehaviour
 
         if (CostManager.Instance.pointCount >= cost)
         {
-            CostManager.Instance.PCost(cost); // 포인트 차감
+            CostManager.Instance.PointSub(cost); // 포인트 차감
+            CostManager.Instance.moneyScore.ReadPoint();
             WeaponManager.Instance.upgradeLevel++;
 
             Debug.Log($"{weaponData.weaponName} 강화 완료! 현재 데미지: {WeaponManager.Instance.CurrentAttack}");
