@@ -71,11 +71,5 @@ public class GameManager : MonoBehaviour
     }
 
     // 에너미 스크립트 활용하여 캐릭터 리스폰 추가
-    public void Respwan()
-    {
-        stagecnt.UpdateStage();
-        EnemyManager.Instance.enemy.Upgradeenemy();
-        GameObject monster = Resources.Load<GameObject>("Prefabs/LV1enemy");
-        Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity);       
-    }
+  
 }

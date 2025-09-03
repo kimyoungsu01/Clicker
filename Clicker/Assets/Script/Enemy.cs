@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {       
         anim = GetComponentInChildren<Animator>();
+        enemyData = Instantiate(enemyData);
     }
     void Start()
     {
@@ -27,9 +28,12 @@ public class Enemy : MonoBehaviour
             gameObject.GetComponentInChildren<TextMeshProUGUI>().text = enemyData.enemyName; 
             gameObject.GetComponentInChildren<Image>().fillAmount = (float)enemyData.enemyHealth / 100;            
        }
+        Upgradeenemy(); 
         EnemyMaxHealth = enemyData.enemyHealth;
         currentHealth = enemyData.enemyHealth;
-        hpImage.fillAmount = 1f;       
+        hpImage.fillAmount = 1f;  
+        Debug.Log("적 체력: " + currentHealth);
+        
     }
 
     private void Update() // 애니메이션 테스트용 나중에 지우기 (히트는 테이크데미지에 다이는 에너미다이에 넣기)
@@ -58,8 +62,7 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             anim.SetTrigger("Die");   
-            Drop();                   
-            GameManager.Instance.Respwan();             
+            Drop();                                     
         }
     }
    
@@ -67,21 +70,17 @@ public class Enemy : MonoBehaviour
     public void DestroyEnemy()
     {
         Destroy(gameObject);
+        EnemyManager.Instance.Respwan();        
     }
 
 
     public void Upgradeenemy()
-    { 
-        if(GameManager.Instance.stagecnt.stagecnt % 5 == 0) 
-        {
-            enemyData.enemyHealth += 20;
-            enemyData.enemyDefence += 2;
-        }
-        else
-        {
-            enemyData.enemyHealth += 10;
-            enemyData.enemyDefence += 1;
-        }
+    {              
+            enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt - 1);
+            enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt - 1);        
+        
+            enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt / 5);
+            enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt / 5);
     }
 
     public void Drop()
@@ -93,22 +92,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TurnoffUI()
-    {
-        if (WeaponManager.Instance.weaponUI.weaponInventoryUI.activeSelf == true)
-        {
-            gameObject.GetComponentInChildren<Canvas>().enabled = false;
-        }
-       
-    }
-
-    public void TurnonUI()
-    {
-        if (WeaponManager.Instance.weaponUI.weaponInventoryUI.activeSelf == false)
-        {
-            gameObject.GetComponentInChildren<Canvas>().enabled = true;
-        }
-    }
+   
 
 
 
