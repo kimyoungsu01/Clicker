@@ -5,7 +5,8 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
     public int pointCount { get;  set; }
     public int goldCount { get;  set; }
 
-    public GameObject zeroGold;
+    public GameObject zeroGoldPanel;
+    public GameObject zeroPointPanel;
 
     public static CostManager Instance { get; private set; }
 
@@ -58,13 +59,18 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
 
         else
         {
-            OnZeroGold();
+            OnZeroPoint();
         }
 
     }
 
     public void OnZeroGold()
     {
-        zeroGold.SetActive(true);
+        zeroGoldPanel.SetActive(true);
+    }
+
+    public void OnZeroPoint()
+    {
+        zeroPointPanel.SetActive(true);
     }
 }

@@ -385,7 +385,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 93d0fb2232f51ae42a627fb27e390ab8, type: 2}
-  anim: {fileID: 9088087030072617443}
 --- !u!95 &9088087030072617443
 Animator:
   serializedVersion: 5

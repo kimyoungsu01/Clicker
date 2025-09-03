@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 {
     public PlayerData playerData;
     public MainSceneLoader sceneLoader;
-    public Stagecnt stagecnt;
 
     public Stage stage { get; private set; }
     //public Player player { get; private set; }
@@ -31,13 +30,6 @@ public class GameManager : MonoBehaviour
         { 
             Destroy(gameObject); 
         }
-    }
-
-    private void Start()
-    {
-        GameObject enemy = Resources.Load<GameObject>("Prefabs/Triangleenemy");
-        Instantiate(enemy, new Vector3(0, 0, 0), Quaternion.identity);
-        LoadUserData();
     }
 
     public void SaveUserData() 
@@ -65,11 +57,5 @@ public class GameManager : MonoBehaviour
             // 플레이어 (공격력, 크리티컬, 포인트, 골드) 
             playerData = new PlayerData(0,"", 0, 0, 0);
         }
-    }
-
-    // 에너미 스크립트 활용하여 캐릭터 리스폰 추가
-    public void Respwan()
-    {
-        Instantiate(gameObject, new Vector3(0, 0, 0), Quaternion.identity);
     }
 }

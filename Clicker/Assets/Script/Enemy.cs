@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,13 +51,14 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             stagecnt.UpdateStage(); 
             Drop();
-            GameManager.Instance.Respwan();
+            EnemyManager.Instance.Respwan();
+            
         }
     }
 
     public void Upgradeenemy()
     { 
-        if(GameManager.Instance.stagecnt.stagecnt % 5 == 0) 
+        if(EnemyManager.Instance.stagecnt.stagecnt % 5 == 0) 
         {
             enemyData.enemyHealth += 20;
             enemyData.enemyDefence += 2;
