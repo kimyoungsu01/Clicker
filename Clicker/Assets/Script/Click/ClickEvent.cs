@@ -8,6 +8,7 @@ public class ClickEvent : MonoBehaviour
 {
     public bool isPaused = false;
     public bool assumeMonsterPresent = true; // 몬스터를 가정
+    Enemy enemy;
 
     public UnityEvent onAttack; // 테스트연출
 
@@ -40,7 +41,7 @@ public class ClickEvent : MonoBehaviour
 
 
     }
-
+    
 
 
 
