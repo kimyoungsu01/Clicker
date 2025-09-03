@@ -16,9 +16,10 @@ public class PlayerUpgrade : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        playerStat = new PlayerStat(0, 0, 0, 0, 0, 0, 10, 10, 10);
     }
     void Start()
     {
-        playerStat = new PlayerStat(0,0,0,0,0,0);
+        
     }
 }
