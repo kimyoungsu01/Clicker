@@ -3183,7 +3183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickEffectPrefab: {fileID: 4021103657954561960, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
-  effectZ: 0
   autoDestroy: 1
   extraLifetime: 0.1
 --- !u!114 &973950930
@@ -3199,10 +3198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  assumeMonsterPresent: 1
-  onAttack:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &973950931
 Transform:
   m_ObjectHideFlags: 0
@@ -3230,8 +3225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712f221ad6c5271448475e0fb0ce2276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoClick: 1
-  autoClickLevel: 30
+  autoClick: 0
+  autoClickLevel: 1
   baseInterval: 3
   perLevelMultiplier: 0.9
   minInterval: 0.15
