@@ -23,12 +23,11 @@ public class WeaponUI : MonoBehaviour
         {
             //인벤토리 열기
         });
-        UpdateWeaponUI();
     }
 
     public void UpdateWeaponUI()
     {
-        if (WeaponManager.Instance == null || WeaponManager.Instance.currentWeapon == null)
+        if (WeaponManager.Instance.currentWeapon == null)
         {
             Debug.LogWarning("WeaponManager 또는 currentWeapon이 아직 초기화되지 않았습니다.");
             return;
@@ -40,5 +39,10 @@ public class WeaponUI : MonoBehaviour
         weaponNameText.text = $"{weapon.weaponName} Lv. {WeaponManager.Instance.upgradeLevel}";
         attackDamageText.text = $"공격력: {WeaponManager.Instance.CurrentAttack}";
         criticalRateText.text = $"치명타 확률: {WeaponManager.Instance.CurrentCritical}%";
+    }
+
+    public void Initialize()
+    {
+        UpdateWeaponUI();
     }
 }
