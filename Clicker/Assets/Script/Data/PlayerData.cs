@@ -1,0 +1,22 @@
+﻿
+[System.Serializable]
+public class PlayerData
+{
+    public int stageID { get; private set; }
+    public string monsterName { get; private set; }
+    public int monsterHPCount { get; private set; }
+    public int atxCount { get; private set; }
+    public int ctcCount { get; private set; }
+
+    // 생성자란? 형식: 반환타입x, 클래스랑 이름이 똑같다,
+    // 매개변수는 있어도 되고 없어도 된다,
+    // 생성자의 맴버변수가 매개변수로 사용가능
+    public PlayerData(int id, string name, int hp, int atx, int ctc)
+    {
+        stageID = id;
+        monsterName = name;
+        monsterHPCount = hp;
+        atxCount = atx;
+        ctcCount = ctc;
+    }
+}
