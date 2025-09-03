@@ -1188,6 +1188,7 @@ MonoBehaviour:
   attackDamageText: {fileID: 1276395610}
   criticalRateText: {fileID: 1681153339}
   openInventory: {fileID: 1780860347}
+  weaponInventoryUI: {fileID: 652069006}
 --- !u!1 &652069006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotParent: {fileID: 1082605701}
   slotPrefab: {fileID: 5106424571815608848, guid: 4836696b459f71a479d049ea4a104036, type: 3}
+  backButton: {fileID: 950936993}
 --- !u!1 &685057119
 GameObject:
   m_ObjectHideFlags: 0

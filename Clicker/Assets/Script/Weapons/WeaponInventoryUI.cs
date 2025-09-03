@@ -32,6 +32,8 @@ public class WeaponInventoryUI : MonoBehaviour
         foreach (WeaponData weapon in weaponList)
         {
             GameObject slot = Instantiate(slotPrefab, slotParent);
+            WeaponSlot slotScript = slot.GetComponent<WeaponSlot>();
+            slotScript.Setup(weapon);
         }
     }
 
