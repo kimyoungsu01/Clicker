@@ -9,6 +9,7 @@ public class WeaponData : ScriptableObject
 
     public int baseAtkDamage;     // 기본 공격력
     public int baseCritical;      // 기본 크리티컬 확률
+    public float baseCriticalDamage;    //기본 크리티컬 데미지
 
     public int atkDmgIncreasePerLevel;     // 공격력 강화당 증가량
     public int criRateIncreasePerLevel;    // 크리티컬 강화당 증가량

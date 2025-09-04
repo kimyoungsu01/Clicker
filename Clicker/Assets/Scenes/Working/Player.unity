@@ -3314,14 +3314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d898c99637e2e4096ed0510ce11dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData:
-    goldCount: 0
-    pointCount: 0
-    stageID: 0
-    monsterName: 
-    monsterHPCount: 0
-    atxCount: 0
-    ctcCount: 0
   moneyScore: {fileID: 709424083}
   zeroGoldPanel: {fileID: 134576059}
   zeroPointPanel: {fileID: 342802520}
@@ -6589,10 +6581,10 @@ MonoBehaviour:
     goldCount: 0
     pointCount: 0
     stageID: 0
-    monsterName: 
-    monsterHPCount: 0
-    atxCount: 0
-    ctcCount: 0
+    weaponData: 0
+    weaponLv: 0
+    playerStat: {fileID: 0}
+    upgradeLevels: 
   stagecnt: {fileID: 0}
 --- !u!4 &1919527778
 Transform:

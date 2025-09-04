@@ -17,6 +17,7 @@ MonoBehaviour:
   weaponIcon: {fileID: 21300000, guid: 0c63a2e4620364844974146b503f4e8b, type: 3}
   baseAtkDamage: 20
   baseCritical: 15
+  baseCriticalDamage: 1.5
   atkDmgIncreasePerLevel: 10
   criRateIncreasePerLevel: 5
   buyCost: 20
