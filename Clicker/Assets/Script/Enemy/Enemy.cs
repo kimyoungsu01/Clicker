@@ -12,7 +12,8 @@ public class Enemy : MonoBehaviour
     public Animator anim;    
     int EnemyMaxHealth; // 적 최대체력
     private int currentHealth;
-    
+    public bool isDead = false;
+
 
 
 
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            isDead = true;
             anim.SetTrigger("Die");   
             Drop();                                     
         }
@@ -70,8 +72,8 @@ public class Enemy : MonoBehaviour
 
     public void Upgradeenemy()
     {              
-         enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt - 1);
-         enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt - 1);        
+         enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt );
+         enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt );        
         
          enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt / 5);
          enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt / 5);
