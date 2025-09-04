@@ -72,13 +72,16 @@ public class WeaponSlot : MonoBehaviour
 
     private void OnUpgrade()
     {
+        WeaponManager.Instance.UpgradeWeapon(weaponData);
+
         int cost = WeaponManager.Instance.CurrentUpgradeCost;
 
         if (CostManager.Instance.pointCount >= cost)
         {
             CostManager.Instance.PointSub(cost); // 포인트 차감
             CostManager.Instance.moneyScore.ReadPoint();
-            WeaponManager.Instance.upgradeLevel++;
+            WeaponManager.Instance.index = weaponData.weaponID - 1;
+            WeaponManager.Instance.upgradeLevels[WeaponManager.Instance.index]++;
 
             Debug.Log($"{weaponData.weaponName} 강화 완료! 현재 데미지: {WeaponManager.Instance.CurrentAttack}");
 
