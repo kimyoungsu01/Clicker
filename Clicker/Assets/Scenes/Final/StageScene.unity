@@ -809,6 +809,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58148043}
   m_CullTransparentMesh: 1
+--- !u!1 &69443865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69443867}
+  - component: {fileID: 69443866}
+  m_Layer: 0
+  m_Name: CostManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &69443866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69443865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d898c99637e2e4096ed0510ce11dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyScore: {fileID: 0}
+  zeroGoldPanel: {fileID: 824792658}
+  zeroPointPanel: {fileID: 1548183298}
+--- !u!4 &69443867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69443865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 130.76257, y: 324.83307, z: -1.4799814}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &90313928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1195,6 @@ GameObject:
   - component: {fileID: 238772763}
   - component: {fileID: 238772766}
   - component: {fileID: 238772765}
-  - component: {fileID: 238772764}
   m_Layer: 5
   m_Name: UIPoint
   m_TagString: Untagged
@@ -1178,18 +1224,6 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: 610}
   m_SizeDelta: {x: 300, y: 75}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &238772764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238772762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de55c4b866023a4a87d0ba5c63d2fa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &238772765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,6 +1774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d898c99637e2e4096ed0510ce11dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyScore: {fileID: 0}
   zeroGoldPanel: {fileID: 824792658}
   zeroPointPanel: {fileID: 1548183298}
 --- !u!1 &356236682
@@ -4163,8 +4198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  hpImage: {fileID: 1138522894}
-  monstername: {fileID: 1075754663}
 --- !u!4 &854245015
 Transform:
   m_ObjectHideFlags: 0
@@ -7280,11 +7313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stagecnt: 0
   Maxstage: 29
-  dungeonstagecnt: 1
-  Maxdungeonstage: 10
   stageText: {fileID: 1479675692}
-  dungeonstage: {fileID: 1877035467}
-  dungeonname: {fileID: 44117270}
 --- !u!114 &1479675692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10722,6 +10751,7 @@ SceneRoots:
   - {fileID: 983871143}
   - {fileID: 795298943}
   - {fileID: 1726392092}
+  - {fileID: 69443867}
   - {fileID: 854245015}
   - {fileID: 363626366}
   - {fileID: 973950931}
