@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance;
     [HideInInspector]public Enemy enemy;
+    Enemydata enemyData;
+    public Image hpImage; 
 
     void Awake()
     {
@@ -13,6 +17,14 @@ public class EnemyManager : MonoBehaviour
       else Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        GameObject monster = Resources.Load<GameObject>("Prefabs/LV1enemy");
+        Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity);      
+        GetComponentInChildren<TextMeshProUGUI>().text = monster.transform.GetComponent<Enemy>().enemyData.enemyName;
+        GetComponentInChildren<Image>().fillAmount = (float)monster.transform.GetComponent<Enemy>().enemyData.enemyHealth / monster.transform.GetComponent<Enemy>().enemyData.enemyHealth;
+
+    }
     public void Respwan()
     {
         GameManager.Instance.stagecnt.UpdateStage();
