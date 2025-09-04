@@ -2512,7 +2512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d898c99637e2e4096ed0510ce11dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zeroGold: {fileID: 686093429}
+  zeroGoldPanel: {fileID: 0}
+  zeroPointPanel: {fileID: 0}
 --- !u!4 &1002065034
 Transform:
   m_ObjectHideFlags: 0
@@ -5286,7 +5287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d898c99637e2e4096ed0510ce11dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zeroGold: {fileID: 0}
+  zeroGoldPanel: {fileID: 0}
+  zeroPointPanel: {fileID: 0}
 --- !u!114 &1789807822
 MonoBehaviour:
   m_ObjectHideFlags: 0
