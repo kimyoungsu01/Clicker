@@ -37,9 +37,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start()
-    {
-        GameObject monster = Resources.Load<GameObject>("Prefabs/LV1enemy");
-        Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity);
+    {        
         LoadUserData();
     }
 
