@@ -2855,6 +2855,9 @@ MonoBehaviour:
   weaponUI: {fileID: 1334661515}
   currentWeapon: {fileID: 0}
   upgradeLevel: 0
+  upgradeLevels: 0000000000000000000000000000000000000000
+  index: 0
+  weaponInventoryUI: {fileID: 0}
 --- !u!4 &769095855
 Transform:
   m_ObjectHideFlags: 0
@@ -3311,14 +3314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d898c99637e2e4096ed0510ce11dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData:
-    goldCount: 0
-    pointCount: 0
-    stageID: 0
-    monsterName: 
-    monsterHPCount: 0
-    atxCount: 0
-    ctcCount: 0
   moneyScore: {fileID: 709424083}
   zeroGoldPanel: {fileID: 134576059}
   zeroPointPanel: {fileID: 342802520}
@@ -6586,10 +6581,10 @@ MonoBehaviour:
     goldCount: 0
     pointCount: 0
     stageID: 0
-    monsterName: 
-    monsterHPCount: 0
-    atxCount: 0
-    ctcCount: 0
+    weaponData: 0
+    weaponLv: 0
+    playerStat: {fileID: 0}
+    upgradeLevels: 
   stagecnt: {fileID: 0}
 --- !u!4 &1919527778
 Transform:
@@ -7055,70 +7050,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142088533}
   m_CullTransparentMesh: 1
---- !u!1001 &9114078520305852590
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3290200930132994764, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_Name
-      value: PlayerUpgradeManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 262.0547
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 84.72228
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.58416075
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 2090525173}
-  - {fileID: 9114078520305852590}
   - {fileID: 1790123933}
   - {fileID: 1048416998}
   - {fileID: 1919527778}

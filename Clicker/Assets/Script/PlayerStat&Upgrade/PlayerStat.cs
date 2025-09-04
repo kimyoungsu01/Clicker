@@ -20,9 +20,7 @@ public class PlayerStat : MonoBehaviour
 
     public int getGoldCost = 10;
 
-    public float currentGoldUp;
-
-    public PlayerStat(int criticalStack, float criticalDamage, int autoAttackStack, float autoAttackPerSec, int getGoldStack, int getGoldPersent, int criticalDamageCost, int autoAttackCost, int getGoldCost, float currentGoldUp)
+    public PlayerStat(int criticalStack, float criticalDamage, int autoAttackStack, float autoAttackPerSec, int getGoldStack, int getGoldPersent, int criticalDamageCost, int autoAttackCost, int getGoldCost)
     {
         this.criticalStack = criticalStack;
         this.criticalDamage = criticalDamage;
@@ -38,12 +36,6 @@ public class PlayerStat : MonoBehaviour
         this.autoAttackCost = autoAttackCost;
 
         this.getGoldCost = getGoldCost;
-
-        this.currentGoldUp = currentGoldUp;
     }
 
-    //public int getCriticalDamage() 
-    //{ 
-    
-    //}
 }
