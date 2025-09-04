@@ -15,7 +15,6 @@ public class UpgradeBtn : MonoBehaviour
     }
     public void CriticalDamageBtn()
     {
-        
         PlayerUpgrade.Instance.playerStat.criticalStack += stackPlus;
         PlayerUpgrade.Instance.playerStat.criticalDamage += criticalDamageUp;
         PlayerUpgrade.Instance.playerStat.criticalDamageCost += 10;
