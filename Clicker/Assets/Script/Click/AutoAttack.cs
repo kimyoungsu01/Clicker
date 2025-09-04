@@ -105,10 +105,10 @@ public class AutoAttack : MonoBehaviour
             return;
         }
 
-        if (target.IsDead)
-        {
-            return;
-        }
+        //if (target.IsDead)
+        //{
+        //    return;
+        //}
 
         target.Takedamage();
 
