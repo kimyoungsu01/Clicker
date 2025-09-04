@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
@@ -35,7 +36,14 @@ public class Enemy : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-           Takedamage();
+            if (Input.GetMouseButtonDown(0))
+            {
+                
+                if (EventSystem.current.IsPointerOverGameObject())
+                    return;
+
+                Takedamage();
+            }
         }
        
     }
