@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     //public Item item { get; private set; }
 
     
-    Stagecnt stageCnt;
+    
 
     public static GameManager Instance { get; private set; }
 
