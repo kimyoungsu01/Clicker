@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public Animator anim;    
     int EnemyMaxHealth; // 적 최대체력
     private int currentHealth;
-    public bool isDead = false;
+    public bool IsDead = false;
 
 
 
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            isDead = true;
+            IsDead = true;
             anim.SetTrigger("Die");   
             Drop();                                     
         }
