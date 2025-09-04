@@ -61,7 +61,7 @@ public class WeaponSlot : MonoBehaviour
             equipButton.gameObject.SetActive(true);
 
             // 구매 후에는 강화 비용으로 표시 전환
-            upgradeCost.text = $"강화: {weaponData.baseUpgradeCost}";
+            upgradeCost.text = weaponData.baseUpgradeCost.ToString();
         }
         else
         {
