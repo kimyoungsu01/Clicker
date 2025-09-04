@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
     [HideInInspector]public Enemy enemy;
     Enemydata enemyData;
     public Image hpImage; 
+    Stagecnt stagecnt;
 
     void Awake()
     {
@@ -46,6 +47,14 @@ public class EnemyManager : MonoBehaviour
         if (WeaponManager.Instance.weaponUI.weaponInventoryUI.activeSelf == false)
         {
             gameObject.GetComponentInChildren<Canvas>().enabled = true;
+        }
+    }
+
+    void Changeenemy()
+    {
+        if (stagecnt.stagecnt >= 10)
+        { 
+        
         }
     }
 }

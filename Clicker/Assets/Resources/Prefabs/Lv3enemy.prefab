@@ -3112,7 +3112,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 0
   m_SortAtRoot: 0
 --- !u!95 &682951476061696326
 Animator:
@@ -3555,7 +3555,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 776864b830ee27b439044828e535de3f, type: 2}
   anim: {fileID: 682951476061696326}
-  hpImage: {fileID: 0}
 --- !u!1 &8460530776836326394
 GameObject:
   m_ObjectHideFlags: 0
