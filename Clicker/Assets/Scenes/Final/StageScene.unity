@@ -8733,6 +8733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94b0a6d0246e3647a55e1b81985ab02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyScore: {fileID: 0}
   stagecnt: {fileID: 1479675691}
 --- !u!4 &1726392092
 Transform:
