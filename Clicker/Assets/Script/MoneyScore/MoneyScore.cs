@@ -10,8 +10,18 @@ public class MoneyScore : MonoBehaviour
 
     private void Start()
     {
-        ReadGold();
-        ReadPoint();
+        if (CostManager.Instance != null) 
+        {
+            ReadGold();
+            ReadPoint();
+            Debug.Log("CostManager Instance is null");
+        }
+
+        else if (CostManager.Instance == null) 
+        {
+            Debug.Log("CostManager Instance is null");
+        }
+        
     }
 
     public void ReadGold() 
