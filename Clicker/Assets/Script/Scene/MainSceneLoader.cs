@@ -13,7 +13,22 @@ public class MainSceneLoader : MonoBehaviour
     public GameObject option;
     public Button backBtn;
 
-    public Animator anim;
+    [SerializeField] Transition transition;
+
+    public static MainSceneLoader Instance { get; private set; }
+
+    public bool isSave; 
+
+    private void Awake()
+    {
+        if (Instance == null) 
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+            Destroy(this.gameObject);
+    }
 
     private void Start()
     {
@@ -25,16 +40,17 @@ public class MainSceneLoader : MonoBehaviour
 
     public void OnNewStage() 
     {
-        anim.SetTrigger("FadeIn");
-        SceneManager.LoadScene(1);
+        transition.LoadScene(1);
+        isSave = false;
     }
 
     public void OnLoadStage() 
     {
         // 플레이어 저장값 불러와서 
         GameManager.Instance.LoadUserData();
-        anim.SetTrigger("FadeOut");
-        SceneManager.LoadScene(1);
+        //anim.SetTrigger("FadeOut");
+        transition.LoadScene(1);
+        isSave = true;
     }
 
     public void OnOption() 

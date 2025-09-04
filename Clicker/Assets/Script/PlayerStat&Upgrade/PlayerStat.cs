@@ -41,4 +41,9 @@ public class PlayerStat : MonoBehaviour
 
         this.currentGoldUp = currentGoldUp;
     }
+
+    //public int getCriticalDamage() 
+    //{ 
+    
+    //}
 }

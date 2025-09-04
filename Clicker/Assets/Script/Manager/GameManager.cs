@@ -9,14 +9,10 @@ using static Unity.Burst.Intrinsics.X86;
 public class GameManager : MonoBehaviour
 {
     public PlayerData playerData;
-    //public SceneLoader sceneLoader;
+    PlayerStat playerStat;
     public Stagecnt stagecnt;
 
     public Stage stage { get; private set; }
-    //public Player player { get; private set; }
-    //public Enemy enemy { get; private set; }
-    //public Item item { get; private set; }
-
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -36,8 +32,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Init();
-        SaveUserData();
-        LoadUserData();
     }
 
     public void SaveUserData() 
@@ -61,22 +55,20 @@ public class GameManager : MonoBehaviour
         
         else  
         {
-            // 스테이지 (넘버) , 몬스터 (이름, hp)
-            // 플레이어 (공격력, 크리티컬, 포인트, 골드) 
-            playerData = new PlayerData(0, 0, 0, 0, 1000, 1000);
-            Debug.Log(playerData);
+            // 스테이지 (넘버) // 플레이어 (포인트, 골드, 플레이어 스텟) 
+            playerData = new PlayerData(0, 1000, 1000, 0, 0, playerStat);
+            SaveUserData();
         }
-    }
-
-    // 업데이트
-    public void carCulate(PlayerData playerData) 
-    { 
-       
     }
 
     public void Init() 
     {
-        LoadUserData();
+        if (MainSceneLoader.Instance.isSave == true)
+            LoadUserData();
+
+        else
+            playerData = new PlayerData(0, 1000, 1000, 0, 0, playerStat);
+        
         CostManager.Instance.Init(playerData);
     }
 }

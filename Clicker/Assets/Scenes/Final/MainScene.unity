@@ -1247,7 +1247,8 @@ MonoBehaviour:
   optionBtn: {fileID: 2060050060}
   option: {fileID: 276871166}
   backBtn: {fileID: 1699922403}
-  anim: {fileID: 1042140026}
+  transition: {fileID: 1042140027}
+  isSave: 0
 --- !u!4 &784319159
 Transform:
   m_ObjectHideFlags: 0
