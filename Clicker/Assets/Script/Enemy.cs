@@ -70,8 +70,8 @@ public class Enemy : MonoBehaviour
 
     public void Upgradeenemy()
     {              
-         enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt - 1);
-         enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt - 1);        
+         enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt );
+         enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt );        
         
          enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt / 5);
          enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt / 5);
