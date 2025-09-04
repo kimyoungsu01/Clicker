@@ -17,9 +17,6 @@ public class GameManager : MonoBehaviour
     //public Enemy enemy { get; private set; }
     //public Item item { get; private set; }
 
-    
-    
-
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -82,5 +79,4 @@ public class GameManager : MonoBehaviour
         LoadUserData();
         CostManager.Instance.Init(playerData);
     }
-  
 }
