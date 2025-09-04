@@ -79,13 +79,10 @@ public class Enemy : MonoBehaviour
          enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt / 5);
     }
 
-    public void Drop()
-    { 
-        if(enemyData.enemyHealth <= 0)
-        {
-           CostManager.Instance.goldCount += 10;
-           CostManager.Instance.pointCount += 5;
-        }
+    public void Drop(int gold, int point)
+    {        
+           CostManager.Instance.goldCount += gold;
+           CostManager.Instance.pointCount += point;        
     }
 
    
