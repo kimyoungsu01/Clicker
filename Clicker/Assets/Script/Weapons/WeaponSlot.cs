@@ -61,7 +61,7 @@ public class WeaponSlot : MonoBehaviour
             equipButton.gameObject.SetActive(true);
 
             // 구매 후에는 강화 비용으로 표시 전환
-            upgradeCost.text = $"강화: {weaponData.baseUpgradeCost}";
+            upgradeCost.text = weaponData.baseUpgradeCost.ToString();
         }
         else
         {
@@ -82,7 +82,7 @@ public class WeaponSlot : MonoBehaviour
 
             Debug.Log($"{weaponData.weaponName} 강화 완료! 현재 데미지: {WeaponManager.Instance.CurrentAttack}");
 
-            upgradeCost.text = $"강화: {WeaponManager.Instance.CurrentUpgradeCost}";
+            upgradeCost.text = WeaponManager.Instance.CurrentUpgradeCost.ToString();
             WeaponUI.Instance.UpdateWeaponUI();
         }
         else

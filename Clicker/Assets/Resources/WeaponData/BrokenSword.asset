@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f227cd5da4aaad14f8cce9e4a73d2e29, type: 3}
-  m_Name: WoodSword
+  m_Name: BrokenSword
   m_EditorClassIdentifier: 
   weaponID: 1
-  weaponName: "\uB098\uBB34\uAC80"
-  weaponIcon: {fileID: 0}
+  weaponName: "\uBD80\uB7EC\uC9C4\uAC80"
+  weaponIcon: {fileID: 21300000, guid: 7b172a6b9b1384dfda40a79b38504025, type: 3}
   baseAtkDamage: 5
-  baseCritical: 10
+  baseCritical: 5
   atkDmgIncreasePerLevel: 2
   criRateIncreasePerLevel: 1
+  buyCost: 0
   baseUpgradeCost: 2
   costMultiplier: 2

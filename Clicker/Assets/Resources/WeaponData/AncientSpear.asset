@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f227cd5da4aaad14f8cce9e4a73d2e29, type: 3}
+  m_Name: AncientSpear
+  m_EditorClassIdentifier: 
+  weaponID: 4
+  weaponName: "\uACE0\uB300\uC758 \uCC3D"
+  weaponIcon: {fileID: 21300000, guid: e26205813d9ee4de3aae83b2f2b7a237, type: 3}
+  baseAtkDamage: 30
+  baseCritical: 20
+  atkDmgIncreasePerLevel: 15
+  criRateIncreasePerLevel: 10
+  buyCost: 40
+  baseUpgradeCost: 20
