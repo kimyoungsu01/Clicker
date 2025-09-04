@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class ParticleManager : MonoBehaviour
@@ -7,7 +7,6 @@ public class ParticleManager : MonoBehaviour
 
     [Header("Click Effect")]
     [SerializeField] private ParticleSystem clickEffectPrefab;
-    [SerializeField] private float effectZ = 0f;
     [SerializeField] private bool autoDestroy = true;
     [SerializeField] private float extraLifetime = 0.1f;
 
@@ -28,11 +27,11 @@ public class ParticleManager : MonoBehaviour
     {
         if (!clickEffectPrefab)
         {
-            Debug.LogWarning("[ParticleManager] clickEffectPrefab ���Ҵ�");
+            Debug.LogWarning("파티클 매니저에 파티클 프리펩 넣으세요");
             return;
         }
 
-        var pos = new Vector3(worldPos2D.x, worldPos2D.y, effectZ);
+        var pos = new Vector3(worldPos2D.x, worldPos2D.y, 0f);
         var ps = Instantiate(clickEffectPrefab, pos, Quaternion.identity);
         ps.Play();
 

@@ -9,12 +9,13 @@ public class Enemy : MonoBehaviour
 {    
     public Enemydata enemyData;
     public PlayerData playerData;    
-    public Animator anim;
-    public Image hpImage; // 체력바 이미지
+    public Animator anim;    
     int EnemyMaxHealth; // 적 최대체력
     private int currentHealth;
+    public bool isDead = false;
 
-   
+
+
 
     void Awake()
     {       
@@ -22,18 +23,12 @@ public class Enemy : MonoBehaviour
         enemyData = Instantiate(enemyData);
     }
     void Start()
-    {
-       if (enemyData != null)
-       {
-            gameObject.GetComponentInChildren<TextMeshProUGUI>().text = enemyData.enemyName; 
-            gameObject.GetComponentInChildren<Image>().fillAmount = (float)enemyData.enemyHealth / 100;            
-       }
+    {      
         Upgradeenemy(); 
         EnemyMaxHealth = enemyData.enemyHealth;
         currentHealth = enemyData.enemyHealth;
-        hpImage.fillAmount = 1f;  
-        Debug.Log("적 체력: " + currentHealth);
-        
+        EnemyManager.Instance.hpImage.fillAmount = 1f;  
+        Debug.Log("적 체력: " + currentHealth);        
     }
 
     private void Update() // 애니메이션 테스트용 나중에 지우기 (히트는 테이크데미지에 다이는 에너미다이에 넣기)
@@ -52,7 +47,7 @@ public class Enemy : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, EnemyMaxHealth);
         anim.SetTrigger("Hit");
         anim.SetBool("EditChk", true);
-        hpImage.fillAmount = (float)currentHealth / EnemyMaxHealth;
+        EnemyManager.Instance.hpImage.fillAmount = (float)currentHealth / EnemyMaxHealth;
         Debug.Log("적 체력: " + currentHealth);
         enemydie();
     }
@@ -61,6 +56,7 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            isDead = true;
             anim.SetTrigger("Die");   
             Drop();                                     
         }
@@ -76,11 +72,11 @@ public class Enemy : MonoBehaviour
 
     public void Upgradeenemy()
     {              
-            enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt - 1);
-            enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt - 1);        
+         enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt );
+         enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt );        
         
-            enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt / 5);
-            enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt / 5);
+         enemyData.enemyHealth += 10 * (GameManager.Instance.stagecnt.stagecnt / 5);
+         enemyData.enemyDefence += 1 * (GameManager.Instance.stagecnt.stagecnt / 5);
     }
 
     public void Drop()

@@ -7,10 +7,7 @@ using UnityEngine.EventSystems;
 public class ClickEvent : MonoBehaviour
 {
     public bool isPaused = false;
-    public bool assumeMonsterPresent = true; // 몬스터를 가정
-    Enemy enemy;
-
-    public UnityEvent onAttack; // 테스트연출
+    private Enemy enemy;
 
     void Update()
     {
@@ -29,14 +26,25 @@ public class ClickEvent : MonoBehaviour
             return;
         }
 
-        if (!assumeMonsterPresent)
+        if (enemy == null || !enemy.isActiveAndEnabled)
         {
-            return;        
+            enemy = FindObjectOfType<Enemy>();
         }
-        Vector2 worldPos2D = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Debug.Log("클릭하여 데미지를 주었음");
-        onAttack?.Invoke(); // 테스트용
+        if (enemy == null)
+        {
+            return;
+        }
+
+        Vector2 worldPos2D = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (enemy.IsDead)
+        {
+            return;
+        }
+
+        enemy.Takedamage();
+
         ParticleManager.instance?.PlayClick(worldPos2D);
 
 
