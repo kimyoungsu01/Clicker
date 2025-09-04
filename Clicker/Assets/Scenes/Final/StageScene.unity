@@ -1190,6 +1190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de55c4b866023a4a87d0ba5c63d2fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldScore: {fileID: 0}
+  pointScore: {fileID: 0}
 --- !u!114 &238772765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,6 +1742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d898c99637e2e4096ed0510ce11dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyScore: {fileID: 0}
   zeroGoldPanel: {fileID: 824792658}
   zeroPointPanel: {fileID: 1548183298}
 --- !u!1 &356236682
@@ -4163,7 +4166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  hpImage: {fileID: 1138522894}
+  hpImage: {fileID: 0}
 --- !u!4 &854245015
 Transform:
   m_ObjectHideFlags: 0
@@ -4736,6 +4739,7 @@ GameObject:
   - component: {fileID: 973950931}
   - component: {fileID: 973950930}
   - component: {fileID: 973950929}
+  - component: {fileID: 973950932}
   m_Layer: 0
   m_Name: ClickInput
   m_TagString: Untagged
@@ -4756,7 +4760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickEffectPrefab: {fileID: 4021103657954561960, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
-  effectZ: 0
   autoDestroy: 1
   extraLifetime: 0.1
 --- !u!114 &973950930
@@ -4772,10 +4775,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
-  assumeMonsterPresent: 1
-  onAttack:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &973950931
 Transform:
   m_ObjectHideFlags: 0
@@ -4791,6 +4790,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973950932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973950928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712f221ad6c5271448475e0fb0ce2276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoClick: 0
+  autoClickLevel: 1
+  baseInterval: 3
+  perLevelMultiplier: 0.9
+  minInterval: 0.15
+  damagePerShot: 1
+  target: {fileID: 0}
 --- !u!1 &983871140
 GameObject:
   m_ObjectHideFlags: 0
@@ -6195,7 +6213,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1305068138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 973950932}
+        m_TargetAssemblyTypeName: AutoAttack, Assembly-CSharp
+        m_MethodName: AutoClickBT
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1305068138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7282,7 +7312,7 @@ MonoBehaviour:
   dungeonstagecnt: 1
   Maxdungeonstage: 10
   stageText: {fileID: 1479675692}
-  dungeonstage: {fileID: 1877035467}
+  dungeonstage: {fileID: 0}
 --- !u!114 &1479675692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10716,12 +10746,12 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 973950931}
   - {fileID: 983871143}
   - {fileID: 795298943}
   - {fileID: 1726392092}
   - {fileID: 854245015}
   - {fileID: 363626366}
-  - {fileID: 973950931}
   - {fileID: 2114064068}
   - {fileID: 949768921}
   - {fileID: 339931286}
