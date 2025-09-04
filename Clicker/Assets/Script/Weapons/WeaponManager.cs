@@ -11,7 +11,7 @@ public class WeaponManager : MonoBehaviour
 
     public int CurrentAttack => currentWeapon.baseAtkDamage + upgradeLevel * currentWeapon.atkDmgIncreasePerLevel;
     public float CurrentCritical => currentWeapon.baseCritical + upgradeLevel * currentWeapon.criRateIncreasePerLevel;
-    public int CurrentUpgradeCost => currentWeapon.baseUpgradeCost * (upgradeLevel + 1) * currentWeapon.costMultiplier;
+    public int CurrentUpgradeCost => currentWeapon.baseUpgradeCost * (upgradeLevel + 1) * 2;
 
     private void Awake()
     {
@@ -21,8 +21,8 @@ public class WeaponManager : MonoBehaviour
 
     private void Start()
     {
-        WeaponData woodSword = Resources.Load<WeaponData>("WeaponData/WoodSword");
-        EquipWeapon(woodSword);
+        WeaponData brokenSword = Resources.Load<WeaponData>("WeaponData/BrokenSword");
+        EquipWeapon(brokenSword);
         weaponUI.Initialize();
     }
 

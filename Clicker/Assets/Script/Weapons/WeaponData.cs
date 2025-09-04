@@ -15,5 +15,4 @@ public class WeaponData : ScriptableObject
 
     public int buyCost;               // 무기 구매 비용
     public int baseUpgradeCost;       // 처음 강화 비용
-    public int costMultiplier;        // 강화 비용 배수 (무기별 다름) 
 }

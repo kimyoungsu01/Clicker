@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start()
-    {        
-        LoadUserData();
+    {
+        Init();
     }
 
     public void SaveUserData() 
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
             playerData = JsonUtility.FromJson<PlayerData>(loadData);
         }
 
-        else 
+        else  
         {
             // 스테이지 (넘버) , 몬스터 (이름, hp)
             // 플레이어 (공격력, 크리티컬, 포인트, 골드) 
@@ -68,6 +68,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // 에너미 스크립트 활용하여 캐릭터 리스폰 추가
+    // 업데이트
+    public void carCulate(PlayerData playerData) 
+    { 
+       
+    }
+
+    public void Init() 
+    {
+        LoadUserData();
+        playerData.goldCount = CostManager.Instance.goldCount;
+        playerData.pointCount = CostManager.Instance.pointCount;
+    }
   
 }
