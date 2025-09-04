@@ -9,10 +9,12 @@ public class UpgradeBtn : MonoBehaviour
     float getGoldUp = 100.0f;
     int stackPlus = 1;
     StatUpgradeUI statUpgradeUI;
+
     void Awake()
     {
         statUpgradeUI = GetComponent<StatUpgradeUI>();
     }
+
     public void CriticalDamageBtn()
     {
         PlayerUpgrade.Instance.playerStat.criticalStack += stackPlus;
