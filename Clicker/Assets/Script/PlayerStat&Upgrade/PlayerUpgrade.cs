@@ -6,6 +6,7 @@ public class PlayerUpgrade : MonoBehaviour
 {
     public static PlayerUpgrade Instance;
     public PlayerStat playerStat;
+    public UpgradeBtn upgradeBtn;
     private void Awake()
     {
         if (Instance == null)
@@ -20,6 +21,6 @@ public class PlayerUpgrade : MonoBehaviour
 
     void Start()
     {
-        playerStat = new PlayerStat(0, 0, 0, 0, 0, 0, 10, 10, 10);
+        playerStat = new PlayerStat(0, 0, 0, 0, 0, 0, 10, 10, 10, 0);
     }
 }

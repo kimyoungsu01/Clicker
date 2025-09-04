@@ -13,6 +13,8 @@ public class MainSceneLoader : MonoBehaviour
     public GameObject option;
     public Button backBtn;
 
+    public Animator anim;
+
     private void Start()
     {
         newStageBtn.onClick.AddListener(OnNewStage);
@@ -23,6 +25,7 @@ public class MainSceneLoader : MonoBehaviour
 
     public void OnNewStage() 
     {
+        anim.SetTrigger("FadeIn");
         SceneManager.LoadScene(1);
     }
 
@@ -30,6 +33,7 @@ public class MainSceneLoader : MonoBehaviour
     {
         // 플레이어 저장값 불러와서 
         GameManager.Instance.LoadUserData();
+        anim.SetTrigger("FadeOut");
         SceneManager.LoadScene(1);
     }
 

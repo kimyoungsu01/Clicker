@@ -11,14 +11,14 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
     public GameObject zeroGoldPanel;
     public GameObject zeroPointPanel;
 
-    public static CostManager Instance { get; set; }
+    public static CostManager Instance { get; private set; }
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(Instance);
+            DontDestroyOnLoad(gameObject);
         }
 
         else if (Instance != null)
@@ -27,12 +27,14 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
         }
     }
 
+
     public void Init(PlayerData Data) 
     {
         Debug.Log(Data);
         playerData = Data;
         goldCount = playerData.goldCount;
         pointCount = playerData.pointCount;
+        moneyScore.Init();
     }
 
     public int GoldSub(int amount)

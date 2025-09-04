@@ -17,9 +17,6 @@ public class GameManager : MonoBehaviour
     //public Enemy enemy { get; private set; }
     //public Item item { get; private set; }
 
-    
-    
-
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -27,7 +24,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(Instance);
+            DontDestroyOnLoad(gameObject);
         }
 
         else if(Instance != null) 
@@ -40,6 +37,7 @@ public class GameManager : MonoBehaviour
     {
         Init();
         SaveUserData();
+        LoadUserData();
     }
 
     public void SaveUserData() 
@@ -65,7 +63,7 @@ public class GameManager : MonoBehaviour
         {
             // 스테이지 (넘버) , 몬스터 (이름, hp)
             // 플레이어 (공격력, 크리티컬, 포인트, 골드) 
-            playerData = new PlayerData(0,"", 0, 0, 0, 1000, 1000);
+            playerData = new PlayerData(0, 0, 0, 0, 1000, 1000);
             Debug.Log(playerData);
         }
     }
@@ -81,5 +79,4 @@ public class GameManager : MonoBehaviour
         LoadUserData();
         CostManager.Instance.Init(playerData);
     }
-  
 }
