@@ -10,7 +10,8 @@ public class EnemyManager : MonoBehaviour
     [HideInInspector]public Enemy enemy;
     Enemydata enemyData;
     public Image hpImage; 
-    
+    public TMPro.TextMeshProUGUI monstername;
+
 
     void Awake()
     {
@@ -24,6 +25,7 @@ public class EnemyManager : MonoBehaviour
         GameObject monster = Resources.Load<GameObject>($"Prefabs/LV{index + 1}enemy");        
         Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity);
         GameManager.Instance.stagecnt.dungeonname.text = $"{monster.transform.GetComponent<Enemy>().enemyData.enemyName}" + "의 던전";
+        monstername.text = monster.transform.GetComponent<Enemy>().enemyData.enemyName;
         GetComponentInChildren<TextMeshProUGUI>().text = monster.transform.GetComponent<Enemy>().enemyData.enemyName;
         GetComponentInChildren<Image>().fillAmount = (float)monster.transform.GetComponent<Enemy>().enemyData.enemyHealth / monster.transform.GetComponent<Enemy>().enemyData.enemyHealth;
     }
@@ -35,6 +37,7 @@ public class EnemyManager : MonoBehaviour
         GameObject monster = Resources.Load<GameObject>($"Prefabs/LV{index+1}enemy");
         enemy = Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<Enemy>();
         GameManager.Instance.stagecnt.dungeonname.text = $"{monster.transform.GetComponent<Enemy>().enemyData.enemyName}" + "의 던전";
+        monstername.text = monster.transform.GetComponent<Enemy>().enemyData.enemyName;
     }
 
     public void TurnoffUI()
