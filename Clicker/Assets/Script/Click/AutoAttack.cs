@@ -105,7 +105,7 @@ public class AutoAttack : MonoBehaviour
             return;
         }
 
-        if (target.hpImage && target.hpImage.fillAmount <= 0f)
+        if (target.IsDead)
         {
             return;
         }
@@ -117,7 +117,7 @@ public class AutoAttack : MonoBehaviour
 
     }
 
-    public void BuyOrUpgrade()
+    public void AutoClickBT()
     {
         if (!autoClick)
         {

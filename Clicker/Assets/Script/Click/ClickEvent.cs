@@ -38,7 +38,7 @@ public class ClickEvent : MonoBehaviour
 
         Vector2 worldPos2D = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (enemy.hpImage && enemy.hpImage.fillAmount <= 0f)
+        if (enemy.IsDead)
         {
             return;
         }
