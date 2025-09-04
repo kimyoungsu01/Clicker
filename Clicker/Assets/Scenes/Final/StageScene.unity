@@ -1504,6 +1504,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d898c99637e2e4096ed0510ce11dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData:
+    goldCount: 0
+    pointCount: 0
+    stageID: 0
+    monsterName: 
+    monsterHPCount: 0
+    atxCount: 0
+    ctcCount: 0
   moneyScore: {fileID: 0}
   zeroGoldPanel: {fileID: 824792658}
   zeroPointPanel: {fileID: 1548183298}
@@ -7989,6 +7997,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94b0a6d0246e3647a55e1b81985ab02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData:
+    goldCount: 0
+    pointCount: 0
+    stageID: 0
+    monsterName: 
+    monsterHPCount: 0
+    atxCount: 0
+    ctcCount: 0
   stagecnt: {fileID: 1479675691}
 --- !u!4 &1726392092
 Transform:
@@ -9738,11 +9754,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475621789170175070, guid: 375a4f9545fa34c429e93797d1925aa0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 131
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475621789170175070, guid: 375a4f9545fa34c429e93797d1925aa0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 232.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 475621789170175070, guid: 375a4f9545fa34c429e93797d1925aa0, type: 3}
       propertyPath: m_LocalPosition.z

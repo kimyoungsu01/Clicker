@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         Init();
         SaveUserData();
+        LoadUserData();
     }
 
     public void SaveUserData() 
