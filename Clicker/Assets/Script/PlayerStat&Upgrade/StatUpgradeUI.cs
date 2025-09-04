@@ -22,6 +22,7 @@ public class StatUpgradeUI : MonoBehaviour
         AutoAttackUI();
         GetGoldUI();
     }
+
     public void CriticalDamageUI()
     {
         criticalDamageTitle.text = "치명타 " + PlayerUpgrade.Instance.playerStat.criticalStack;
