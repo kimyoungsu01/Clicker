@@ -1,21 +1,22 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
-using System.Net.WebSockets;
 using UnityEngine;
 
 public class AutoAttack : MonoBehaviour
 {
-    // ¿ÀÅäÅ¬¸¯À» ±¸¸Å -> ¿ÀÅäÅ¬¸¯ »ı¼º, µ¿ÀÛ -> ¿ÀÅäÅ¬¸¯ ·¹º§¾÷ -> Á¡Á¡ ´õ ºü¸£°Ô ¿ÀÅäÅ¬¸¯À» ÇÔ (´Ù¸¥ Å¬¸¯¿¡´Â ¿¬°üx)
-    // ¿ÀÅäÅ¬¸¯ bool ¿©ºÎ·Î ÆÇ´Ü, ±¸¸Å ÀÌÈÄ¿¡´Â true; ±¸¸Å ÀÌÀü¿¡´Â false;
-    // ÄÚ·çÆ¾ »ç¿ë ÇÊ¼ö
+    // ì˜¤í† í´ë¦­ì„ êµ¬ë§¤ -> ì˜¤í† í´ë¦­ ìƒì„±, ë™ì‘ -> ì˜¤í† í´ë¦­ ë ˆë²¨ì—… -> ì ì  ë” ë¹ ë¥´ê²Œ ì˜¤í† í´ë¦­ì„ í•¨
+    // ì˜¤í† í´ë¦­ bool ì—¬ë¶€ë¡œ íŒë‹¨ -> êµ¬ë§¤ ì´ì „ì—ëŠ” false; êµ¬ë§¤ ì´í›„ì—ëŠ” true; ì´í›„ ì¤‘ë³µ êµ¬ë§¤ì‹œ ë ˆë²¨up  
+    // ì½”ë£¨í‹´ ì‚¬ìš©
 
     [SerializeField] private bool autoClick = false;
     [SerializeField] private int autoClickLevel = 1;
-    [SerializeField] private float baseInterval = 3.0f; // ±âº» ÄğÅ¸ÀÓ
-    [SerializeField] private float perLevelMultiplier = 0.90f; // ·¹º§ 1´ç 10%¾¿ ´õ ºü¸£°Ô(0.90^level)
-    [SerializeField] private float minInterval = 0.15f;
+    [SerializeField , HideInInspector] private float baseInterval = 2.0f; // ê¸°ë³¸ ì¿¨íƒ€ì„
+    [SerializeField , HideInInspector] private float perLevelMultiplier = 0.90f; // ë ˆë²¨ 1ë‹¹ 10%ì”© ë” ë¹ ë¥´ê²Œ(0.90^level)
+    [SerializeField , HideInInspector] private float minInterval = 0.15f;
+    [SerializeField , HideInInspector] private int damagePerShot = 1;
+    [SerializeField , HideInInspector] private Enemy target;
 
-    Coroutine loop;
+    private Coroutine loop;
 
     float CurrentInterval()
     {
@@ -23,7 +24,7 @@ public class AutoAttack : MonoBehaviour
         float interval = baseInterval;
 
         for (int i = 0; i < lv; i++)
-            interval *= perLevelMultiplier;           // ·¹º§ 1¸¶´Ù 0.9¹èÃ³·³ ÁÙÀÌ±â
+            interval *= perLevelMultiplier; // ë ˆë²¨ 1ë§ˆë‹¤ 0.9ë°°ì²˜ëŸ¼ ì¤„ì´ê¸°
 
         if (interval < minInterval)
             interval = minInterval;
@@ -34,11 +35,12 @@ public class AutoAttack : MonoBehaviour
 
     public void autoClickUnlock()
     {
-        if (autoClick) return;
+        if (autoClick)
         {
+            return;
+        }
             autoClick = true;
             RestartLoop();
-        }
     }
 
     public void autoClickUpgrade()
@@ -75,8 +77,9 @@ public class AutoAttack : MonoBehaviour
         while (autoClick)
         {
             AttackOnce();
+            yield return new WaitForSeconds(CurrentInterval());
         }
-        yield return new WaitForSeconds(CurrentInterval());
+        
     }
 
     void RestartLoop()
@@ -92,15 +95,40 @@ public class AutoAttack : MonoBehaviour
 
     void AttackOnce()
     {
-        //if (!target)
-        //{
-        //    target = FindObjectOfType<EnemyHealth>();
+        if (!target || !target.gameObject || !target.gameObject.activeInHierarchy)
+        {
+            target = FindObjectOfType<Enemy>();
+        }
 
-        //    if (tar)
-        //}
+        if (!target)
+        {
+            return;
+        }
+
+        if (target.IsDead)
+        {
+            return;
+        }
+
+        target.Takedamage();
+
+        Vector2 pos = (Vector2)target.transform.position;
+        ParticleManager.instance?.PlayClick(pos);
+
     }
 
+    public void AutoClickBT()
+    {
+        if (!autoClick)
+        {
+            autoClickUnlock();
+        }
 
+        else
+        {
+            autoClickUpgrade();
+        }
+    }
 
 
 }

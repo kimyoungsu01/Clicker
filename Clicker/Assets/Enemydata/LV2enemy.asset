@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d5dab0fd427474c9000c840ba85cbf, type: 3}
   m_Name: LV2enemy
   m_EditorClassIdentifier: 
-  enemyName: "\uBC29\uD328\uBC29\uD328\uD574\uACE8"
+  enemyName: "\uBC29\uD328\uD574\uACE8"
   enemyHealth: 400
   enemyDefence: 40
