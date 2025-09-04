@@ -18,13 +18,13 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
 
         else if (Instance != null)
         {
             Destroy(gameObject);
         }
+        GameManager.Instance.Init();
     }
 
 

@@ -29,11 +29,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Init();
-    }
-
     public void SaveUserData() 
     {
         var saveData = JsonUtility.ToJson(playerData);
@@ -49,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         if (File.Exists(Application.persistentDataPath + "/UserData.txt"))
         {
-            var loadData = File.ReadAllText(Application.persistentDataPath + "/UserData.txt");
+            string loadData = File.ReadAllText(Application.persistentDataPath + "/UserData.txt");
             playerData = JsonUtility.FromJson<PlayerData>(loadData);
         }
         
@@ -68,7 +63,11 @@ public class GameManager : MonoBehaviour
 
         else
             playerData = new PlayerData(0, 1000, 1000, 0, 0, playerStat);
-        
+
+        stagecnt = FindObjectOfType<Stagecnt>();
+        Debug.Log(playerData);
         CostManager.Instance.Init(playerData);
     }
+
+
 }

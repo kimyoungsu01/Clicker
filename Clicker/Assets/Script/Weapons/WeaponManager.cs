@@ -29,12 +29,12 @@ public class WeaponManager : MonoBehaviour
         WeaponData brokenSword = Resources.Load<WeaponData>("WeaponData/BrokenSword");
         EquipWeapon(brokenSword);
         weaponUI.Initialize();
+        Debug.Log("생성");
     }
 
     public void EquipWeapon(WeaponData newWeapon)
     {
         currentWeapon = newWeapon;
-        
     }
 
     public void UpgradeWeapon(WeaponData weaponData)

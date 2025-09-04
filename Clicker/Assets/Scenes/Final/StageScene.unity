@@ -1622,9 +1622,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4304893469824807907, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4304893469824807907, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107350270312735192, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872986709522716027, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872986709522716027, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872986709522716027, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6890848393843475243, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
       propertyPath: m_Name
       value: WeaponInventoryUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890848393843475243, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3057,10 +3085,9 @@ MonoBehaviour:
     goldCount: 0
     pointCount: 0
     stageID: 0
-    weaponData: 0
-    weaponLv: 0
-    playerStat: {fileID: 0}
     upgradeLevels: 
+    playerStat: {fileID: 0}
+    stagecnt: {fileID: 0}
   stagecnt: {fileID: 1479675691}
 --- !u!4 &1726392092
 Transform:

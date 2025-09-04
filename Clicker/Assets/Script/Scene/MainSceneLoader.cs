@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -21,13 +22,14 @@ public class MainSceneLoader : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) 
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else
             Destroy(this.gameObject);
+        
     }
 
     private void Start()
@@ -52,6 +54,8 @@ public class MainSceneLoader : MonoBehaviour
         transition.LoadScene(1);
         isSave = true;
     }
+
+
 
     public void OnOption() 
     {

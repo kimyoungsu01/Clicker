@@ -21,6 +21,7 @@ public class WeaponUI : MonoBehaviour
     private void Start()
     {
         openInventory.onClick.AddListener(OpenInventory);
+        weaponInventoryUI.SetActive(false);
     }
 
     public void UpdateWeaponUI()
@@ -47,6 +48,6 @@ public class WeaponUI : MonoBehaviour
     public void OpenInventory()
     {
         weaponInventoryUI.SetActive(true);
-        EnemyManager.Instance.TurnoffUI();
+        //EnemyManager.Instance.TurnoffUI();
     }
 }

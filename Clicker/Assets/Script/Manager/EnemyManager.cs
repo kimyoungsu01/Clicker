@@ -21,6 +21,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
+        
         int index = GameManager.Instance.stagecnt.stagecnt / 10;
         GameObject monster = Resources.Load<GameObject>($"Prefabs/LV{index + 1}enemy");        
         Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity);
@@ -40,21 +41,26 @@ public class EnemyManager : MonoBehaviour
         monstername.text = monster.transform.GetComponent<Enemy>().enemyData.enemyName;
     }
 
-    public void TurnoffUI()
-    {
-        if (WeaponManager.Instance.weaponUI.weaponInventoryUI.activeSelf == true)
-        {
-            gameObject.GetComponentInChildren<Canvas>().enabled = false;
-        }
-    }
+    //public void TurnoffUI()
+    //{
+    //    Debug.Log(WeaponManager.Instance.weaponUI);
+    //    if (WeaponManager.Instance.weaponUI.weaponInventoryUI.activeSelf == true)
+    //    {
+    //        gameObject.GetComponentInChildren<Canvas>().enabled = false;
+    //    }
+    //}
 
-    public void TurnonUI()
-    {
-        if (WeaponManager.Instance.weaponUI.weaponInventoryUI.activeSelf == false)
-        {
-            gameObject.GetComponentInChildren<Canvas>().enabled = true;
-        }
-    }
+    //public void TurnonUI()
+    //{
+    //    if (WeaponManager.Instance.weaponUI.weaponInventoryUI.activeSelf == false)
+    //    {
+    //        Debug.Log("222222");
+    //        gameObject.GetComponentInChildren<Canvas>().enabled = true;
+ 
+    //    }
+    //}
+
+
 
     
 }

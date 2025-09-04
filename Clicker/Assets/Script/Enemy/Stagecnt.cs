@@ -14,11 +14,15 @@ public class Stagecnt : MonoBehaviour
     public TMP_Text dungeonstage;
     public TMP_Text dungeonname;
 
-   void Start()
+    private void Awake()
+    {
+        GameManager.Instance.stagecnt = this;
+    }
+
+    void Start()
    {
          stageText.text = (stagecnt+1).ToString();
-         
-    }
+   }
 
     public void UpdateStage()
     {

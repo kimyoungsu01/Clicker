@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerUpgrade : MonoBehaviour
@@ -17,10 +18,7 @@ public class PlayerUpgrade : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    void Start()
-    {
         playerStat = new PlayerStat(0, 0, 0, 0, 0, 0, 10, 10, 10, 0);
     }
+
 }
