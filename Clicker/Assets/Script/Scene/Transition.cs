@@ -16,7 +16,7 @@ public class Transition : MonoBehaviour
     IEnumerator TransitionToScene(int sceneNum)
     {
         // 애니메이션 트리거 실행
-        animator.SetTrigger("FadeOut");
+        animator.SetTrigger("FadeIn");
         Debug.Log("FadeOut Triggered");
 
         // 애니메이션이 끝날 때까지 대기

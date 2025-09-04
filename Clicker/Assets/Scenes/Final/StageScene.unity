@@ -4854,10 +4854,9 @@ MonoBehaviour:
     goldCount: 0
     pointCount: 0
     stageID: 0
-    monsterName: 
-    monsterHPCount: 0
-    atxCount: 0
-    ctcCount: 0
+    weaponData: 0
+    weaponLv: 0
+    playerStat: {fileID: 0}
   stagecnt: {fileID: 1479675691}
 --- !u!4 &1726392092
 Transform:
