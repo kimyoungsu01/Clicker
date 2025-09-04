@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f227cd5da4aaad14f8cce9e4a73d2e29, type: 3}
-  m_Name: StoneSword
+  m_Name: LegendSword
   m_EditorClassIdentifier: 
-  weaponID: 2
-  weaponName: "\uB3CC\uAC80"
-  weaponIcon: {fileID: 0}
-  baseAtkDamage: 10
-  baseCritical: 15
-  atkDmgIncreasePerLevel: 5
-  criRateIncreasePerLevel: 2
-  buyCost: 0
+  weaponID: 5
+  weaponName: "\uC804\uC124\uC758 \uAC80"
+  weaponIcon: {fileID: 21300000, guid: cf19f45fca849480992598c96f1790f5, type: 3}
+  baseAtkDamage: 50
+  baseCritical: 25
+  atkDmgIncreasePerLevel: 0
+  criRateIncreasePerLevel: 0
+  buyCost: 80
   baseUpgradeCost: 0
   costMultiplier: 0

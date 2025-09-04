@@ -21,8 +21,8 @@ public class WeaponManager : MonoBehaviour
 
     private void Start()
     {
-        WeaponData woodSword = Resources.Load<WeaponData>("WeaponData/WoodSword");
-        EquipWeapon(woodSword);
+        WeaponData brokenSword = Resources.Load<WeaponData>("WeaponData/BrokenSword");
+        EquipWeapon(brokenSword);
         weaponUI.Initialize();
     }
 

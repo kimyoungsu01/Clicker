@@ -9,21 +9,13 @@ public class WeaponInventoryUI : MonoBehaviour
 
     [SerializeField] private Button backButton;
 
-    private List<WeaponData> weaponList = new List<WeaponData>();
+    public List<WeaponData> weaponList = new List<WeaponData>();  // 데이터를 원하는 순서대로 동적 생성하기 위해 public 설정 후 Inspector 창에서 직접 데이터 넣어줌.
 
     private void Start()
     {
-        LoadAllWeapons();
         CreateInventoryUI();
 
         backButton.onClick.AddListener(BackButton);
-    }
-
-    // Resources 폴더에서 모든 무기 불러오기
-    private void LoadAllWeapons()
-    {
-        WeaponData[] loadedWeapons = Resources.LoadAll<WeaponData>("WeaponData");
-        weaponList.AddRange(loadedWeapons);
     }
 
     // UI 슬롯 동적 생성
