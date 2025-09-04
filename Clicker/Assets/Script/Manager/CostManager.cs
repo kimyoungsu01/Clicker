@@ -27,12 +27,14 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
         }
     }
 
+
     public void Init(PlayerData Data) 
     {
         Debug.Log(Data);
         playerData = Data;
         goldCount = playerData.goldCount;
         pointCount = playerData.pointCount;
+        moneyScore.Init();
     }
 
     public int GoldSub(int amount)

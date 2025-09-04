@@ -7,7 +7,7 @@ public class UpgradeBtn : MonoBehaviour
 {
     float criticalDamageUp = 50.0f;
     float autoAttackUp = 0.3f;
-    float getGoldUp = 100.0f;
+    int getGoldUp = 100;
     int stackPlus = 1;
     StatUpgradeUI statUpgradeUI;
 
@@ -24,6 +24,7 @@ public class UpgradeBtn : MonoBehaviour
             PlayerUpgrade.Instance.playerStat.criticalDamage += criticalDamageUp;
             CostManager.Instance.GoldSub(PlayerUpgrade.Instance.playerStat.criticalDamageCost);
             PlayerUpgrade.Instance.playerStat.criticalDamageCost += 10;
+
             statUpgradeUI.CriticalDamageUI();
         }
         else
@@ -62,5 +63,11 @@ public class UpgradeBtn : MonoBehaviour
         {
             CostManager.Instance.OnZeroGold();
         }
+    }
+
+    public float SetGoldUp(float gold)
+    {
+        PlayerUpgrade.Instance.playerStat.currentGoldUp = gold * (1 + PlayerUpgrade.Instance.playerStat.getGoldPersent / PlayerUpgrade.Instance.playerStat.getGoldPersent);
+        return PlayerUpgrade.Instance.playerStat.currentGoldUp;
     }
 }

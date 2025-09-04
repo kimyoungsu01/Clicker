@@ -8,11 +8,6 @@ public class MoneyScore : MonoBehaviour
     public TextMeshProUGUI goldScore;
     public TextMeshProUGUI pointScore;
 
-    private void Start()
-    {
-        ReadGold();
-        ReadPoint();
-    }
 
     public void ReadGold() 
     {
@@ -22,6 +17,11 @@ public class MoneyScore : MonoBehaviour
     public void ReadPoint() 
     {
         pointScore.text = CostManager.Instance.pointCount.ToString();
+    }
+    public void Init()
+    {
+        ReadGold();
+        ReadPoint();
     }
 
 }

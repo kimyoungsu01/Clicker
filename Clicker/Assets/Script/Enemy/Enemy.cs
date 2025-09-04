@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     int EnemyMaxHealth; // 적 최대체력
     private int currentHealth;
     public bool IsDead = false;
+    int gold = 10;
+    int point = 5;
 
 
 
@@ -65,8 +67,9 @@ public class Enemy : MonoBehaviour
 
     public void DestroyEnemy()
     {
+        Drop();
         Destroy(gameObject);
-        EnemyManager.Instance.Respwan();        
+        EnemyManager.Instance.Respwan();
     }
 
 
@@ -80,11 +83,9 @@ public class Enemy : MonoBehaviour
     }
 
     public void Drop()
-    {
-        int gold = 10;
-        int point = 5;
-        CostManager.Instance.goldCount += gold;
-        CostManager.Instance.pointCount += point;        
+    {        
+        CostManager.Instance.goldCount += (int)PlayerUpgrade.Instance.upgradeBtn.SetGoldUp(gold);
+        CostManager.Instance.pointCount += point;
     }
 
    

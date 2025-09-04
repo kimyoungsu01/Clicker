@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1706,7 +1706,7 @@ GameObject:
   - component: {fileID: 614402872}
   - component: {fileID: 614402871}
   m_Layer: 5
-  m_Name: PointScore
+  m_Name: GoldScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1751,7 +1751,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2200,6 +2200,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3020617014160897750, guid: 827d1272adc7f2e44be428403afb3196, type: 3}
   m_PrefabInstance: {fileID: 673370610}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &673370612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6794895489362212599, guid: 827d1272adc7f2e44be428403afb3196, type: 3}
+  m_PrefabInstance: {fileID: 673370610}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380746f3b58c81645aba4bbe44a2403f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &694611047
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,6 +2699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerUpgradeManager (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8006943098632527286, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
+      propertyPath: upgradeBtn
+      value: 
+      objectReference: {fileID: 673370612}
     - target: {fileID: 8310790979564162761, guid: fd242001691d23b41bcaf2d2f08aa389, type: 3}
       propertyPath: m_LocalPosition.x
       value: 262.0547
