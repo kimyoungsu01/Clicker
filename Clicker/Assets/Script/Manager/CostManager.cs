@@ -5,7 +5,7 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
 {
     public int pointCount { get;  set; }
     public int goldCount { get;  set; }
-    public PlayerData playerData;
+    private PlayerData playerData;
     public MoneyScore moneyScore;
 
     public GameObject zeroGoldPanel;
@@ -44,6 +44,7 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
         if (goldCount >= amount)
         {
             goldCount -= amount;
+            playerData.goldCount = goldCount;
             moneyScore.ReadGold();
             GameManager.Instance.SaveUserData();
         }
@@ -61,6 +62,7 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
         if (pointCount >= amount)
         {
             pointCount -= amount;
+            playerData.pointCount = pointCount;
             moneyScore.ReadPoint();
             GameManager.Instance.SaveUserData();
         }
@@ -75,10 +77,12 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
     public void OnZeroGold()
     {
         zeroGoldPanel.SetActive(true);
+        // 천천히 사라지는 효과 넣기
     }
 
     public void OnZeroPoint()
     {
         zeroPointPanel.SetActive(true);
+        // 천천히 사라지는 효과 넣기
     }
 }

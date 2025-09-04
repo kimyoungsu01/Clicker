@@ -435,7 +435,7 @@ MonoBehaviour:
   upgradeLevel: 0
   upgradeLevels: 0000000000000000000000000000000000000000
   index: 0
-  weaponInventoryUI: {fileID: 0}
+  weaponInventoryUI: {fileID: 799374163}
 --- !u!4 &363626366
 Transform:
   m_ObjectHideFlags: 0
@@ -1631,6 +1631,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
+--- !u!114 &799374163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2372231342912541385, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
+  m_PrefabInstance: {fileID: 799374162}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336842629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286557198d794e148bcd19ec14d2da49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &811772028 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5682710171427583515, guid: 69244059b7bba0f4cb279c36434d1e39, type: 3}
@@ -3049,6 +3060,7 @@ MonoBehaviour:
     weaponData: 0
     weaponLv: 0
     playerStat: {fileID: 0}
+    upgradeLevels: 
   stagecnt: {fileID: 1479675691}
 --- !u!4 &1726392092
 Transform:

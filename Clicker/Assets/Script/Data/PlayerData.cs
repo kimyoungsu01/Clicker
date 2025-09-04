@@ -23,7 +23,7 @@ public class PlayerData
         this.playerStat = playerStat;
     }
 
-    public void weapons() 
+    public void weaponUpgrades() 
     {
         WeaponManager.Instance.upgradeLevels = new int[5];
         return;

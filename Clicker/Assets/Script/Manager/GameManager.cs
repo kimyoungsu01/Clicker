@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         {
             // 스테이지 (넘버) // 플레이어 (포인트, 골드, 플레이어 스텟) 
             playerData = new PlayerData(0, 1000, 1000, 0, 0, playerStat);
-            Debug.Log(playerData);
+            SaveUserData();
         }
     }
 
