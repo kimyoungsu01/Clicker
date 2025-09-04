@@ -8,14 +8,12 @@ using static Unity.Burst.Intrinsics.X86;
 
 public class GameManager : MonoBehaviour
 {
+    public MoneyScore moneyScore;
     public PlayerData playerData;
     //public SceneLoader sceneLoader;
     public Stagecnt stagecnt;
 
-    public Stage stage { get; private set; }
-    //public Player player { get; private set; }
-    //public Enemy enemy { get; private set; }
-    //public Item item { get; private set; }
+    public Stage stage { get; private set; } 
 
     
     Stagecnt stageCnt;
@@ -40,6 +38,8 @@ public class GameManager : MonoBehaviour
     {
         GameObject monster = Resources.Load<GameObject>("Prefabs/LV1enemy");
         Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity);
+        playerData.goldCount = CostManager.Instance.goldCount;
+        playerData.pointCount = CostManager.Instance.pointCount;
         LoadUserData();
     }
 
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         {
             // 스테이지 (넘버) , 몬스터 (이름, hp)
             // 플레이어 (공격력, 크리티컬, 포인트, 골드) 
-            playerData = new PlayerData(0,"", 0, 0, 0);
+            playerData = new PlayerData(0,"", 0, 0, 0, 0, 0);
         }
     }
 
