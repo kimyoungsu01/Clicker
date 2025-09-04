@@ -11,7 +11,6 @@ using UnityEngine;
 
     public void DestroyEnemyEvent()
         {
-           
                enemy.DestroyEnemy();
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[System.Serializable]
 public class Stagecnt : MonoBehaviour
 {
     public int stagecnt = 0;
@@ -17,12 +18,17 @@ public class Stagecnt : MonoBehaviour
     private void Awake()
     {
         GameManager.Instance.stagecnt = this;
+        stagecnt = GameManager.Instance.playerData.currentStage;
+        dungeonstagecnt = (GameManager.Instance.playerData.currentStage % 10);
+        Debug.Log(dungeonstagecnt);
+
     }
 
     void Start()
-   {
-         stageText.text = (stagecnt+1).ToString();
-   }
+    {
+        stageText.text = (stagecnt+1).ToString();
+        DungeonStage();
+    }
 
     public void UpdateStage()
     {
@@ -35,7 +41,8 @@ public class Stagecnt : MonoBehaviour
         //dungeonstagecnt++;
         //dungeonstage.text = dungeonstagecnt.ToString();
         stageText.text = (stagecnt+1).ToString();
-       
+        GameManager.Instance.playerData.currentStage = stagecnt;
+        GameManager.Instance.SaveUserData();
     }
      public void DungeonStage()
     {

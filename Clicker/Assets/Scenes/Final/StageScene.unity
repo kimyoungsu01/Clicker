@@ -3084,10 +3084,9 @@ MonoBehaviour:
   playerData:
     goldCount: 0
     pointCount: 0
-    stageID: 0
     upgradeLevels: 
+    stageData: {fileID: 1479675691}
     playerStat: {fileID: 0}
-    stagecnt: {fileID: 0}
   stagecnt: {fileID: 1479675691}
 --- !u!4 &1726392092
 Transform:

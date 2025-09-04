@@ -17,9 +17,6 @@ public class Enemy : MonoBehaviour
     int gold = 10;
     int point = 5;
 
-
-
-
     void Awake()
     {       
         anim = GetComponentInChildren<Animator>();
@@ -73,9 +70,13 @@ public class Enemy : MonoBehaviour
     }
    
 
-    public void DestroyEnemy()
+    public void DestroyEnemy(bool enemy = true)
     {
-        Drop();
+        if (enemy)
+        {
+            Drop();
+        }
+        
         Destroy(gameObject);
         EnemyManager.Instance.Respwan();
     }

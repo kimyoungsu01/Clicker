@@ -46,7 +46,7 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
             goldCount -= amount;
             playerData.goldCount = goldCount;
             moneyScore.ReadGold();
-            GameManager.Instance.SaveUserData();
+            //GameManager.Instance.SaveUserData();
         }
 
         else
@@ -64,7 +64,7 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
             pointCount -= amount;
             playerData.pointCount = pointCount;
             moneyScore.ReadPoint();
-            GameManager.Instance.SaveUserData();
+            //GameManager.Instance.SaveUserData();
         }
 
         else

@@ -21,7 +21,6 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        
         int index = GameManager.Instance.stagecnt.stagecnt / 10;
         GameObject monster = Resources.Load<GameObject>($"Prefabs/LV{index + 1}enemy");        
         Instantiate(monster, new Vector3(0, 0, 0), Quaternion.identity);

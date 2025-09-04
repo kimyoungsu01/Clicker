@@ -58,13 +58,15 @@ public class GameManager : MonoBehaviour
 
     public void Init() 
     {
-        if (MainSceneLoader.Instance.isSave == true)
+        if (MainSceneLoader.Instance.isSave == true) 
+        {
             LoadUserData();
+            //EnemyManager.Instance.Respwan();
+        }
 
         else
             playerData = new PlayerData(0, 1000, 1000, 0, 0, playerStat);
 
-        stagecnt = FindObjectOfType<Stagecnt>();
         Debug.Log(playerData);
         CostManager.Instance.Init(playerData);
     }
