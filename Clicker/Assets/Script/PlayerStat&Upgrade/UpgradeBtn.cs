@@ -17,6 +17,7 @@ public class UpgradeBtn : MonoBehaviour
     {
         PlayerUpgrade.Instance.playerStat.criticalStack += stackPlus;
         PlayerUpgrade.Instance.playerStat.criticalDamage += criticalDamageUp;
+        CostManager.Instance.GoldSub(PlayerUpgrade.Instance.playerStat.criticalDamageCost);
         PlayerUpgrade.Instance.playerStat.criticalDamageCost += 10;
         statUpgradeUI.CriticalDamageUI();
     }
@@ -25,6 +26,7 @@ public class UpgradeBtn : MonoBehaviour
     {
         PlayerUpgrade.Instance.playerStat.autoAttackStack += stackPlus;
         PlayerUpgrade.Instance.playerStat.autoAttackPerSec += autoAttackUp;
+        CostManager.Instance.GoldSub(PlayerUpgrade.Instance.playerStat.autoAttackCost);
         PlayerUpgrade.Instance.playerStat.autoAttackCost += 10;
         statUpgradeUI.AutoAttackUI();
     }
@@ -33,6 +35,7 @@ public class UpgradeBtn : MonoBehaviour
     {
         PlayerUpgrade.Instance.playerStat.getGoldStack += stackPlus;
         PlayerUpgrade.Instance.playerStat.getGoldPersent += getGoldUp;
+        CostManager.Instance.GoldSub(PlayerUpgrade.Instance.playerStat.getGoldCost);
         PlayerUpgrade.Instance.playerStat.getGoldCost += 10;
         statUpgradeUI.GetGoldUI();
     }
