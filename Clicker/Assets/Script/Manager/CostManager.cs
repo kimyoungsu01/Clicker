@@ -11,7 +11,7 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
     public GameObject zeroGoldPanel;
     public GameObject zeroPointPanel;
 
-    public static CostManager Instance { get; private set; }
+    public static CostManager Instance { get; set; }
 
     private void Awake()
     {
