@@ -24,7 +24,6 @@ public class UpgradeBtn : MonoBehaviour
             PlayerUpgrade.Instance.playerStat.criticalDamage += criticalDamageUp;
             CostManager.Instance.GoldSub(PlayerUpgrade.Instance.playerStat.criticalDamageCost);
             PlayerUpgrade.Instance.playerStat.criticalDamageCost += 10;
-
             statUpgradeUI.CriticalDamageUI();
         }
         else
