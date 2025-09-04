@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
         {
             IsDead = true;
             anim.SetTrigger("Die");   
-            Drop();                                     
+            //Drop();                                     
         }
     }
    

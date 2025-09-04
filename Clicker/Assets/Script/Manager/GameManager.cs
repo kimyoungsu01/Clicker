@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Init();
+        SaveUserData();
     }
 
     public void SaveUserData() 
@@ -59,12 +60,13 @@ public class GameManager : MonoBehaviour
             var loadData = File.ReadAllText(Application.persistentDataPath + "/UserData.txt");
             playerData = JsonUtility.FromJson<PlayerData>(loadData);
         }
-
+        
         else  
         {
             // 스테이지 (넘버) , 몬스터 (이름, hp)
             // 플레이어 (공격력, 크리티컬, 포인트, 골드) 
-            playerData = new PlayerData(0,"", 0, 0, 0, 0, 0);
+            playerData = new PlayerData(0,"", 0, 0, 0, 1000, 1000);
+            Debug.Log(playerData);
         }
     }
 
@@ -77,8 +79,7 @@ public class GameManager : MonoBehaviour
     public void Init() 
     {
         LoadUserData();
-        playerData.goldCount = CostManager.Instance.goldCount;
-        playerData.pointCount = CostManager.Instance.pointCount;
+        CostManager.Instance.Init(playerData);
     }
   
 }

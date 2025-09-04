@@ -2,14 +2,13 @@
 [System.Serializable]
 public class PlayerData
 {
-    public int goldCount { get; set; }
-    public int pointCount { get; set; }
-
-    public int stageID { get; private set; }
-    public string monsterName { get; private set; }
-    public int monsterHPCount { get; private set; }
-    public int atxCount { get; private set; }
-    public int ctcCount { get; private set; }
+    public int goldCount;
+    public int pointCount;
+    public int stageID;
+    public string monsterName;
+    public int monsterHPCount;
+    public int atxCount;
+    public int ctcCount; 
 
     // 생성자란? 형식: 반환타입x, 클래스랑 이름이 똑같다,
     // 매개변수는 있어도 되고 없어도 된다,
