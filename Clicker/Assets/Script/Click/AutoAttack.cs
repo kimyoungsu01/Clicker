@@ -24,7 +24,7 @@ public class AutoAttack : MonoBehaviour
         float interval = baseInterval;
 
         for (int i = 0; i < lv; i++)
-            interval *= perLevelMultiplier; // 레벨 1마다 0.9배처럼 줄이기
+            interval *= perLevelMultiplier; 
 
         if (interval < minInterval)
             interval = minInterval;
@@ -105,10 +105,10 @@ public class AutoAttack : MonoBehaviour
             return;
         }
 
-        //if (target.IsDead)
-        //{
-        //    return;
-        //}
+        if (target.IsDead)
+        {
+            return;
+        }
 
         target.Takedamage();
 
