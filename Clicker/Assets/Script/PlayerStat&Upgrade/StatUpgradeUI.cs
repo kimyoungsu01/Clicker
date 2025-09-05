@@ -44,4 +44,11 @@ public class StatUpgradeUI : MonoBehaviour
         getGoldValue.text = PlayerUpgrade.Instance.playerStat.getGoldCost.ToString();
     }
 
+    public void Refresh()
+    {
+        PlayerUpgrade.Instance.LoadUserData();
+        CriticalDamageUI();
+        AutoAttackUI();
+        GetGoldUI();
+    }
 }

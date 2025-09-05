@@ -25,6 +25,7 @@ public class UpgradeBtn : MonoBehaviour
             CostManager.Instance.GoldSub(PlayerUpgrade.Instance.playerStat.criticalDamageCost);
             PlayerUpgrade.Instance.playerStat.criticalDamageCost += 10;
             statUpgradeUI.CriticalDamageUI();
+            PlayerUpgrade.Instance.SaveUserData();
         }
         else
         {
@@ -41,6 +42,7 @@ public class UpgradeBtn : MonoBehaviour
             CostManager.Instance.GoldSub(PlayerUpgrade.Instance.playerStat.autoAttackCost);
             PlayerUpgrade.Instance.playerStat.autoAttackCost += 10;
             statUpgradeUI.AutoAttackUI();
+            PlayerUpgrade.Instance.SaveUserData();
         }
         else
         {
@@ -57,6 +59,7 @@ public class UpgradeBtn : MonoBehaviour
             CostManager.Instance.GoldSub(PlayerUpgrade.Instance.playerStat.getGoldCost);
             PlayerUpgrade.Instance.playerStat.getGoldCost += 10;
             statUpgradeUI.GetGoldUI();
+            PlayerUpgrade.Instance.SaveUserData();
         }
         else
         {
