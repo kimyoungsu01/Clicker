@@ -3348,6 +3348,10 @@ MonoBehaviour:
     getGoldCost: 0
   weaponData: {fileID: 0}
   stagecnt: {fileID: 1479675691}
+  isSave: 0
+  animator: {fileID: 0}
+  transitionTime: 1
+  transition: {fileID: 0}
 --- !u!4 &1726392092
 Transform:
   m_ObjectHideFlags: 0
