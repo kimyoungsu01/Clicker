@@ -65,4 +65,22 @@ public class WeaponManager : MonoBehaviour
             return baseDamage;
         }
     }
+
+    public void ResetWeapons()
+    {
+        // 강화 레벨 초기화
+        for (int i = 0; i < upgradeLevels.Length; i++)
+            upgradeLevels[i] = 0;
+
+        // 기본 무기로 교체
+        WeaponData brokenSword = Resources.Load<WeaponData>("WeaponData/BrokenSword");
+        EquipWeapon(brokenSword);
+
+        // 인덱스 0으로 초기화
+        index = 0;
+
+        // UI 갱신
+        weaponUI.UpdateWeaponUI();
+        Debug.Log("무기 초기화 완료");
+    }
 }
