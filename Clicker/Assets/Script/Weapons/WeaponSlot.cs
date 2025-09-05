@@ -23,6 +23,9 @@ public class WeaponSlot : MonoBehaviour
 
     private WeaponData weaponData;
 
+    //PlayerData playerData;
+    //WeaponInfo weaponInformation;
+
     // 무기 데이터 받아서 UI 초기화
     public void Setup(WeaponData data)
     {
@@ -74,22 +77,33 @@ public class WeaponSlot : MonoBehaviour
 
     private void OnUpgrade()
     {
-        WeaponManager.Instance.UpgradeWeapon(weaponData);
+        int index = weaponData.weaponID - 1;
+        int upgradeLevel = WeaponManager.Instance.upgradeLevels[index];
 
-        int cost = WeaponManager.Instance.CurrentUpgradeCost;
+        int cost = weaponData.baseUpgradeCost * (upgradeLevel) * 2;
 
         if (CostManager.Instance.pointCount >= cost)
         {
             CostManager.Instance.PointSub(cost); // 포인트 차감
             CostManager.Instance.moneyScore.ReadPoint();
 
-            WeaponManager.Instance.index = weaponData.weaponID - 1;
-            WeaponManager.Instance.upgradeLevels[WeaponManager.Instance.index]++;
-
-            Debug.Log($"{weaponData.weaponName} 강화 완료! 현재 데미지: {WeaponManager.Instance.CurrentAttack}");
-
-            upgradeCost.text = WeaponManager.Instance.CurrentUpgradeCost.ToString();
+            WeaponManager.Instance.upgradeLevels[index]++;
             RefreshUI();
+
+            //weaponInformation = WeaponManager.Instance.playerData.weaponInfo.Find(f => f.weaponID == weaponData.weaponID);
+
+            //Debug.Log(WeaponManager.Instance.playerData.weaponInfo);
+
+            //if (weaponInformation != null)
+            //{
+            //    weaponInformation.levelInfo++;
+            //    GameManager.Instance.SaveUserData();
+            //    Debug.Log($"{weaponData.weaponName} 강화 완료! 현재 레벨: {weaponInformation.levelInfo}");
+            //}
+            //else
+            //{
+            //    Debug.LogError($"PlayerData에서 무기 {weaponData.weaponID} 정보를 찾을 수 없음!");
+            //}
         }
         else
         {
@@ -108,11 +122,13 @@ public class WeaponSlot : MonoBehaviour
 
     private void RefreshUI()
     {
-        WeaponData weapon = WeaponManager.Instance.currentWeapon;
+        int index = weaponData.weaponID - 1;
+        int upgradeLevel = WeaponManager.Instance.upgradeLevels[index];
 
-        image.sprite = weapon.weaponIcon;
-        name.text = $"{weapon.weaponName} Lv. {WeaponManager.Instance.CurrentLevel}";
-        atkDmg.text = $"공격력: {WeaponManager.Instance.CurrentAttack}";
-        criRate.text = $"{WeaponManager.Instance.CurrentCritical}%";
+        upgradeCost.text = (weaponData.baseUpgradeCost * (upgradeLevel + 1) * 2).ToString();
+        image.sprite = weaponData.weaponIcon;
+        name.text = $"{weaponData.weaponName} Lv. {upgradeLevel}";
+        atkDmg.text = $"공격력: {weaponData.baseAtkDamage + upgradeLevel * weaponData.atkDmgIncreasePerLevel}";
+        criRate.text = $"{weaponData.baseCritical + upgradeLevel * weaponData.criRateIncreasePerLevel}%";
     }
 }

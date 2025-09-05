@@ -47,4 +47,9 @@ public class SoundManager : MonoBehaviour
     {
         UpdatesfxSource.Play();
     }
+
+    public void Onsfx()
+    { 
+        sfxSource.Play();
+    }
 }
