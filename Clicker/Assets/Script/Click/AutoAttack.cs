@@ -18,17 +18,44 @@ public class AutoAttack : MonoBehaviour
     private Coroutine loop;
     [SerializeField] private PlayerStat stats;
 
+    private bool lastAutoClick;
+    private float lastInterval = -1f;
+
+    void Start()
+    {
+        lastAutoClick = autoClick;
+        lastInterval = CurrentInterval();
+    }
+
+
     float CurrentInterval()
     {
-        //var s = stats;
-        if (/*s != null && s.autoAttackPerSec > 0f*/PlayerUpgrade.Instance.playerStat.autoAttackPerSec > 0f)
+        
+        if (PlayerUpgrade.Instance.playerStat.autoAttackPerSec > 0f)
         {
-            float byAPS = 1f / /*s.autoAttackPerSec;*/PlayerUpgrade.Instance.playerStat.autoAttackPerSec;
+            float byAPS = 1f / PlayerUpgrade.Instance.playerStat.autoAttackPerSec;
             return Mathf.Max(minInterval, byAPS);
         }
         return Mathf.Max(minInterval, baseInterval);
     }
 
+    void Update()
+    {
+        
+        if (autoClick != lastAutoClick)
+        {
+            lastAutoClick = autoClick;
+            if (autoClick) RestartLoop();
+            else StopLoop();
+        }
+
+        float now = CurrentInterval();
+        if (autoClick && loop != null && !Mathf.Approximately(now, lastInterval))
+        {
+            lastInterval = now;
+            RestartLoop();
+        }
+    }
 
     public void autoClickUnlock()
     {
@@ -69,6 +96,7 @@ public class AutoAttack : MonoBehaviour
         loop = null;
     }
 
+
     private IEnumerator AutoLoop()
     {
         while (autoClick)
@@ -76,18 +104,23 @@ public class AutoAttack : MonoBehaviour
             AttackOnce();
             yield return new WaitForSeconds(CurrentInterval());
         }
-        
+        loop = null; 
     }
 
-    void RestartLoop()
+    void StopLoop()
     {
         if (loop != null)
         {
             StopCoroutine(loop);
+            loop = null;
         }
+    }
 
+    void RestartLoop()
+    {
+        StopLoop();
+        lastInterval = CurrentInterval();
         loop = StartCoroutine(AutoLoop());
-
     }
 
     void AttackOnce()
