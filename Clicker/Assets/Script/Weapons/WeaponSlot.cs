@@ -64,6 +64,7 @@ public class WeaponSlot : MonoBehaviour
             // 구매 후에는 강화 비용으로 표시 전환
             upgradeCost.text = weaponData.baseUpgradeCost.ToString();
         }
+
         else
         {
             Debug.Log("포인트 부족! 구매 실패");
