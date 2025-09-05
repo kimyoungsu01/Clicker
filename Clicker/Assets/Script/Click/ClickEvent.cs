@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ClickEvent : MonoBehaviour
 {
+    public SoundManager soundManager;
     public bool isPaused = false;
     private Enemy enemy;
 
@@ -13,7 +14,7 @@ public class ClickEvent : MonoBehaviour
     {
         if (!Input.GetMouseButtonDown(0))
         { 
-            return; 
+            return;
         }
 
         if (isPaused)
@@ -23,6 +24,7 @@ public class ClickEvent : MonoBehaviour
 
         if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
         {
+            SoundManager.instance.OnUpdatesfx();
             return;
         }
 
