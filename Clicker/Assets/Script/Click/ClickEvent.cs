@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ClickEvent : MonoBehaviour
 {
+    public SoundManager soundManager;
     public bool isPaused = false;
     private Enemy enemy;
 
@@ -13,7 +14,7 @@ public class ClickEvent : MonoBehaviour
     {
         if (!Input.GetMouseButtonDown(0))
         { 
-            return; 
+            return;
         }
 
         if (isPaused)
@@ -44,6 +45,7 @@ public class ClickEvent : MonoBehaviour
         }
 
         enemy.Takedamage();
+        SoundManager.instance.OnUpdatesfx();
 
         NewParticleManager.instance?.PlayClick(worldPos2D);
 

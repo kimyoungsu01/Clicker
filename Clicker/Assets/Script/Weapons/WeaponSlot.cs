@@ -64,6 +64,7 @@ public class WeaponSlot : MonoBehaviour
             // 구매 후에는 강화 비용으로 표시 전환
             upgradeCost.text = weaponData.baseUpgradeCost.ToString();
         }
+
         else
         {
             Debug.Log("포인트 부족! 구매 실패");
@@ -88,6 +89,7 @@ public class WeaponSlot : MonoBehaviour
             Debug.Log($"{weaponData.weaponName} 강화 완료! 현재 데미지: {WeaponManager.Instance.CurrentAttack}");
 
             upgradeCost.text = WeaponManager.Instance.CurrentUpgradeCost.ToString();
+            RefreshUI();
             WeaponUI.Instance.UpdateWeaponUI();
         }
         else
@@ -106,11 +108,11 @@ public class WeaponSlot : MonoBehaviour
 
     private void RefreshUI()
     {
-        int lv = WeaponManager.Instance.upgradeLevels[weaponData.weaponID - 1];
+        WeaponData weapon = WeaponManager.Instance.currentWeapon;
 
-        name.text = $"{weaponData.weaponName} Lv.{lv}";
-        atkDmg.text = $"공격력: {weaponData.baseAtkDamage + lv * weaponData.atkDmgIncreasePerLevel}";
-        criRate.text = $"치명타 확률: {weaponData.baseCritical + lv * weaponData.criRateIncreasePerLevel}%";
-        upgradeCost.text = (weaponData.baseUpgradeCost * (lv + 1) * 2).ToString();
+        image.sprite = weapon.weaponIcon;
+        name.text = $"{weapon.weaponName} Lv. {WeaponManager.Instance.CurrentLevel}";
+        atkDmg.text = $"공격력: {WeaponManager.Instance.CurrentAttack}";
+        criRate.text = $"{WeaponManager.Instance.CurrentCritical}%";
     }
 }
