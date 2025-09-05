@@ -37,11 +37,15 @@ public class Enemy : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                
-                if (EventSystem.current.IsPointerOverGameObject())
-                    return;
 
-                Takedamage();
+                if (EventSystem.current.IsPointerOverGameObject())
+                {
+                    return;
+                }
+                if (IsDead == false)
+                {
+                    Takedamage();
+                }
                 
             }
         }
