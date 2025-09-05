@@ -2424,7 +2424,7 @@ MonoBehaviour:
       - m_Target: {fileID: 960739288}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: setMusicVolum
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
