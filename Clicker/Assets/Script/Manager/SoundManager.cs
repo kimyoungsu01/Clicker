@@ -8,16 +8,16 @@ public class SoundManager : MonoBehaviour
     public AudioSource sfxSource; // 효과음 오디오 소스
     public AudioSource UpdatesfxSource; // 효과음 오디오 소스
 
-    public static SoundManager instance { get; private set; }
+    public static SoundManager instance { get; set; }
 
     private void Awake()
     {
         if (instance == null)
         {
-            instance = this;
+            instance = GetComponents<AudioSource>()[0].GetComponent<SoundManager>();
             DontDestroyOnLoad(gameObject);
         }
-        else 
+        else
         {
             Destroy(gameObject);
         }

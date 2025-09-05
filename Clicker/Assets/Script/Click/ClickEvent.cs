@@ -24,7 +24,6 @@ public class ClickEvent : MonoBehaviour
 
         if (EventSystem.current && EventSystem.current.IsPointerOverGameObject())
         {
-            SoundManager.instance.OnUpdatesfx();
             return;
         }
 
@@ -46,6 +45,7 @@ public class ClickEvent : MonoBehaviour
         }
 
         enemy.Takedamage();
+        SoundManager.instance.OnUpdatesfx();
 
         ParticleManager.instance?.PlayClick(worldPos2D);
 
