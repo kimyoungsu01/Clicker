@@ -31,27 +31,27 @@ public class Enemy : MonoBehaviour
         Debug.Log("적 체력: " + currentHealth);        
     }
 
-    private void Update() // 애니메이션 테스트용 나중에 지우기 (히트는 테이크데미지에 다이는 에너미다이에 넣기)
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
+    //private void Update() // 애니메이션 테스트용 나중에 지우기 (히트는 테이크데미지에 다이는 에너미다이에 넣기)
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        if (Input.GetMouseButtonDown(0))
+    //        {
                 
-                if (EventSystem.current.IsPointerOverGameObject())
-                    return;
+    //            if (EventSystem.current.IsPointerOverGameObject())
+    //                return;
 
-                Takedamage();
+    //            Takedamage();
                 
-            }
-        }
+    //        }
+    //    }
        
-    }
+    //}
 
     public void Takedamage()
     {
-        int damage = Mathf.Max(0, 100  - enemyData.enemyDefence); //playerData.atxCount 나중에변경
-        currentHealth -= damage;
+        //int damage = Mathf.Max(0, 100  - enemyData.enemyDefence); //playerData.atxCount 나중에변경
+        currentHealth -= (int)WeaponManager.Instance.Damage();
         currentHealth = Mathf.Clamp(currentHealth, 0, EnemyMaxHealth);
         anim.SetTrigger("Hit");
         anim.SetBool("EditChk", true);
