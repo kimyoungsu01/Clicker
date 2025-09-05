@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using Unity.VisualScripting;
-using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 using static System.TimeZoneInfo;
 using static Unity.Burst.Intrinsics.X86;
@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float transitionTime = 1f;
     
 
-    public Stage stage { get; private set; }
     public static GameManager Instance { get; private set; }
 
     private void Awake()
