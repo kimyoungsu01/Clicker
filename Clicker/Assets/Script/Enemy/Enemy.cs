@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     int EnemyMaxHealth; // 적 최대체력
     private int currentHealth;
     public bool IsDead = false;
-    int gold = 10;
+    int gold = 5;
     int point = 5;
 
     void Awake()
@@ -31,27 +31,24 @@ public class Enemy : MonoBehaviour
         Debug.Log("적 체력: " + currentHealth);        
     }
 
-    //private void Update() // 애니메이션 테스트용 나중에 지우기 (히트는 테이크데미지에 다이는 에너미다이에 넣기)
-    //{
-    //    if (Input.GetMouseButtonDown(0))
-    //    {
-    //        if (Input.GetMouseButtonDown(0))
-    //        {
-                
-    //            if (EventSystem.current.IsPointerOverGameObject())
-    //                return;
+    private void Update() // 애니메이션 테스트용 나중에 지우기 (히트는 테이크데미지에 다이는 에너미다이에 넣기)
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
 
-    //            Takedamage();
-                
-    //        }
-    //    }
-       
-    //}
+            if (IsDead == false)
+            {
+                Takedamage();
+            }
+        }
+    }
 
     public void Takedamage()
     {
-        //int damage = Mathf.Max(0, 100  - enemyData.enemyDefence); //playerData.atxCount 나중에변경
-        currentHealth -= (int)WeaponManager.Instance.Damage();
+        int damage = Mathf.Max(0, 100  - enemyData.enemyDefence); //playerData.atxCount 나중에변경
+        currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, EnemyMaxHealth);
         anim.SetTrigger("Hit");
         anim.SetBool("EditChk", true);
@@ -65,19 +62,15 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             IsDead = true;
-            anim.SetTrigger("Die");   
-            //Drop();                                     
+            anim.SetTrigger("Die");
+            Drop();
+            CostManager.Instance.moneyScore.Init();
         }
     }
    
 
     public void DestroyEnemy(bool enemy = true)
-    {
-        if (enemy)
-        {
-            Drop();
-        }
-        
+    {        
         Destroy(gameObject);
         EnemyManager.Instance.Respwan();
     }
@@ -96,6 +89,8 @@ public class Enemy : MonoBehaviour
     {        
         CostManager.Instance.goldCount += (int)PlayerUpgrade.Instance.upgradeBtn.SetGoldUp(gold);
         CostManager.Instance.pointCount += point;
+        Debug.Log(CostManager.Instance.goldCount += (int)PlayerUpgrade.Instance.upgradeBtn.SetGoldUp(gold));
+        GameManager.Instance.SaveUserData();
     }
 
 }

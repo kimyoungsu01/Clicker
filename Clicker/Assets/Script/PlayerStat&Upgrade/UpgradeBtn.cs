@@ -66,7 +66,7 @@ public class UpgradeBtn : MonoBehaviour
 
     public float SetGoldUp(float gold)
     {
-        gold += (gold * getGoldUp / 100);
+        gold = gold+ (gold * PlayerUpgrade.Instance.playerStat.getGoldPersent / 100);
         return gold;
     }
 }
