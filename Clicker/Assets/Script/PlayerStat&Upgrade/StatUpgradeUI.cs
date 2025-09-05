@@ -46,7 +46,6 @@ public class StatUpgradeUI : MonoBehaviour
 
     public void Refresh()
     {
-        PlayerUpgrade.Instance.LoadUserData();
         CriticalDamageUI();
         AutoAttackUI();
         GetGoldUI();

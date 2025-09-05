@@ -11,7 +11,6 @@ using static Unity.Burst.Intrinsics.X86;
 public class GameManager : MonoBehaviour
 {
     public PlayerData playerData;
-    public PlayerStat playerStat;
     public WeaponData weaponData;
     public Stagecnt stagecnt;
     public Transition transition;
@@ -85,11 +84,10 @@ public class GameManager : MonoBehaviour
         CostManager.Instance.Init(playerData);
     }
 
-   
-
     public void OnNewStage()
     {
-        transition.LoadScene(1);        
+        transition.LoadScene(1);
+        PlayerUpgrade.Instance.playerStat = new PlayerStat(0,0,0,0,0,0,10,10,10);
         isSave = false;
     }
 
@@ -97,6 +95,7 @@ public class GameManager : MonoBehaviour
     {
         // 플레이어 저장값 불러와서 
         GameManager.Instance.LoadUserData();
+        PlayerUpgrade.Instance.LoadUserData();
         //anim.SetTrigger("FadeOut");
         transition.LoadScene(1);        
         isSave = true;

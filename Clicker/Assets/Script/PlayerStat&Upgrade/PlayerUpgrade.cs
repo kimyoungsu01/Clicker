@@ -15,14 +15,14 @@ public class PlayerUpgrade : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-        LoadUserData();
-        GameManager.Instance.playerStat = playerStat;
-        GameManager.Instance.SaveUserData();
+        //GameManager.Instance.playerStat = playerStat;
+        //GameManager.Instance.SaveUserData();
     }
     public void SaveUserData()
     {
@@ -41,11 +41,6 @@ public class PlayerUpgrade : MonoBehaviour
             string loadData = File.ReadAllText(Application.persistentDataPath + "/UserStatData.txt");
             playerStat = JsonUtility.FromJson<PlayerStat>(loadData);
         }
-
-        else
-        {
-            playerStat = new PlayerStat(0, 0, 0, 0, 0, 0, 10, 10, 10);
-            SaveUserData();
-        }
     }
+    
 }
