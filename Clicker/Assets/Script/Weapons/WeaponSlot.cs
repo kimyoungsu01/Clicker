@@ -90,7 +90,6 @@ public class WeaponSlot : MonoBehaviour
 
             upgradeCost.text = WeaponManager.Instance.CurrentUpgradeCost.ToString();
             RefreshUI();
-            WeaponUI.Instance.UpdateWeaponUI();
         }
         else
         {
@@ -103,6 +102,8 @@ public class WeaponSlot : MonoBehaviour
     {
         Debug.Log($"{weaponData.weaponName} 장착!");
         WeaponManager.Instance.EquipWeapon(weaponData);
+        WeaponManager.Instance.index = weaponData.weaponID - 1;
+        WeaponManager.Instance.equippedWeaponIndex = WeaponManager.Instance.index;
         WeaponUI.Instance.UpdateWeaponUI();
     }
 
