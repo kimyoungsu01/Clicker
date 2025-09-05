@@ -460,63 +460,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362704606}
   m_CullTransparentMesh: 1
---- !u!1 &363626364
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 363626366}
-  - component: {fileID: 363626365}
-  m_Layer: 0
-  m_Name: WeaponManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &363626365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363626364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 989549ee0c2865d43bdf21a59a91db1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponUI: {fileID: 4903345075322255827, guid: 69244059b7bba0f4cb279c36434d1e39, type: 3}
-  playerData:
-    goldCount: 0
-    pointCount: 0
-    currentStage: 0
-    damage: 0
-    criticalDamage: 0
-    criticalPacentage: 0
-  currentWeapon: {fileID: 0}
-  upgradeLevel: 0
-  upgradeLevels: 0000000000000000000000000000000000000000
-  index: 0
-  weaponInventoryUI: {fileID: 799374163}
---- !u!4 &363626366
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363626364}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 131, y: 232.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &442394775
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,6 +858,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69244059b7bba0f4cb279c36434d1e39, type: 3}
+--- !u!114 &485435701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4903345075322255827, guid: 69244059b7bba0f4cb279c36434d1e39, type: 3}
+  m_PrefabInstance: {fileID: 485435700}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf29ca45bf65224e9966774ba7fa9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &533268609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2101,7 +2055,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoClick: 0
-  autoClickLevel: 0
   baseInterval: 2
   minInterval: 0.15
   damagePerShot: 1
@@ -2868,6 +2821,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216583481}
   m_CullTransparentMesh: 1
+--- !u!1001 &1246470402
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 161924231212961019, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_Name
+      value: WeaponManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3824655565681305716, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: weaponUI
+      value: 
+      objectReference: {fileID: 485435701}
+    - target: {fileID: 3824655565681305716, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: weaponInventoryUI
+      value: 
+      objectReference: {fileID: 799374163}
+    - target: {fileID: 4368847301796261369, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 245.92186
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368847301796261369, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 416.80545
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368847301796261369, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.217546
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368847301796261369, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368847301796261369, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368847301796261369, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368847301796261369, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368847301796261369, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368847301796261369, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368847301796261369, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 61d05132c05a14244aa0a5540a6ed7b4, type: 3}
 --- !u!1 &1336842629 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6890848393843475243, guid: 8526152210ef18e4e875eb44f834c133, type: 3}
@@ -3075,16 +3093,6 @@ MonoBehaviour:
     damage: 0
     criticalDamage: 0
     criticalPacentage: 0
-  playerStat:
-    criticalStack: 0
-    criticalDamage: 0
-    autoAttackStack: 0
-    autoAttackPerSec: 0
-    getGoldStack: 0
-    getGoldPersent: 0
-    criticalDamageCost: 0
-    autoAttackCost: 0
-    getGoldCost: 0
   weaponData: {fileID: 0}
   stagecnt: {fileID: 1479675691}
   transition: {fileID: 0}
@@ -5880,7 +5888,7 @@ SceneRoots:
   - {fileID: 9016729071466948877}
   - {fileID: 8526310706328305260}
   - {fileID: 450851443}
-  - {fileID: 363626366}
+  - {fileID: 1246470402}
   - {fileID: 973950931}
   - {fileID: 2114064068}
   - {fileID: 6773588236982295825}

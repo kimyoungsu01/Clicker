@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 using static System.TimeZoneInfo;
 using static Unity.Burst.Intrinsics.X86;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/UserData.txt", saveData);
 
         // 저장 확인
-        Debug.Log(Application.persistentDataPath);
+        UnityEngine.Debug.Log(Application.persistentDataPath);
     }
 
     public void LoadUserData() 
@@ -77,9 +79,9 @@ public class GameManager : MonoBehaviour
         {
             playerData = new PlayerData(0, 1000, 1000, 10, 10, 5);
         }
-            
 
-        Debug.Log(playerData);
+
+        UnityEngine.Debug.Log(playerData);
         CostManager.Instance.Init(playerData);
     }
 
@@ -87,6 +89,11 @@ public class GameManager : MonoBehaviour
     {
         transition.LoadScene(1);
         PlayerUpgrade.Instance.playerStat = new PlayerStat(0,0,0,0,0,0,10,10,10);
+        WeaponSaveManager.Instance.ResetWeapons();
+        for (int i = 0; WeaponManager.Instance.upgradeLevels.Length <5; i++)
+        {
+            WeaponManager.Instance.upgradeLevels[i] = 0;
+        }
         isSave = false;
     }
 
@@ -95,6 +102,8 @@ public class GameManager : MonoBehaviour
         // 플레이어 저장값 불러와서 
         GameManager.Instance.LoadUserData();
         PlayerUpgrade.Instance.LoadUserData();
+        WeaponSaveManager.Instance.LoadWeapons();
+        WeaponUI.Instance.UpdateWeaponUI();
         //anim.SetTrigger("FadeOut");
         transition.LoadScene(1);        
         isSave = true;

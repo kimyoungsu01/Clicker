@@ -23,31 +23,44 @@ public class WeaponSlot : MonoBehaviour
 
     private WeaponData weaponData;
 
-    //PlayerData playerData;
-    //WeaponInfo weaponInformation;
-
     // 무기 데이터 받아서 UI 초기화
     public void Setup(WeaponData data)
     {
         weaponData = data;
 
+        // 무기 저장 데이터 불러오기 (없으면 새로 생성)
+        var saveData = WeaponSaveManager.Instance.GetOrCreateWeapon(data.weaponID);
+
+        int upgradeLevel = saveData.level;
+
+        // UI 반영
         image.sprite = data.weaponIcon;
-        name.text = $"{data.weaponName} lv. 0";
-        atkDmg.text = $"공격력: {data.baseAtkDamage}";
-        criRate.text = $"{data.baseCritical}%";
+        name.text = $"{data.weaponName} Lv. {upgradeLevel}";
+        atkDmg.text = $"공격력: {data.baseAtkDamage + upgradeLevel * data.atkDmgIncreasePerLevel}";
+        criRate.text = $"{data.baseCritical + upgradeLevel * data.criRateIncreasePerLevel}%";
 
         buyCost.text = $"{data.buyCost}";
-
-        upgradeCost.text = $"{data.baseUpgradeCost}";
+        upgradeCost.text = $"{data.baseUpgradeCost * (upgradeLevel + 1) * 2}";
 
         buyButton.onClick.AddListener(OnBuy);
         upgradeButton.onClick.AddListener(OnUpgrade);
         equipButton.onClick.AddListener(OnEquip);
 
         // 처음에는 구매 전 상태이므로 구매 버튼만 보이게
-        buyButton.gameObject.SetActive(true);
-        upgradeButton.gameObject.SetActive(false);
-        equipButton.gameObject.SetActive(false);
+
+        if (saveData.isBuy == false)
+        {
+            buyButton.gameObject.SetActive(true);
+            upgradeButton.gameObject.SetActive(false);
+            equipButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            buyButton.gameObject.SetActive(false);
+            upgradeButton.gameObject.SetActive(true);
+            equipButton.gameObject.SetActive(true);
+        }
+
     }
 
     private void OnBuy()
@@ -63,6 +76,10 @@ public class WeaponSlot : MonoBehaviour
             buyButton.gameObject.SetActive(false);
             upgradeButton.gameObject.SetActive(true);
             equipButton.gameObject.SetActive(true);
+
+            var saveData = WeaponSaveManager.Instance.GetOrCreateWeapon(weaponData.weaponID);
+            saveData.isBuy = true;
+            WeaponSaveManager.Instance.SaveWeapons();
 
             // 구매 후에는 강화 비용으로 표시 전환
             upgradeCost.text = weaponData.baseUpgradeCost.ToString();
@@ -82,6 +99,8 @@ public class WeaponSlot : MonoBehaviour
 
         int cost = weaponData.baseUpgradeCost * (upgradeLevel) * 2;
 
+        var saveData = WeaponSaveManager.Instance.GetOrCreateWeapon(weaponData.weaponID);
+
         if (CostManager.Instance.pointCount >= cost)
         {
             CostManager.Instance.PointSub(cost); // 포인트 차감
@@ -90,20 +109,17 @@ public class WeaponSlot : MonoBehaviour
             WeaponManager.Instance.upgradeLevels[index]++;
             RefreshUI();
 
-            //weaponInformation = WeaponManager.Instance.playerData.weaponInfo.Find(f => f.weaponID == weaponData.weaponID);
+            
+            saveData.level = WeaponManager.Instance.upgradeLevels[index];
+            WeaponSaveManager.Instance.SaveWeapons();
+            
+            if (saveData.isEquipped == true)
+            {
+                WeaponUI.Instance.UpdateWeaponUI();
+                Debug.Log("하이");
+            }
 
-            //Debug.Log(WeaponManager.Instance.playerData.weaponInfo);
-
-            //if (weaponInformation != null)
-            //{
-            //    weaponInformation.levelInfo++;
-            //    GameManager.Instance.SaveUserData();
-            //    Debug.Log($"{weaponData.weaponName} 강화 완료! 현재 레벨: {weaponInformation.levelInfo}");
-            //}
-            //else
-            //{
-            //    Debug.LogError($"PlayerData에서 무기 {weaponData.weaponID} 정보를 찾을 수 없음!");
-            //}
+            Debug.Log($"{weaponData.weaponName} 강화 완료! 현재 레벨: {saveData.level}");
         }
         else
         {
@@ -118,6 +134,14 @@ public class WeaponSlot : MonoBehaviour
         WeaponManager.Instance.EquipWeapon(weaponData);
         WeaponManager.Instance.index = weaponData.weaponID - 1;
         WeaponUI.Instance.UpdateWeaponUI();
+
+        var saveData = WeaponSaveManager.Instance.GetOrCreateWeapon(weaponData.weaponID);
+
+        foreach (var w in WeaponSaveManager.Instance.weaponSaveList)
+            w.isEquipped = false; // 다른 무기는 해제
+
+        saveData.isEquipped = true;
+        WeaponSaveManager.Instance.SaveWeapons();
     }
 
     private void RefreshUI()
