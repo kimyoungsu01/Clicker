@@ -8,11 +8,13 @@ public class WeaponSaveData
     public int weaponID;
     public int level;
     public bool isEquipped;
+    public bool isBuy;
 
-    public WeaponSaveData(int weaponID, int level, bool isEquipped)
+    public WeaponSaveData(int weaponID, int level, bool isEquipped, bool isBuy)
     {
         this.weaponID = weaponID;
         this.level = level;
         this.isEquipped = isEquipped;
+        this.isBuy = isBuy;
     }
 }

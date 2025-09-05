@@ -14,6 +14,7 @@ public class WeaponSaveManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -21,7 +22,6 @@ public class WeaponSaveManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
         savePath = Application.persistentDataPath + "/weapons.json";
     }
 
@@ -60,7 +60,7 @@ public class WeaponSaveManager : MonoBehaviour
         var data = GetWeapon(weaponID);
         if (data == null)
         {
-            data = new WeaponSaveData(weaponID, 0, false);
+            data = new WeaponSaveData(weaponID, 0, false, false);
             weaponSaveList.Add(data);
         }
         return data;
@@ -72,6 +72,7 @@ public class WeaponSaveManager : MonoBehaviour
         {
             w.level = 0;
             w.isEquipped = false;
+            w.isBuy = false;
         }
         SaveWeapons();
     }

@@ -5,7 +5,6 @@ public class WeaponManager : MonoBehaviour
     public static WeaponManager Instance;
 
     public WeaponUI weaponUI;
-    public PlayerData playerData;
     public WeaponData currentWeapon;
     public int upgradeLevel = 0;
     public int[] upgradeLevels = new int[5];
@@ -21,8 +20,14 @@ public class WeaponManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
         else Destroy(gameObject);
+
+        
     }
 
     private void Start()

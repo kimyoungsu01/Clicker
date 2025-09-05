@@ -22,6 +22,7 @@ public class WeaponUI : MonoBehaviour
     {
         openInventory.onClick.AddListener(OpenInventory);
         weaponInventoryUI.SetActive(false);
+        UpdateWeaponUI();
     }
 
     public void UpdateWeaponUI()

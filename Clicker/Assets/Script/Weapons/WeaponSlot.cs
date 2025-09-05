@@ -47,9 +47,20 @@ public class WeaponSlot : MonoBehaviour
         equipButton.onClick.AddListener(OnEquip);
 
         // 처음에는 구매 전 상태이므로 구매 버튼만 보이게
-        buyButton.gameObject.SetActive(true);
-        upgradeButton.gameObject.SetActive(false);
-        equipButton.gameObject.SetActive(false);
+
+        if (saveData.isBuy == false)
+        {
+            buyButton.gameObject.SetActive(true);
+            upgradeButton.gameObject.SetActive(false);
+            equipButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            buyButton.gameObject.SetActive(false);
+            upgradeButton.gameObject.SetActive(true);
+            equipButton.gameObject.SetActive(true);
+        }
+
     }
 
     private void OnBuy()
@@ -65,6 +76,10 @@ public class WeaponSlot : MonoBehaviour
             buyButton.gameObject.SetActive(false);
             upgradeButton.gameObject.SetActive(true);
             equipButton.gameObject.SetActive(true);
+
+            var saveData = WeaponSaveManager.Instance.GetOrCreateWeapon(weaponData.weaponID);
+            saveData.isBuy = true;
+            WeaponSaveManager.Instance.SaveWeapons();
 
             // 구매 후에는 강화 비용으로 표시 전환
             upgradeCost.text = weaponData.baseUpgradeCost.ToString();
@@ -84,6 +99,8 @@ public class WeaponSlot : MonoBehaviour
 
         int cost = weaponData.baseUpgradeCost * (upgradeLevel) * 2;
 
+        var saveData = WeaponSaveManager.Instance.GetOrCreateWeapon(weaponData.weaponID);
+
         if (CostManager.Instance.pointCount >= cost)
         {
             CostManager.Instance.PointSub(cost); // 포인트 차감
@@ -92,9 +109,15 @@ public class WeaponSlot : MonoBehaviour
             WeaponManager.Instance.upgradeLevels[index]++;
             RefreshUI();
 
-            var saveData = WeaponSaveManager.Instance.GetOrCreateWeapon(weaponData.weaponID);
+            
             saveData.level = WeaponManager.Instance.upgradeLevels[index];
             WeaponSaveManager.Instance.SaveWeapons();
+            
+            if (saveData.isEquipped == true)
+            {
+                WeaponUI.Instance.UpdateWeaponUI();
+                Debug.Log("하이");
+            }
 
             Debug.Log($"{weaponData.weaponName} 강화 완료! 현재 레벨: {saveData.level}");
         }
