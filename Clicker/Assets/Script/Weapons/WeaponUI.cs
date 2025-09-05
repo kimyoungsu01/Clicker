@@ -35,7 +35,7 @@ public class WeaponUI : MonoBehaviour
         WeaponData weapon = WeaponManager.Instance.currentWeapon;
 
         weaponIcon.sprite = weapon.weaponIcon;
-        weaponNameText.text = $"{weapon.weaponName} Lv. {WeaponManager.Instance.upgradeLevel}";
+        weaponNameText.text = $"{weapon.weaponName} Lv. {WeaponManager.Instance.CurrentLevel}";
         attackDamageText.text = $"공격력: {WeaponManager.Instance.CurrentAttack}";
         criticalRateText.text = $"치명타 확률: {WeaponManager.Instance.CurrentCritical}%";
     }

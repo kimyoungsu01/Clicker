@@ -29,7 +29,7 @@ public class WeaponSlot : MonoBehaviour
         weaponData = data;
 
         image.sprite = data.weaponIcon;
-        name.text = data.weaponName;
+        name.text = $"{data.weaponName} lv. 0";
         atkDmg.text = $"공격력: {data.baseAtkDamage}";
         criRate.text = $"{data.baseCritical}%";
 
@@ -82,6 +82,7 @@ public class WeaponSlot : MonoBehaviour
         {
             CostManager.Instance.PointSub(cost); // 포인트 차감
             CostManager.Instance.moneyScore.ReadPoint();
+
             WeaponManager.Instance.index = weaponData.weaponID - 1;
             WeaponManager.Instance.upgradeLevels[WeaponManager.Instance.index]++;
 
@@ -102,5 +103,15 @@ public class WeaponSlot : MonoBehaviour
         Debug.Log($"{weaponData.weaponName} 장착!");
         WeaponManager.Instance.EquipWeapon(weaponData);
         WeaponUI.Instance.UpdateWeaponUI();
+    }
+
+    private void RefreshUI()
+    {
+        int lv = WeaponManager.Instance.upgradeLevels[weaponData.weaponID - 1];
+
+        name.text = $"{weaponData.weaponName} Lv.{lv}";
+        atkDmg.text = $"공격력: {weaponData.baseAtkDamage + lv * weaponData.atkDmgIncreasePerLevel}";
+        criRate.text = $"치명타 확률: {weaponData.baseCritical + lv * weaponData.criRateIncreasePerLevel}%";
+        upgradeCost.text = (weaponData.baseUpgradeCost * (lv + 1) * 2).ToString();
     }
 }

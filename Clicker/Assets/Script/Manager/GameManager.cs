@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using static System.TimeZoneInfo;
 using static Unity.Burst.Intrinsics.X86;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +14,11 @@ public class GameManager : MonoBehaviour
     public PlayerStat playerStat;
     public WeaponData weaponData;
     public Stagecnt stagecnt;
+    public bool isSave;
+
+    [SerializeField] private Animator animator;
+    [SerializeField] private float transitionTime = 1f;
+    [SerializeField] Transition transition;
 
     public Stage stage { get; private set; }
     public static GameManager Instance { get; private set; }
@@ -28,6 +35,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
 
     public void SaveUserData() 
@@ -61,7 +69,7 @@ public class GameManager : MonoBehaviour
 
     public void Init() 
     {
-        if (MainSceneLoader.Instance.isSave == true)
+        if (isSave == true)
         {
             LoadUserData();
         }
@@ -76,5 +84,20 @@ public class GameManager : MonoBehaviour
         CostManager.Instance.Init(playerData);
     }
 
+   
 
+    public void OnNewStage()
+    {
+        transition.LoadScene(1);        
+        isSave = false;
+    }
+
+    public void OnLoadStage()
+    {
+        // 플레이어 저장값 불러와서 
+        GameManager.Instance.LoadUserData();
+        //anim.SetTrigger("FadeOut");
+        transition.LoadScene(1);        
+        isSave = true;
+    }
 }

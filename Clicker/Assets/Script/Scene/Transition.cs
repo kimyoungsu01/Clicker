@@ -17,13 +17,25 @@ public class Transition : MonoBehaviour
     {
         // 애니메이션 트리거 실행
         animator.SetTrigger("FadeIn");
-        Debug.Log("FadeOut Triggered");
+        Debug.Log("FadeIn Triggered");
 
         // 애니메이션이 끝날 때까지 대기
         yield return new WaitForSeconds(transitionTime);
 
         // 씬 로드
         SceneManager.LoadScene(sceneNum);
+
+        yield return StartCoroutine(TransitionToScene());
+    }   
+
+    IEnumerator TransitionToScene()
+    {
+        // 애니메이션 트리거 실행
+        animator.SetTrigger("FadeOut");
+        Debug.Log("FadeOut Triggered");
+
+        // 애니메이션이 끝날 때까지 대기
+        yield return new WaitForSeconds(transitionTime);
     }
 
 }
