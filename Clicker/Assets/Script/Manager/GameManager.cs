@@ -14,11 +14,12 @@ public class GameManager : MonoBehaviour
     public PlayerStat playerStat;
     public WeaponData weaponData;
     public Stagecnt stagecnt;
+    public Transition transition;
     public bool isSave;
 
     [SerializeField] private Animator animator;
     [SerializeField] private float transitionTime = 1f;
-    [SerializeField] Transition transition;
+    
 
     public Stage stage { get; private set; }
     public static GameManager Instance { get; private set; }
