@@ -14,9 +14,8 @@ public class Enemy : MonoBehaviour
     int EnemyMaxHealth; // 적 최대체력
     private int currentHealth;
     public bool IsDead = false;
-
-
-
+    int gold = 10;
+    int point = 5;
 
     void Awake()
     {       
@@ -43,6 +42,7 @@ public class Enemy : MonoBehaviour
                     return;
 
                 Takedamage();
+                
             }
         }
        
@@ -65,16 +65,22 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             IsDead = true;
-            anim.SetTrigger("Die");   
-            //Drop();                                     
+            anim.SetTrigger("Die");
+            Drop();
+            CostManager.Instance.moneyScore.Init();
         }
     }
    
 
-    public void DestroyEnemy()
+    public void DestroyEnemy(bool enemy = true)
     {
+        if (enemy)
+        {
+            Drop();
+        }
+        
         Destroy(gameObject);
-        EnemyManager.Instance.Respwan();        
+        EnemyManager.Instance.Respwan();
     }
 
 
@@ -88,18 +94,13 @@ public class Enemy : MonoBehaviour
     }
 
     public void Drop()
-    {
-        int gold = 10;
-        int point = 5;
-        CostManager.Instance.goldCount += gold;
-        CostManager.Instance.pointCount += point;        
+    {        
+        CostManager.Instance.goldCount += (int)PlayerUpgrade.Instance.upgradeBtn.SetGoldUp(gold);
+        CostManager.Instance.pointCount += point;
+        Debug.Log(CostManager.Instance.goldCount += (int)PlayerUpgrade.Instance.upgradeBtn.SetGoldUp(gold));
+        GameManager.Instance.SaveUserData();
     }
 
-   
-
-
-
-    //데미지 텍스트 추가하기
 }
 
   

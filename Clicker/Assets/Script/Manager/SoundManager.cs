@@ -1,29 +1,19 @@
-ï»¿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    private AudioSource _audioSource;
-    public static SoundManager instance { get; set; }
+    public AudioSource bgmSource; // ¹è°æÀ½¾Ç ¿Àµğ¿À ¼Ò½º
+    public AudioSource sfxSource; // È¿°úÀ½ ¿Àµğ¿À ¼Ò½º
 
-    private void Awake()
+    public void setMusicVolum(float volume) 
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            _audioSource = GetComponent<AudioSource>();
-        }
-        else if (instance != null)
-        {
-           Destroy(gameObject);
-        }
+        bgmSource.volume = volume;
     }
 
-    public void ChangeBGM(AudioClip newBGM)
+    public void OnSfx() 
     {
-        if (_audioSource.clip == newBGM) return; // ê°™ì€ ìŒì•…ì´ë©´ ë¬´ì‹œ
-        _audioSource.clip = newBGM;
-        _audioSource.loop = true;
-        _audioSource.Play();
+        sfxSource.Play();
     }
 }

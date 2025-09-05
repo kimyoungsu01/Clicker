@@ -38,10 +38,10 @@ public class ClickEvent : MonoBehaviour
 
         Vector2 worldPos2D = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        //if (enemy.IsDead)
-        //{
-        //    return;
-        //}
+        if (enemy.IsDead)
+        {
+           return;
+        }
 
         enemy.Takedamage();
 

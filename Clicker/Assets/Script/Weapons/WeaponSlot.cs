@@ -1,10 +1,11 @@
-﻿using UnityEngine;
-using TMPro;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class WeaponSlot : MonoBehaviour
 {
-    [SerializeField] private Image image;
+    [SerializeField] private UnityEngine.UI.Image image;
     [SerializeField] private TextMeshProUGUI name;
     [SerializeField] private TextMeshProUGUI atkDmg;
     [SerializeField] private TextMeshProUGUI criRate;
@@ -72,13 +73,16 @@ public class WeaponSlot : MonoBehaviour
 
     private void OnUpgrade()
     {
+        WeaponManager.Instance.UpgradeWeapon(weaponData);
+
         int cost = WeaponManager.Instance.CurrentUpgradeCost;
 
         if (CostManager.Instance.pointCount >= cost)
         {
             CostManager.Instance.PointSub(cost); // 포인트 차감
             CostManager.Instance.moneyScore.ReadPoint();
-            WeaponManager.Instance.upgradeLevel++;
+            WeaponManager.Instance.index = weaponData.weaponID - 1;
+            WeaponManager.Instance.upgradeLevels[WeaponManager.Instance.index]++;
 
             Debug.Log($"{weaponData.weaponName} 강화 완료! 현재 데미지: {WeaponManager.Instance.CurrentAttack}");
 

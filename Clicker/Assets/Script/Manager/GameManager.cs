@@ -9,17 +9,11 @@ using static Unity.Burst.Intrinsics.X86;
 public class GameManager : MonoBehaviour
 {
     public PlayerData playerData;
-    //public SceneLoader sceneLoader;
+    public PlayerStat playerStat;
+    public WeaponData weaponData;
     public Stagecnt stagecnt;
 
     public Stage stage { get; private set; }
-    //public Player player { get; private set; }
-    //public Enemy enemy { get; private set; }
-    //public Item item { get; private set; }
-
-    
-    
-
     public static GameManager Instance { get; private set; }
 
     private void Awake()
@@ -27,19 +21,13 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(Instance);
+            DontDestroyOnLoad(gameObject);
         }
 
-        else if(Instance != null) 
-        { 
-            Destroy(gameObject); 
+        else if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
         }
-    }
-
-    private void Start()
-    {
-        Init();
-        SaveUserData();
     }
 
     public void SaveUserData() 
@@ -57,29 +45,36 @@ public class GameManager : MonoBehaviour
     {
         if (File.Exists(Application.persistentDataPath + "/UserData.txt"))
         {
-            var loadData = File.ReadAllText(Application.persistentDataPath + "/UserData.txt");
+            string loadData = File.ReadAllText(Application.persistentDataPath + "/UserData.txt");
             playerData = JsonUtility.FromJson<PlayerData>(loadData);
         }
         
         else  
         {
-            // 스테이지 (넘버) , 몬스터 (이름, hp)
-            // 플레이어 (공격력, 크리티컬, 포인트, 골드) 
-            playerData = new PlayerData(0,"", 0, 0, 0, 1000, 1000);
-            Debug.Log(playerData);
-        }
-    }
+            // 스테이지 (넘버) // 플레이어 (포인트, 골드, 플레이어 스텟) 
+            playerData = new PlayerData(0, 1000, 1000, 10, 10, 5);
 
-    // 업데이트
-    public void carCulate(PlayerData playerData) 
-    { 
-       
+
+            SaveUserData();
+        }
     }
 
     public void Init() 
     {
-        LoadUserData();
+        if (MainSceneLoader.Instance.isSave == true)
+        {
+            LoadUserData();
+        }
+
+        else 
+        {
+            playerData = new PlayerData(0, 1000, 1000, 10, 10, 5);
+        }
+            
+
+        Debug.Log(playerData);
         CostManager.Instance.Init(playerData);
     }
-  
+
+
 }
