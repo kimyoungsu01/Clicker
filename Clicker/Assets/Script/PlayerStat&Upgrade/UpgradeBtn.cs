@@ -14,6 +14,7 @@ public class UpgradeBtn : MonoBehaviour
     void Awake()
     {
         statUpgradeUI = GetComponent<StatUpgradeUI>();
+        PlayerUpgrade.Instance.upgradeBtn = this;
     }
 
     public void CriticalDamageBtn()

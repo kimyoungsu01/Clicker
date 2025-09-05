@@ -44,4 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e209a62e2ef0f8f4f952d4c13883e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStat: {fileID: 0}
+  playerStat:
+    criticalStack: 0
+    criticalDamage: 0
+    autoAttackStack: 0
+    autoAttackPerSec: 0
+    getGoldStack: 0
+    getGoldPersent: 0
+    criticalDamageCost: 0
+    autoAttackCost: 0
+    getGoldCost: 0
+  statUpgradeUI: {fileID: 0}
+  upgradeBtn: {fileID: 0}
