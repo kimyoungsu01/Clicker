@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = GetComponents<AudioSource>()[0].GetComponent<SoundManager>();
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -35,6 +35,6 @@ public class SoundManager : MonoBehaviour
 
     public void OnUpdatesfx() 
     {
-        UpdatesfxSource.Play();
+        
     }
 }
