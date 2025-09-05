@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
     {
         transition.LoadScene(1);
         PlayerUpgrade.Instance.playerStat = new PlayerStat(0,0,0,0,0,0,10,10,10);
+        WeaponSaveManager.Instance.ResetWeapons();
         isSave = false;
     }
 
@@ -96,6 +97,7 @@ public class GameManager : MonoBehaviour
         // 플레이어 저장값 불러와서 
         GameManager.Instance.LoadUserData();
         PlayerUpgrade.Instance.LoadUserData();
+        WeaponSaveManager.Instance.LoadWeapons();
         //anim.SetTrigger("FadeOut");
         transition.LoadScene(1);        
         isSave = true;
