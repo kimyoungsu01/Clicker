@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     int EnemyMaxHealth; // 적 최대체력
     private int currentHealth;
     public bool IsDead = false;
-    int gold = 10;
+    int gold = 5;
     int point = 5;
 
     void Awake()
@@ -35,21 +35,14 @@ public class Enemy : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
 
-                if (EventSystem.current.IsPointerOverGameObject())
-                {
-                    return;
-                }
-                if (IsDead == false)
-                {
-                    Takedamage();
-                }
-                
+            if (IsDead == false)
+            {
+                Takedamage();
             }
         }
-       
     }
 
     public void Takedamage()
@@ -77,12 +70,7 @@ public class Enemy : MonoBehaviour
    
 
     public void DestroyEnemy(bool enemy = true)
-    {
-        if (enemy)
-        {
-            Drop();
-        }
-        
+    {        
         Destroy(gameObject);
         EnemyManager.Instance.Respwan();
     }
