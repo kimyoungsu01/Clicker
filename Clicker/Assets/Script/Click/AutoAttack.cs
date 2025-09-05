@@ -20,10 +20,10 @@ public class AutoAttack : MonoBehaviour
 
     float CurrentInterval()
     {
-        var s = stats;
-        if (s != null && s.autoAttackPerSec > 0f)
+        //var s = stats;
+        if (/*s != null && s.autoAttackPerSec > 0f*/PlayerUpgrade.Instance.playerStat.autoAttackPerSec > 0f)
         {
-            float byAPS = 1f / s.autoAttackPerSec;
+            float byAPS = 1f / /*s.autoAttackPerSec;*/PlayerUpgrade.Instance.playerStat.autoAttackPerSec;
             return Mathf.Max(minInterval, byAPS);
         }
         return Mathf.Max(minInterval, baseInterval);
