@@ -9,7 +9,6 @@ public class AutoAttack : MonoBehaviour
     // 코루틴 사용
 
     [SerializeField] private bool autoClick = false;
-    [SerializeField] private int autoClickLevel = 1;
     [SerializeField , HideInInspector] private float baseInterval = 2.0f; // 기본 쿨타임
     [SerializeField , HideInInspector] private float minInterval = 0.15f;
     [SerializeField , HideInInspector] private int damagePerShot = 1;
@@ -74,7 +73,6 @@ public class AutoAttack : MonoBehaviour
             autoClickUnlock(); 
             return;
         }
-        autoClickLevel++;
         RestartLoop();
     }
 
