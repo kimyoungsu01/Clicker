@@ -2360,12 +2360,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoClick: 0
-  autoClickLevel: 1
+  autoClickLevel: 0
   baseInterval: 2
-  perLevelMultiplier: 0.9
   minInterval: 0.15
   damagePerShot: 1
   target: {fileID: 0}
+  stats:
+    criticalStack: 0
+    criticalDamage: 0
+    autoAttackStack: 0
+    autoAttackPerSec: 0
+    getGoldStack: 0
+    getGoldPersent: 0
+    criticalDamageCost: 0
+    autoAttackCost: 0
+    getGoldCost: 0
 --- !u!1 &983871140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,19 +2815,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93e90a58999f214a8d736b54abeb441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
-  bgms:
-  - {fileID: 8300000, guid: e56d375131ed1334b8c1cd1fdc64dd71, type: 3}
-  others: []
-  players:
-  - {fileID: 8300000, guid: 42905e36a45bc144a99977fe8eec9849, type: 3}
-  - {fileID: 8300000, guid: 81809fe3a8bcbd843b20b13f13e58974, type: 3}
-  listenBgm: {fileID: 0}
-  listenOther: {fileID: 0}
-  listenplayer: {fileID: 0}
-  masterVolume: 0
-  bgmVolume: 0
-  mixVolume: 0
+  bgmSource: {fileID: 0}
+  sfxSource: {fileID: 0}
 --- !u!1 &1216583481
 GameObject:
   m_ObjectHideFlags: 0
