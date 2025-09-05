@@ -1604,6 +1604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmSource: {fileID: 1803523115}
+  StatbgmSource: {fileID: 0}
   sfxSource: {fileID: 547967369}
   UpdatesfxSource: {fileID: 0}
 --- !u!1 &1040583385

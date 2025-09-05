@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +28,7 @@ public class NewParticleManager : MonoBehaviour
     {
         if (!clickEffectPrefab)
         {
-            Debug.LogWarning("ÆÄÆ¼Å¬ ¸Å´ÏÀú¿¡ ÆÄÆ¼Å¬ ÇÁ¸®Æé ³ÖÀ¸¼¼¿ä");
+            Debug.LogWarning("íŒŒí‹°í´ ë§¤ë‹ˆì €ì— íŒŒí‹°í´ í”„ë¦¬í© ë„£ìœ¼ì„¸ìš”");
             return;
         }
 
