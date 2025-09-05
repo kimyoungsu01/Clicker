@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 4672109759519791549}
   - component: {fileID: 8453467981202579757}
   - component: {fileID: 6794895489362212599}
-  - component: {fileID: -5542240602350401901}
   m_Layer: 5
   m_Name: StatUpgrade
   m_TagString: Untagged
@@ -176,33 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 380746f3b58c81645aba4bbe44a2403f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-5542240602350401901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5991480231001267038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 712f221ad6c5271448475e0fb0ce2276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoClick: 0
-  baseInterval: 2
-  minInterval: 0.15
-  damagePerShot: 1
-  target: {fileID: 0}
-  stats:
-    criticalStack: 0
-    criticalDamage: 0
-    autoAttackStack: 0
-    autoAttackPerSec: 0
-    getGoldStack: 0
-    getGoldPersent: 0
-    criticalDamageCost: 0
-    autoAttackCost: 0
-    getGoldCost: 0
 --- !u!1 &7210685724003976603
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6058394590398381610, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6058394590398381610, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -600,10 +572,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6794895489362212599}
-    - target: {fileID: 6058394590398381610, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: -5542240602350401901}
     - target: {fileID: 6058394590398381610, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

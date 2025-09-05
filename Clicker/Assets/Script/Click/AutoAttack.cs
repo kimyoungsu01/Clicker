@@ -8,8 +8,10 @@ public class AutoAttack : MonoBehaviour
     // 오토클릭 bool 여부로 판단 -> 구매 이전에는 false; 구매 이후에는 true; 이후 중복 구매시 레벨up  
     // 코루틴 사용
 
+    public static AutoAttack Instance { get; private set; }
+
     [SerializeField] private bool autoClick = false;
-    [SerializeField , HideInInspector] private float baseInterval = 2.0f; // 기본 쿨타임
+    [SerializeField , HideInInspector] private float baseInterval = 2.0f; 
     [SerializeField , HideInInspector] private float minInterval = 0.15f;
     [SerializeField , HideInInspector] private int damagePerShot = 1;
     [SerializeField , HideInInspector] private Enemy target;
@@ -25,7 +27,16 @@ public class AutoAttack : MonoBehaviour
         lastAutoClick = autoClick;
         lastInterval = CurrentInterval();
     }
+    void Awake()
+    {
+        if (Instance != null && Instance != this) 
+        {
+            Destroy(this); return; 
+        }
 
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     float CurrentInterval()
     {
@@ -99,10 +110,17 @@ public class AutoAttack : MonoBehaviour
     {
         while (autoClick)
         {
+            if (!target || !target.gameObject || !target.gameObject.activeInHierarchy || target.IsDead)
+            {
+                target = FindObjectOfType<Enemy>();
+                yield return null;
+                continue;
+            }
             AttackOnce();
+
             yield return new WaitForSeconds(CurrentInterval());
         }
-        loop = null; 
+        loop = null;
     }
 
     void StopLoop()
@@ -123,26 +141,11 @@ public class AutoAttack : MonoBehaviour
 
     void AttackOnce()
     {
-        if (!target || !target.gameObject || !target.gameObject.activeInHierarchy)
-        {
-            target = FindObjectOfType<Enemy>();
-        }
-
-        if (!target)
-        {
-            return;
-        }
-
-        if (target.IsDead)
-        {
-            return;
-        }
 
         target.Takedamage();
 
         Vector2 pos = (Vector2)target.transform.position;
         NewParticleManager.instance?.PlayClick(pos);
-
     }
 
     public void AutoClickBT()

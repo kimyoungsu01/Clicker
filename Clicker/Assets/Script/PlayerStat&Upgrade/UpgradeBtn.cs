@@ -45,6 +45,8 @@ public class UpgradeBtn : MonoBehaviour
             statUpgradeUI.AutoAttackUI();
             PlayerUpgrade.Instance.SaveUserData();
             GameManager.Instance.SaveUserData();
+
+            AutoAttack.Instance?.AutoClickBT();
         }
         else
         {
