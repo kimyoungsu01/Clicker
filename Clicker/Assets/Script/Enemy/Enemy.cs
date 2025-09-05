@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
                     return;
 
                 Takedamage();
+                
             }
         }
        
@@ -97,11 +98,6 @@ public class Enemy : MonoBehaviour
         CostManager.Instance.pointCount += point;
     }
 
-   
-
-
-
-    //데미지 텍스트 추가하기
 }
 
   

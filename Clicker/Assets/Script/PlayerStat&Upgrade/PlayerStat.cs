@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Serializable]
 
-public class PlayerStat : MonoBehaviour
+[System.Serializable]
+public class PlayerStat
 {
     public int criticalStack = 0;
     public float criticalDamage = 0;

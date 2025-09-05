@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
     private PlayerData playerData;
     public MoneyScore moneyScore;
 
+    public CanvasGroup uiCost;
     public GameObject zeroGoldPanel;
     public GameObject zeroPointPanel;
 
@@ -78,11 +80,36 @@ public class CostManager : MonoBehaviour // <-없이도 사용가능한가?
     {
         zeroGoldPanel.SetActive(true);
         // 천천히 사라지는 효과 넣기
+        if(zeroPointPanel == true) 
+        {
+            StartCoroutine(FadeOutPanel(uiCost, 2f));
+        }
     }
 
     public void OnZeroPoint()
     {
         zeroPointPanel.SetActive(true);
         // 천천히 사라지는 효과 넣기
+        if (zeroPointPanel == true)
+        {
+            StartCoroutine(FadeOutPanel(uiCost, 2f));
+        }
+    }
+
+    private IEnumerator FadeOutPanel(CanvasGroup canvasGroup, float delay)
+    {
+        canvasGroup.alpha = 1f;
+
+        // 지정된 시간만큼 유지
+        yield return new WaitForSeconds(delay);
+
+        // 천천히 사라지게
+        while (canvasGroup.alpha > 0)
+        {
+            canvasGroup.alpha -= Time.deltaTime; // 1초에 1씩 줄어듦
+            yield return null;
+        }
+
+        zeroGoldPanel.SetActive(false);
     }
 }

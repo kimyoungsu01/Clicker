@@ -9,7 +9,8 @@ using static Unity.Burst.Intrinsics.X86;
 public class GameManager : MonoBehaviour
 {
     public PlayerData playerData;
-    PlayerStat playerStat;
+    public PlayerStat playerStat;
+    public WeaponData weaponData;
     public Stagecnt stagecnt;
 
     public Stage stage { get; private set; }
@@ -23,9 +24,9 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        else if(Instance != null) 
-        { 
-            Destroy(gameObject); 
+        else if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -51,21 +52,25 @@ public class GameManager : MonoBehaviour
         else  
         {
             // 스테이지 (넘버) // 플레이어 (포인트, 골드, 플레이어 스텟) 
-            playerData = new PlayerData(0, 1000, 1000, 0, 0, playerStat);
+            playerData = new PlayerData(0, 1000, 1000, 10, 10, 5);
+
+
             SaveUserData();
         }
     }
 
     public void Init() 
     {
-        if (MainSceneLoader.Instance.isSave == true) 
+        if (MainSceneLoader.Instance.isSave == true)
         {
             LoadUserData();
-            //EnemyManager.Instance.Respwan();
         }
 
-        else
-            playerData = new PlayerData(0, 1000, 1000, 0, 0, playerStat);
+        else 
+        {
+            playerData = new PlayerData(0, 1000, 1000, 10, 10, 5);
+        }
+            
 
         Debug.Log(playerData);
         CostManager.Instance.Init(playerData);

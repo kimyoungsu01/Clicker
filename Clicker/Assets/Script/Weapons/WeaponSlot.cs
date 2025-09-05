@@ -1,10 +1,11 @@
-﻿using UnityEngine;
-using TMPro;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class WeaponSlot : MonoBehaviour
 {
-    [SerializeField] private Image image;
+    [SerializeField] private UnityEngine.UI.Image image;
     [SerializeField] private TextMeshProUGUI name;
     [SerializeField] private TextMeshProUGUI atkDmg;
     [SerializeField] private TextMeshProUGUI criRate;

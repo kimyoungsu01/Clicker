@@ -27,8 +27,8 @@ public class MainSceneLoader : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-        else
-            Destroy(this.gameObject);
+        //else
+        //    Destroy(this.gameObject);
         
     }
 
