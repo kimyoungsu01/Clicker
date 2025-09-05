@@ -15,7 +15,11 @@ public class StatUpgradeUI : MonoBehaviour
     public TextMeshProUGUI getGoldTitle;
     public TextMeshProUGUI getGold;
     public TextMeshProUGUI getGoldValue;
-    
+
+    private void Awake()
+    {
+        PlayerUpgrade.Instance.statUpgradeUI = this;
+    }
     void Start()
     {
         CriticalDamageUI();

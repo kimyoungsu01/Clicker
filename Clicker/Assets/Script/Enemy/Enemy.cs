@@ -86,12 +86,15 @@ public class Enemy : MonoBehaviour
     }
 
     public void Drop()
-    {        
+    {
+        Debug.Log($"코스트매니저{CostManager.Instance.goldCount}");
+        Debug.Log($"플레이어업그레이드{PlayerUpgrade.Instance.upgradeBtn.SetGoldUp(gold)}");
         CostManager.Instance.goldCount += (int)PlayerUpgrade.Instance.upgradeBtn.SetGoldUp(gold);
         CostManager.Instance.pointCount += point;
         Debug.Log(CostManager.Instance.goldCount += (int)PlayerUpgrade.Instance.upgradeBtn.SetGoldUp(gold));
         GameManager.Instance.SaveUserData();
     }
+    
 
 }
 
