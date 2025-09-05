@@ -1,8 +1,8 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CostManager : MonoBehaviour // <-¾øÀÌµµ »ç¿ë°¡´ÉÇÑ°¡?
+public class CostManager : MonoBehaviour // <-ì—†ì´ë„ ì‚¬ìš©ê°€ëŠ¥í•œê°€?
 {
     public int pointCount { get;  set; }
     public int goldCount { get;  set; }
@@ -42,7 +42,7 @@ public class CostManager : MonoBehaviour // <-¾øÀÌµµ »ç¿ë°¡´ÉÇÑ°¡?
     public int GoldSub(int amount)
     {
         
-        // ¾ÆÀÌÅÛ °ñµå °¡°İÀÌ °¡Áö°í ÀÖ´Â °ñµå ¾çº¸´Ù ÀÛ´Ù¸é
+        // ì•„ì´í…œ ê³¨ë“œ ê°€ê²©ì´ ê°€ì§€ê³  ìˆëŠ” ê³¨ë“œ ì–‘ë³´ë‹¤ ì‘ë‹¤ë©´
         if (goldCount >= amount)
         {
             goldCount -= amount;
@@ -53,7 +53,7 @@ public class CostManager : MonoBehaviour // <-¾øÀÌµµ »ç¿ë°¡´ÉÇÑ°¡?
 
         else
         {
-            // ¾ÆÀÌÅÛ °ñµå °¡°İÀÌ °¡Áö°í ÀÖ´Â °ñµå ¾çº¸´Ù Å©´Ù¸é
+            // ì•„ì´í…œ ê³¨ë“œ ê°€ê²©ì´ ê°€ì§€ê³  ìˆëŠ” ê³¨ë“œ ì–‘ë³´ë‹¤ í¬ë‹¤ë©´
             OnZeroGold();
         }
         return goldCount;
@@ -79,7 +79,7 @@ public class CostManager : MonoBehaviour // <-¾øÀÌµµ »ç¿ë°¡´ÉÇÑ°¡?
     public void OnZeroGold()
     {
         zeroGoldPanel.SetActive(true);
-        // ÃµÃµÈ÷ »ç¶óÁö´Â È¿°ú ³Ö±â
+        // ì²œì²œíˆ ì‚¬ë¼ì§€ëŠ” íš¨ê³¼ ë„£ê¸°
         if(zeroPointPanel == true) 
         {
             StartCoroutine(FadeOutPanel(uiCost, 2f));
@@ -89,7 +89,7 @@ public class CostManager : MonoBehaviour // <-¾øÀÌµµ »ç¿ë°¡´ÉÇÑ°¡?
     public void OnZeroPoint()
     {
         zeroPointPanel.SetActive(true);
-        // ÃµÃµÈ÷ »ç¶óÁö´Â È¿°ú ³Ö±â
+        // ì²œì²œíˆ ì‚¬ë¼ì§€ëŠ” íš¨ê³¼ ë„£ê¸°
         if (zeroPointPanel == true)
         {
             StartCoroutine(FadeOutPanel(uiCost, 2f));
@@ -100,13 +100,13 @@ public class CostManager : MonoBehaviour // <-¾øÀÌµµ »ç¿ë°¡´ÉÇÑ°¡?
     {
         canvasGroup.alpha = 1f;
 
-        // ÁöÁ¤µÈ ½Ã°£¸¸Å­ À¯Áö
+        // ì§€ì •ëœ ì‹œê°„ë§Œí¼ ìœ ì§€
         yield return new WaitForSeconds(delay);
 
-        // ÃµÃµÈ÷ »ç¶óÁö°Ô
+        // ì²œì²œíˆ ì‚¬ë¼ì§€ê²Œ
         while (canvasGroup.alpha > 0)
         {
-            canvasGroup.alpha -= Time.deltaTime; // 1ÃÊ¿¡ 1¾¿ ÁÙ¾îµê
+            canvasGroup.alpha -= Time.deltaTime; // 1ì´ˆì— 1ì”© ì¤„ì–´ë“¦
             yield return null;
         }
 

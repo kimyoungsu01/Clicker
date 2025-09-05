@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class StageOption : MonoBehaviour
 {
-    [Header("¿É¼ÇÃ¢")]
+    [Header("ì˜µì…˜ì°½")]
     public GameObject uiOption;
     public Button backBtn;
     public Button mainBtn;
@@ -26,10 +26,10 @@ public class StageOption : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // ÇöÀç »óÅÂÀÇ ¹İ´ë·Î ¹Ù²ãÁÜ (Åä±Û ±â´É)
+            // í˜„ì¬ ìƒíƒœì˜ ë°˜ëŒ€ë¡œ ë°”ê¿”ì¤Œ (í† ê¸€ ê¸°ëŠ¥)
             uiOption.SetActive(!uiOption.activeSelf);
 
-            Debug.Log(uiOption.activeSelf ? "¿É¼ÇÃ¢ ¿­¸²" : "¿É¼ÇÃ¢ ´İÈû");
+            Debug.Log(uiOption.activeSelf ? "ì˜µì…˜ì°½ ì—´ë¦¼" : "ì˜µì…˜ì°½ ë‹«í˜");
         }
     }
 

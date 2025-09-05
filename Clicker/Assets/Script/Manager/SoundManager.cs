@@ -1,13 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource bgmSource; // ¹è°æÀ½¾Ç ¿Àµğ¿À ¼Ò½º
-    public AudioSource StatbgmSource; // ¹è°æÀ½¾Ç ¿Àµğ¿À ¼Ò½º
-    public AudioSource sfxSource; // È¿°úÀ½ ¿Àµğ¿À ¼Ò½º
-    public AudioSource UpdatesfxSource; // È¿°úÀ½ ¿Àµğ¿À ¼Ò½º
+    public AudioSource bgmSource; // ë°°ê²½ìŒì•… ì˜¤ë””ì˜¤ ì†ŒìŠ¤
+    public AudioSource StatbgmSource; // ë°°ê²½ìŒì•… ì˜¤ë””ì˜¤ ì†ŒìŠ¤
+    public AudioSource sfxSource; // íš¨ê³¼ìŒ ì˜¤ë””ì˜¤ ì†ŒìŠ¤
+    public AudioSource UpdatesfxSource; // íš¨ê³¼ìŒ ì˜¤ë””ì˜¤ ì†ŒìŠ¤
 
     public static SoundManager instance { get; set; }
 
