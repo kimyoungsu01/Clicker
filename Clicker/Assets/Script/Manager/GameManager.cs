@@ -91,10 +91,7 @@ public class GameManager : MonoBehaviour
         transition.LoadScene(1);
         PlayerUpgrade.Instance.playerStat = new PlayerStat(0,0,0,0,0,0,10,10,10);
         WeaponSaveManager.Instance.ResetWeapons();
-        for (int i = 0; WeaponManager.Instance.upgradeLevels.Length <5; i++)
-        {
-            WeaponManager.Instance.upgradeLevels[i] = 0;
-        }
+        WeaponManager.Instance.ResetWeapons();
         isSave = false;
     }
 
