@@ -2357,12 +2357,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoClick: 0
-  autoClickLevel: 1
+  autoClickLevel: 0
   baseInterval: 2
-  perLevelMultiplier: 0.9
   minInterval: 0.15
   damagePerShot: 1
   target: {fileID: 0}
+  stats:
+    criticalStack: 0
+    criticalDamage: 0
+    autoAttackStack: 0
+    autoAttackPerSec: 0
+    getGoldStack: 0
+    getGoldPersent: 0
+    criticalDamageCost: 0
+    autoAttackCost: 0
+    getGoldCost: 0
 --- !u!1 &983871140
 GameObject:
   m_ObjectHideFlags: 0
