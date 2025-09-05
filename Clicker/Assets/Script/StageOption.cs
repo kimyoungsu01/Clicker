@@ -41,6 +41,6 @@ public class StageOption : MonoBehaviour
     public void ClickMainBtn()
     {
         GameManager.Instance.SaveUserData();
-        SceneManager.LoadScene(0);
+        GameManager.Instance.transition.LoadScene(0);
     }
 }
