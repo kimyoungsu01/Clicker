@@ -12,16 +12,13 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance { get; set; }
 
     private void Awake()
-    {
-        if (instance == null)
-        {
+    {       
             instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+            
+            if (bgmSource == null) bgmSource = gameObject.AddComponent<AudioSource>();
+            if (sfxSource == null) sfxSource = gameObject.AddComponent<AudioSource>();
+            if (StatbgmSource == null) StatbgmSource = gameObject.AddComponent<AudioSource>();
+            if (UpdatesfxSource == null) UpdatesfxSource = gameObject.AddComponent<AudioSource>();       
     }
 
     public void setMusicVolum(float volume) 
@@ -35,8 +32,19 @@ public class SoundManager : MonoBehaviour
         sfxSource.Play();
     }
 
+    public void OnStatbgm(float statbgmvolume) 
+    {
+        StatbgmSource.volume = statbgmvolume;        
+    }
+
+    public void OnStatSFX(float statsfxvolume)
+    { 
+        UpdatesfxSource.volume = statsfxvolume;
+        UpdatesfxSource.Play();
+    }
+
     public void OnUpdatesfx() 
     {
-        sfxSource.Play();
+        UpdatesfxSource.Play();
     }
 }
