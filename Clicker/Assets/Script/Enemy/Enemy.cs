@@ -65,8 +65,9 @@ public class Enemy : MonoBehaviour
         if (currentHealth <= 0)
         {
             IsDead = true;
-            anim.SetTrigger("Die");   
-            //Drop();                                     
+            anim.SetTrigger("Die");
+            Drop();
+            CostManager.Instance.moneyScore.Init();
         }
     }
    
@@ -96,6 +97,8 @@ public class Enemy : MonoBehaviour
     {        
         CostManager.Instance.goldCount += (int)PlayerUpgrade.Instance.upgradeBtn.SetGoldUp(gold);
         CostManager.Instance.pointCount += point;
+        Debug.Log(CostManager.Instance.goldCount += (int)PlayerUpgrade.Instance.upgradeBtn.SetGoldUp(gold));
+        GameManager.Instance.SaveUserData();
     }
 
 }

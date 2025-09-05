@@ -19,6 +19,8 @@ public class PlayerUpgrade : MonoBehaviour
             Destroy(gameObject);
         }
         playerStat = new PlayerStat(0, 0, 0, 0, 0, 0, 10, 10, 10);
+        GameManager.Instance.playerStat = playerStat;
+        GameManager.Instance.SaveUserData();
     }
 
 }
