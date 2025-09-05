@@ -6,6 +6,22 @@ public class SoundManager : MonoBehaviour
 {
     public AudioSource bgmSource; // 배경음악 오디오 소스
     public AudioSource sfxSource; // 효과음 오디오 소스
+    public AudioSource UpdatesfxSource; // 효과음 오디오 소스
+
+    public static SoundManager instance { get; set; }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void setMusicVolum(float volume) 
     {
@@ -15,5 +31,10 @@ public class SoundManager : MonoBehaviour
     public void OnSfx() 
     {
         sfxSource.Play();
+    }
+
+    public void OnUpdatesfx() 
+    {
+        
     }
 }
