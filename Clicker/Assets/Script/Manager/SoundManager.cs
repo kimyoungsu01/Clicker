@@ -29,13 +29,14 @@ public class SoundManager : MonoBehaviour
         bgmSource.volume = volume;
     }
 
-    public void OnSfx() 
+    public void OnSfx(float sfxvolume) 
     {
+        sfxSource.volume = sfxvolume;
         sfxSource.Play();
     }
 
     public void OnUpdatesfx() 
     {
-        
+        sfxSource.Play();
     }
 }
