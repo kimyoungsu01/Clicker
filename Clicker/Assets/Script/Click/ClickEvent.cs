@@ -45,7 +45,7 @@ public class ClickEvent : MonoBehaviour
 
         enemy.Takedamage();
 
-        ParticleManager.instance?.PlayClick(worldPos2D);
+        NewParticleManager.instance?.PlayClick(worldPos2D);
 
 
     }

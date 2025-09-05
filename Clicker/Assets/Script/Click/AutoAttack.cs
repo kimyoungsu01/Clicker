@@ -110,7 +110,7 @@ public class AutoAttack : MonoBehaviour
         target.Takedamage();
 
         Vector2 pos = (Vector2)target.transform.position;
-        ParticleManager.instance?.PlayClick(pos);
+        NewParticleManager.instance?.PlayClick(pos);
 
     }
 
