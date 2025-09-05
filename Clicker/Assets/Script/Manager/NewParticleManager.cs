@@ -1,9 +1,10 @@
-ï»¿using System.Collections;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleManager : MonoBehaviour
+public class NewParticleManager : MonoBehaviour
 {
-    public static ParticleManager instance { get; private set; }
+    public static NewParticleManager instance { get; private set; }
 
     [Header("Click Effect")]
     [SerializeField] private ParticleSystem clickEffectPrefab;
@@ -17,7 +18,7 @@ public class ParticleManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject); ;
         }
-        else 
+        else
         {
             Destroy(gameObject);
             return;
@@ -27,7 +28,7 @@ public class ParticleManager : MonoBehaviour
     {
         if (!clickEffectPrefab)
         {
-            Debug.LogWarning("íŒŒí‹°í´ ë§¤ë‹ˆì €ì— íŒŒí‹°í´ í”„ë¦¬í© ë„£ìœ¼ì„¸ìš”");
+            Debug.LogWarning("ÆÄÆ¼Å¬ ¸Å´ÏÀú¿¡ ÆÄÆ¼Å¬ ÇÁ¸®Æé ³ÖÀ¸¼¼¿ä");
             return;
         }
 
