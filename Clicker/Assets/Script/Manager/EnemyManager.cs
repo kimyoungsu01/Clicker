@@ -12,11 +12,10 @@ public class EnemyManager : MonoBehaviour
     public Image hpImage; 
     public TMPro.TextMeshProUGUI monstername;
 
-
     void Awake()
     {
       if(Instance == null) Instance = this;
-      else Destroy(gameObject);
+      else Destroy(gameObject);      
     }
 
     private void Start()

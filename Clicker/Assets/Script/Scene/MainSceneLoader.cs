@@ -14,11 +14,11 @@ public class MainSceneLoader : MonoBehaviour
     public GameObject option;
     public Button backBtn;
 
-    [SerializeField] Transition transition;
+    
 
     public static MainSceneLoader Instance { get; private set; }
 
-    public bool isSave; 
+     
 
     private void Awake()
     {
@@ -34,28 +34,11 @@ public class MainSceneLoader : MonoBehaviour
 
     private void Start()
     {
-        newStageBtn.onClick.AddListener(OnNewStage);
-        loadStageBtn.onClick.AddListener(OnLoadStage);
+        newStageBtn.onClick.AddListener(GameManager.Instance.OnNewStage);
+        loadStageBtn.onClick.AddListener(GameManager.Instance.OnLoadStage);
         optionBtn.onClick.AddListener(OnOption);
         backBtn.onClick.AddListener(OnBack);
-    }
-
-    public void OnNewStage() 
-    {
-        transition.LoadScene(1);
-        isSave = false;
-    }
-
-    public void OnLoadStage() 
-    {
-        // 플레이어 저장값 불러와서 
-        GameManager.Instance.LoadUserData();
-        //anim.SetTrigger("FadeOut");
-        transition.LoadScene(1);
-        isSave = true;
-    }
-
-
+    } 
 
     public void OnOption() 
     {

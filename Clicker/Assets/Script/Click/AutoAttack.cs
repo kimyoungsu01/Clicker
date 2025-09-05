@@ -11,25 +11,22 @@ public class AutoAttack : MonoBehaviour
     [SerializeField] private bool autoClick = false;
     [SerializeField] private int autoClickLevel = 1;
     [SerializeField , HideInInspector] private float baseInterval = 2.0f; // 기본 쿨타임
-    [SerializeField , HideInInspector] private float perLevelMultiplier = 0.90f; // 레벨 1당 10%씩 더 빠르게(0.90^level)
     [SerializeField , HideInInspector] private float minInterval = 0.15f;
     [SerializeField , HideInInspector] private int damagePerShot = 1;
     [SerializeField , HideInInspector] private Enemy target;
 
     private Coroutine loop;
+    [SerializeField] private PlayerStat stats;
 
     float CurrentInterval()
     {
-        int lv = Mathf.Max(0, autoClickLevel);
-        float interval = baseInterval;
-
-        for (int i = 0; i < lv; i++)
-            interval *= perLevelMultiplier; 
-
-        if (interval < minInterval)
-            interval = minInterval;
-
-        return interval;
+        var s = stats;
+        if (s != null && s.autoAttackPerSec > 0f)
+        {
+            float byAPS = 1f / s.autoAttackPerSec;
+            return Mathf.Max(minInterval, byAPS);
+        }
+        return Mathf.Max(minInterval, baseInterval);
     }
 
 
