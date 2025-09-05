@@ -341,6 +341,22 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8980438598086963491, guid: ede4b03d4049f481a80ce6756418b385, type: 3}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5381454545155238874, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
       propertyPath: m_Name
       value: StatUpgrade
@@ -520,6 +536,22 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8980438598086963491, guid: ede4b03d4049f481a80ce6756418b385, type: 3}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5381454545155238874, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
       propertyPath: m_Name
       value: StatUpgrade (1)
@@ -698,6 +730,22 @@ PrefabInstance:
     - target: {fileID: 4891309935093400464, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8980438598086963491, guid: ede4b03d4049f481a80ce6756418b385, type: 3}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108237002164827068, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5381454545155238874, guid: 36ef6ff058445024c97f3c302bfa67c0, type: 3}
       propertyPath: m_Name
